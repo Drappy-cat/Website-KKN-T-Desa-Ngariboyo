@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router";
 import { Menu, X, ChevronDown, Sun, Moon, Search } from "lucide-react";
 import { useTheme } from "next-themes";
 import { NAV_LINKS } from "../data";
-import logoTransparent from "../../imports/LOGO_VERSI_FIX_NON_PISAH_ELEMENT-removebg-preview.png";
+import logoTransparent from "../../assets/logos/kknt/logo-kknt-removebg.png";
 
 // ── Global Search Overlay ─────────────────────────────────────────────────────
 import { PROKER, BERITA, MAHASISWA } from "../data";

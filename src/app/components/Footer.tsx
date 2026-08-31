@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { MapPin, Mail, Instagram, ArrowUp, Phone } from "lucide-react";
 import { NAV_LINKS } from "../data";
-import logoVest from "../../imports/LOGO_VERSI_FIX_NON_PISAH_ELEMENT_dan_untuk_vest.png";
+import logoVest from "../../assets/logos/kknt/logo-kknt-vest.png";
 
 export default function Footer() {
   const backToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });

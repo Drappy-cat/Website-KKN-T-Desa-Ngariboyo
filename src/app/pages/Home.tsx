@@ -6,15 +6,15 @@ import {
 } from "lucide-react";
 import { STATISTIK, JURUSAN_LIST, PROKER, BERITA, TIMELINE, GALERI, IDENTITAS } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
-import logoTransparent from "../../imports/LOGO_VERSI_FIX_NON_PISAH_ELEMENT-removebg-preview.png";
-import kalenderImg from "../../assets/images/kalender 2 bulan.png";
-import logoKknImg from "../../assets/images/logo logo kkn-t.png";
-import logoDesaImg from "../../assets/images/logo desa ngariboyo.png";
-import buktiProkerImg from "../../assets/images/bukti proker.png";
-import logoPgsd from "../../assets/images/logo pgsd.png";
-import logoTi from "../../assets/images/logo TI.png";
-import logoManajemen from "../../assets/images/logo manajemen.png";
-import logoIkor from "../../assets/images/logo ikor.png";
+import logoTransparent from "../../assets/logos/kknt/logo-kknt-removebg.png";
+import kalenderImg from "../../assets/timeline/kalender-2-bulan.png";
+import logoKknImg from "../../assets/logos/kknt/logo-kknt-banner.png";
+import logoDesaImg from "../../assets/logos/desa/logo-desa-ngariboyo.png";
+import buktiProkerImg from "../../assets/proker/bukti-proker.png";
+import logoPgsd from "../../assets/logos/jurusan/logo-pgsd.png";
+import logoTi from "../../assets/logos/jurusan/logo-ti.png";
+import logoManajemen from "../../assets/logos/jurusan/logo-manajemen.png";
+import logoIkor from "../../assets/logos/jurusan/logo-ikor.png";
 
 // ── Counter Hook ───────────────────────────────────────────────────────────────
 function useCounter(target: number, started: boolean, duration = 1800) {

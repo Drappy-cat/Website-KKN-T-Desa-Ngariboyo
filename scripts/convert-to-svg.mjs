@@ -123,8 +123,7 @@ if (targetArg) {
     convertFileToSvg(resolved);
   }
 } else {
-  console.log('🚀 Memulai konversi semua gambar di src/assets dan src/imports...\n');
+  console.log('🚀 Memulai konversi semua gambar di folder src/assets...\n');
   scanAndConvert(path.join(projectRoot, 'src', 'assets'));
-  scanAndConvert(path.join(projectRoot, 'src', 'imports'));
   console.log('\n✨ Semua gambar berhasil dikonversi ke SVG kompatibel universal (SVG 1.1 + SVG 2)!');
 }

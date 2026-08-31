@@ -2,7 +2,7 @@ import { CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { IDENTITAS, LOGO_ELEMEN } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
-import logoTransparent from "../../imports/LOGO_VERSI_FIX_NON_PISAH_ELEMENT-removebg-preview.png";
+import logoTransparent from "../../assets/logos/kknt/logo-kknt-removebg.png";
 
 function IDCardSway({ logoSrc }: { logoSrc: string }) {
   const [hovered, setHovered] = useState(false);

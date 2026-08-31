@@ -85,9 +85,6 @@ if __name__ == "__main__":
     else:
         root = Path(__file__).resolve().parent.parent
         src_assets = root / "src" / "assets"
-        src_imports = root / "src" / "imports"
         
         if src_assets.exists():
             convert_directory(src_assets)
-        if src_imports.exists():
-            convert_directory(src_imports)
