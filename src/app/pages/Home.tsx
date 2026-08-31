@@ -7,6 +7,14 @@ import {
 import { STATISTIK, JURUSAN_LIST, PROKER, BERITA, TIMELINE, GALERI, IDENTITAS } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
 import logoTransparent from "../../imports/LOGO_VERSI_FIX_NON_PISAH_ELEMENT-removebg-preview.png";
+import kalenderImg from "../../assets/images/kalender 2 bulan.png";
+import logoKknImg from "../../assets/images/logo logo kkn-t.png";
+import logoDesaImg from "../../assets/images/logo desa ngariboyo.png";
+import buktiProkerImg from "../../assets/images/bukti proker.png";
+import logoPgsd from "../../assets/images/logo pgsd.png";
+import logoTi from "../../assets/images/logo TI.png";
+import logoManajemen from "../../assets/images/logo manajemen.png";
+import logoIkor from "../../assets/images/logo ikor.png";
 
 // ── Counter Hook ───────────────────────────────────────────────────────────────
 function useCounter(target: number, started: boolean, duration = 1800) {
@@ -38,12 +46,12 @@ function StatCard({ target, label, satuan, started }: { target: number; label: s
   );
 }
 
-// ── Jurusan Icon Map ──────────────────────────────────────────────────────────
-const JURUSAN_ICONS: Record<string, typeof BookOpen> = {
-  pgsd: BookOpen,
-  ti: Monitor,
-  manajemen: Briefcase,
-  ikor: Dumbbell,
+// ── Jurusan Logo Map ──────────────────────────────────────────────────────────
+const JURUSAN_LOGOS: Record<string, string> = {
+  pgsd: logoPgsd,
+  ti: logoTi,
+  manajemen: logoManajemen,
+  ikor: logoIkor,
 };
 
 // ── Main Component ─────────────────────────────────────────────────────────────
@@ -195,18 +203,20 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { emoji: "🎓", judul: "4 Jurusan", sub: "PGSD, TI, Manajemen, Ikor" },
-                { emoji: "📅", judul: "4 Bulan", sub: "Agustus – November 2024" },
-                { emoji: "🏘️", judul: "1 Desa", sub: "Ngariboyo, Magetan" },
-                { emoji: "🤝", judul: "20+ Proker", sub: "Beragam bidang pengabdian" },
+                { img: logoKknImg, judul: "4 Jurusan", sub: "PGSD, TI, Manajemen, Ikor" },
+                { img: kalenderImg, judul: "4 Bulan", sub: "Agustus – November 2024" },
+                { img: logoDesaImg, judul: "1 Desa", sub: "Ngariboyo, Magetan" },
+                { img: buktiProkerImg, judul: "20+ Proker", sub: "Beragam bidang pengabdian" },
               ].map((item) => (
                 <div
                   key={item.judul}
-                  className="bg-white rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all"
+                  className="bg-white rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all flex flex-col"
                 >
-                  <div className="text-3xl mb-2">{item.emoji}</div>
-                  <div className="font-display font-bold text-primary text-lg">{item.judul}</div>
-                  <div className="text-muted-foreground text-xs font-caption mt-1">{item.sub}</div>
+                  <img src={item.img} alt={item.judul} className="w-full h-32 object-cover" />
+                  <div className="p-5 flex-1 bg-white">
+                    <div className="font-display font-bold text-primary text-lg">{item.judul}</div>
+                    <div className="text-muted-foreground text-xs font-caption mt-1">{item.sub}</div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -235,7 +245,7 @@ export default function Home() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {JURUSAN_LIST.map((j) => {
-              const Icon = JURUSAN_ICONS[j.id];
+              const logoSrc = JURUSAN_LOGOS[j.id];
               const count = PROKER.filter((p) => p.jurusan === j.id).length;
               return (
                 <Link
@@ -244,10 +254,10 @@ export default function Home() {
                   className="group bg-white rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2.5 transition-all border border-border"
                 >
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform group-hover:rotate-6"
+                    className="w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-transform group-hover:rotate-6 overflow-hidden shadow-sm border border-border"
                     style={{ backgroundColor: j.warnaLight }}
                   >
-                    <Icon className="w-6 h-6" style={{ color: j.warna }} />
+                    <img src={logoSrc} alt={`Logo ${j.label}`} className="w-full h-full object-cover" />
                   </div>
                   <h3 className="font-display font-bold text-foreground mb-1 text-lg">{j.label}</h3>
                   <p className="text-muted-foreground text-sm font-body mb-4">{count} Program Kerja</p>
