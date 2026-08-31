@@ -21,88 +21,88 @@
   --card-foreground: #1E293B;
   --popover: #FFFFFF;
   --popover-foreground: #1E293B;
-  --primary: #14532D;
+  --primary: #0F3A1D;
   --primary-foreground: #FFFFFF;
-  --secondary: #2E7D32;
+  --secondary: #1E5E2F;
   --secondary-foreground: #FFFFFF;
-  --muted: #E8F5E9;
-  --muted-foreground: #64748B;
+  --muted: #EAF4EC;
+  --muted-foreground: #475569;
   --accent: #F4B400;
-  --accent-foreground: #14532D;
+  --accent-foreground: #0F3A1D;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
-  --border: rgba(20, 83, 45, 0.12);
+  --border: rgba(15, 58, 29, 0.12);
   --input: transparent;
   --input-background: #F1F5F9;
   --switch-background: #CBD5E1;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --ring: #F4B400;
-  --chart-1: #14532D;
+  --chart-1: #0F3A1D;
   --chart-2: #F4B400;
-  --chart-3: #2E7D32;
+  --chart-3: #1E5E2F;
   --chart-4: #64748B;
-  --chart-5: #4A9B5F;
+  --chart-5: #3B8754;
   --radius: 1.25rem;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #1E293B;
-  --sidebar-primary: #14532D;
+  --sidebar-primary: #0F3A1D;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #E8F5E9;
+  --sidebar-accent: #EAF4EC;
   --sidebar-accent-foreground: #1E293B;
-  --sidebar-border: rgba(20, 83, 45, 0.12);
+  --sidebar-border: rgba(15, 58, 29, 0.12);
   --sidebar-ring: #F4B400;
 }
 
 .dark {
   /* ── Backgrounds: tiga level yang jelas berbeda ─────────────────────── */
-  --background: #0D1117;        /* Paling gelap — latar halaman */
-  --card: #161B22;              /* Kartu & komponen — +5 lebih terang */
-  --popover: #1C2128;           /* Popover & dropdown */
-  --muted: #21262D;             /* Section alternatif & hover — +10 lebih terang */
+  --background: #090D11;        /* Paling gelap — latar halaman */
+  --card: #111720;              /* Kartu & komponen — halus & nyaman */
+  --popover: #151E28;           /* Popover & dropdown */
+  --muted: #16221C;             /* Section alternatif & hover — sentuhan emerald gelap */
 
   /* ── Teks ───────────────────────────────────────────────────────────── */
-  --foreground: #E6EDF3;        /* Teks utama — hampir putih, kontras tinggi */
-  --card-foreground: #E6EDF3;
-  --popover-foreground: #E6EDF3;
-  --muted-foreground: #8B949E;  /* Teks sekunder — abu-abu hangat */
+  --foreground: #E2E8F0;        /* Teks utama — kontras lembut */
+  --card-foreground: #E2E8F0;
+  --popover-foreground: #E2E8F0;
+  --muted-foreground: #94A3B8;  /* Teks sekunder */
 
-  /* ── Brand — hijau yang terbaca di latar gelap ──────────────────────── */
-  --primary: #3FB950;           /* Hijau medium — kontras ~6:1 pada #0D1117 */
-  --primary-foreground: #0D1117;
-  --secondary: #2EA043;
-  --secondary-foreground: #0D1117;
+  /* ── Brand — hijau sejuk & natural (bukan neon/terlalu terang) ─────── */
+  --primary: #2EA043;           /* Hijau emerald seimbang, tidak menyilaukan */
+  --primary-foreground: #090D11;
+  --secondary: #238636;
+  --secondary-foreground: #090D11;
 
   /* ── Aksen — kuning emas tetap, sangat terbaca di latar gelap ───────── */
   --accent: #F4B400;
-  --accent-foreground: #0D1117;
+  --accent-foreground: #090D11;
 
   /* ── UI ─────────────────────────────────────────────────────────────── */
   --destructive: #F85149;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(240,246,252,0.12); /* Border halus tapi terlihat */
+  --border: rgba(226, 232, 240, 0.10);
   --input: rgba(240,246,252,0.06);
-  --input-background: #21262D;
-  --switch-background: #30363D;
+  --input-background: #1B2430;
+  --switch-background: #2D3748;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --ring: #F4B400;
 
   /* ── Chart ──────────────────────────────────────────────────────────── */
-  --chart-1: #3FB950;
+  --chart-1: #2EA043;
   --chart-2: #F4B400;
-  --chart-3: #2EA043;
+  --chart-3: #238636;
   --chart-4: #8B949E;
   --chart-5: #54AEFF;
 
   /* ── Sidebar ────────────────────────────────────────────────────────── */
-  --sidebar: #161B22;
-  --sidebar-foreground: #E6EDF3;
-  --sidebar-primary: #3FB950;
-  --sidebar-primary-foreground: #0D1117;
-  --sidebar-accent: #21262D;
-  --sidebar-accent-foreground: #E6EDF3;
-  --sidebar-border: rgba(240,246,252,0.10);
+  --sidebar: #111720;
+  --sidebar-foreground: #E2E8F0;
+  --sidebar-primary: #2EA043;
+  --sidebar-primary-foreground: #090D11;
+  --sidebar-accent: #16221C;
+  --sidebar-accent-foreground: #E2E8F0;
+  --sidebar-border: rgba(226, 232, 240, 0.10);
   --sidebar-ring: #F4B400;
 }
 

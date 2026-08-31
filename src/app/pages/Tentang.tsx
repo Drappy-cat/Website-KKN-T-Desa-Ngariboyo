@@ -95,7 +95,7 @@ function IDCardSway({ logoSrc }: { logoSrc: string }) {
 
 function PageBanner({ title, sub }: { title: string; sub?: string }) {
   return (
-    <div className="relative bg-primary pt-32 pb-20 overflow-hidden">
+    <div className="relative bg-gradient-to-b from-[#071F11] via-[#0B2E1A] to-[#05170D] pt-32 pb-20 overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_#F4B400_0%,_transparent_60%)]" />
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }} />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">

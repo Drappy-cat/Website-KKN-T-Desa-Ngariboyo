@@ -97,7 +97,7 @@ export default function Home() {
       `}</style>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#071F11]">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -105,8 +105,8 @@ export default function Home() {
             backgroundImage: "url('https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=1920&h=1080&fit=crop&auto=format')",
           }}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-primary/95" />
+        {/* Overlay - Deep Dark Emerald Forest (Eye-friendly, Low Glare) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071F11]/92 via-[#0B2E1A]/85 to-[#05170D]/96" />
 
         {/* Decorative clouds */}
         <div className="cloud-l absolute top-1/4 left-[10%] w-32 h-16 bg-white/10 rounded-full blur-2xl pointer-events-none" />
