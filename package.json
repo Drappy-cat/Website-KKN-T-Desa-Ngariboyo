@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "convert:svg": "node scripts/convert-to-svg.mjs"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",
