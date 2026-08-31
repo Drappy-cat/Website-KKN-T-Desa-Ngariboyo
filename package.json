@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "convert:svg": "node scripts/convert-to-svg.mjs"
+    "convert:svg": "node scripts/convert-to-svg.mjs",
+    "remove:bg": "python scripts/remove_bg.py"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

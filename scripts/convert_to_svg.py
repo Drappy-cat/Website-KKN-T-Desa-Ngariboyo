@@ -43,10 +43,10 @@ def convert_to_svg(src_path: Path, dest_path: Path = None):
         with open(dest_path, "w", encoding="utf-8") as f:
             f.write(svg_content)
 
-        print(f"✓ Berhasil: {src_path.name} -> {dest_path.name} ({width}x{height}px)")
+        print(f"[OK] Berhasil: {src_path.name} -> {dest_path.name} ({width}x{height}px)")
         return True
     except Exception as e:
-        print(f"✗ Gagal mengonversi {src_path.name}: {e}")
+        print(f"[ERROR] Gagal mengonversi {src_path.name}: {e}")
         return False
 
 def convert_directory(dir_path: Path, recursive: bool = True):
