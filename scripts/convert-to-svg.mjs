@@ -58,7 +58,6 @@ function getImageDimensions(buffer, ext) {
     while (offset < buffer.length) {
       if (buffer[offset] !== 0xFF) break;
       const marker = buffer[offset + 1];
-      // SOF markers: 0xC0..0xC3, 0xC5..0xC7, 0xC9..0xCB, 0xCD..0xCF
       if (
         (marker >= 0xC0 && marker <= 0xC3) ||
         (marker >= 0xC5 && marker <= 0xC7) ||
@@ -83,9 +82,11 @@ export function convertFileToSvg(filePath, destPath = null) {
   const buffer = fs.readFileSync(filePath);
   const { width, height, mime } = getImageDimensions(buffer, ext);
   const base64Data = buffer.toString('base64');
+  const dataUri = `data:${mime};base64,${base64Data}`;
 
+  // Use both href and xlink:href with x="0" y="0" for universal SVG 1.1 + SVG 2 + VS Code Preview compatibility
   const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
-  <image width="${width}" height="${height}" href="data:${mime};base64;${base64Data}"/>
+  <image x="0" y="0" width="${width}" height="${height}" href="${dataUri}" xlink:href="${dataUri}"/>
 </svg>
 `;
 
@@ -125,5 +126,5 @@ if (targetArg) {
   console.log('🚀 Memulai konversi semua gambar di src/assets dan src/imports...\n');
   scanAndConvert(path.join(projectRoot, 'src', 'assets'));
   scanAndConvert(path.join(projectRoot, 'src', 'imports'));
-  console.log('\n✨ Semua gambar berhasil dikonversi ke SVG dengan warna asli tetap 100% presisi!');
+  console.log('\n✨ Semua gambar berhasil dikonversi ke SVG kompatibel universal (SVG 1.1 + SVG 2)!');
 }
