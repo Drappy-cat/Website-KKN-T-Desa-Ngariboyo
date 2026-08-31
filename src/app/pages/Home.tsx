@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import {
-  ArrowRight, Calendar, MapPin, Users, ChevronRight,
+  ArrowRight, Calendar, MapPin, Users, ChevronRight, ChevronLeft,
   BookOpen, Monitor, Briefcase, Dumbbell,
 } from "lucide-react";
 import { STATISTIK, JURUSAN_LIST, PROKER, BERITA, TIMELINE, GALERI, IDENTITAS } from "../data";
@@ -15,6 +15,17 @@ import logoPgsd from "../../assets/logos/jurusan/logo-pgsd.png";
 import logoTi from "../../assets/logos/jurusan/logo-ti.png";
 import logoManajemen from "../../assets/logos/jurusan/logo-manajemen.png";
 import logoIkor from "../../assets/logos/jurusan/logo-ikor.png";
+
+import slide1 from "../../assets/galeri/bagian 1.png";
+import slide2 from "../../assets/galeri/bagian 2.png";
+import slide3 from "../../assets/galeri/bagian 3.png";
+import slide4 from "../../assets/galeri/bagian 4.png";
+import slide5 from "../../assets/galeri/bagian 5.png";
+import slide6 from "../../assets/galeri/bagian 6.png";
+import slide7 from "../../assets/galeri/bagian 7.png";
+import slide8 from "../../assets/galeri/bagian 8.png";
+
+import StatChart from "../components/StatChart";
 
 // ── Counter Hook ───────────────────────────────────────────────────────────────
 function useCounter(target: number, started: boolean, duration = 1800) {
@@ -60,11 +71,33 @@ export default function Home() {
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
   const [heroLoaded, setHeroLoaded] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroImages = [
+    slide1,
+    slide2,
+    slide3,
+    slide4,
+    slide5,
+    slide6,
+    slide7,
+    slide8,
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => setHeroLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(slideTimer);
+  }, [heroImages.length]);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -98,15 +131,50 @@ export default function Home() {
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#071F11]">
-        {/* Background image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=1920&h=1080&fit=crop&auto=format')",
-          }}
-        />
+        {/* Background image slider */}
+        {heroImages.map((src, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+              idx === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url('${src}')`,
+            }}
+          />
+        ))}
         {/* Overlay - Deep Dark Emerald Forest (Eye-friendly, Low Glare) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#071F11]/92 via-[#0B2E1A]/85 to-[#05170D]/96" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#071F11]/60 via-[#0B2E1A]/40 to-[#05170D]/70" />
+
+        {/* Slider Controls */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-black/20 text-white/70 hover:bg-black/50 hover:text-white transition-all backdrop-blur-sm"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 p-2 sm:p-3 rounded-full bg-black/20 text-white/70 hover:bg-black/50 hover:text-white transition-all backdrop-blur-sm"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroImages.map((_, idx) => (
+             <button
+               key={idx}
+               onClick={() => setCurrentSlide(idx)}
+               className={`h-2 rounded-full transition-all duration-300 ${
+                 idx === currentSlide ? "bg-accent w-8" : "bg-white/50 w-2 hover:bg-white"
+               }`}
+               aria-label={`Go to slide ${idx + 1}`}
+             />
+          ))}
+        </div>
 
         {/* Decorative clouds */}
         <div className="cloud-l absolute top-1/4 left-[10%] w-32 h-16 bg-white/10 rounded-full blur-2xl pointer-events-none" />
@@ -171,7 +239,7 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40 z-20">
           <div className="text-xs font-caption tracking-widest uppercase">Scroll</div>
           <div className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent" />
         </div>
@@ -227,10 +295,18 @@ export default function Home() {
       {/* ── STATISTIK ────────────────────────────────────────────────────── */}
       <section ref={statsRef} className="py-16 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          <div className="text-center mb-10">
+             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">Dampak & Jangkauan</h2>
+             <p className="text-muted-foreground font-body max-w-2xl mx-auto">Representasi visual 3D dari statistik kontribusi KKNT Desa Ngariboyo.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
             {STATISTIK.map((s) => (
               <StatCard key={s.label} target={s.target} label={s.label} satuan={s.satuan} started={statsVisible} />
             ))}
+          </div>
+          {/* 2D Area Chart Animation */}
+          <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-hidden border border-border p-2 sm:p-6 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow">
+            <StatChart />
           </div>
         </div>
       </section>
