@@ -57,11 +57,11 @@ function useCounter(target: number, started: boolean, duration = 1800) {
 function StatCard({ target, label, satuan, started }: { target: number; label: string; satuan: string; started: boolean }) {
   const count = useCounter(target, started);
   return (
-    <div className="text-center p-6 bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow">
-      <div className="font-display font-extrabold text-4xl sm:text-5xl text-primary mb-1">
+    <div className="text-center p-6 bg-card rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all border border-border">
+      <div className="font-display font-extrabold text-3xl sm:text-5xl text-primary dark:text-accent mb-1">
         {count.toLocaleString("id-ID")}{satuan}
       </div>
-      <div className="text-muted-foreground text-sm font-body">{label}</div>
+      <div className="text-muted-foreground text-xs sm:text-sm font-body">{label}</div>
     </div>
   );
 }
@@ -287,7 +287,7 @@ export default function Home() {
                 Pelajari Lebih Lanjut <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 { img: logoKknImg, judul: "4 Jurusan", sub: "PGSD, TI, Manajemen, Ikor" },
                 { img: kalenderImg, judul: "2 Bulan", sub: "13 Agustus – 25 September 2026" },
@@ -296,11 +296,11 @@ export default function Home() {
               ].map((item) => (
                 <div
                   key={item.judul}
-                  className="bg-white rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all flex flex-col"
+                  className="bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all flex flex-col border border-border"
                 >
-                  <img src={item.img} alt={item.judul} className="w-full h-32 object-cover" loading="lazy" decoding="async" />
-                  <div className="p-5 flex-1 bg-white">
-                    <div className="font-display font-bold text-primary text-lg">{item.judul}</div>
+                  <img src={item.img} alt={item.judul} className="w-full h-28 sm:h-32 object-cover" loading="lazy" decoding="async" />
+                  <div className="p-4 sm:p-5 flex-1 bg-card">
+                    <div className="font-display font-bold text-primary dark:text-accent text-base sm:text-lg">{item.judul}</div>
                     <div className="text-muted-foreground text-xs font-caption mt-1">{item.sub}</div>
                   </div>
                 </div>
@@ -315,15 +315,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
              <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">Dampak & Jangkauan</h2>
-             <p className="text-muted-foreground font-body max-w-2xl mx-auto">Representasi visual 3D dari statistik kontribusi KKNT Desa Ngariboyo.</p>
+             <p className="text-muted-foreground font-body max-w-2xl mx-auto text-sm sm:text-base">Representasi visual data dan statistik kontribusi KKNT Desa Ngariboyo.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-10">
             {STATISTIK.map((s) => (
               <StatCard key={s.label} target={s.target} label={s.label} satuan={s.satuan} started={statsVisible} />
             ))}
           </div>
           {/* 2D Area Chart Animation with Suspense */}
-          <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-hidden border border-border p-2 sm:p-6 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow">
+          <div className="bg-card rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-hidden border border-border p-2 sm:p-6 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow">
             <Suspense fallback={<StatChartSkeleton />}>
               <StatChart />
             </Suspense>
@@ -337,9 +337,9 @@ export default function Home() {
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-muted text-primary mb-4 font-caption">Jurusan</span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">4 Jurusan Bersatu</h2>
-            <p className="text-muted-foreground max-w-xl mx-auto font-body">Mahasiswa dari berbagai disiplin ilmu berkolaborasi untuk memberikan dampak nyata bagi Desa Ngariboyo.</p>
+            <p className="text-muted-foreground max-w-xl mx-auto font-body text-sm sm:text-base">Mahasiswa dari berbagai disiplin ilmu berkolaborasi untuk memberikan dampak nyata bagi Desa Ngariboyo.</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {JURUSAN_LIST.map((j) => {
               const logoSrc = JURUSAN_LOGOS[j.id];
               const count = PROKER.filter((p) => p.jurusan === j.id).length;
@@ -347,7 +347,7 @@ export default function Home() {
                 <Link
                   key={j.id}
                   to="/proker"
-                  className="group bg-white rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2.5 transition-all border border-border"
+                  className="group bg-card rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2.5 transition-all border border-border"
                 >
                   <div
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-transform group-hover:rotate-6 overflow-hidden shadow-sm border border-border"
@@ -370,22 +370,22 @@ export default function Home() {
       {/* ── HIGHLIGHT PROKER ──────────────────────────────────────────────── */}
       <section className="py-20 sm:py-28 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14 gap-4">
             <div>
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white text-primary mb-4 font-caption">Program Unggulan</span>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption border border-border shadow-sm">Program Unggulan</span>
               <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary">Program Berjalan</h2>
             </div>
             <Link to="/proker" className="flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all font-body">
               Lihat Semua <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
             {prokerHighlight.map((p) => {
               const j = JURUSAN_LIST.find((x) => x.id === p.jurusan);
               return (
                 <div
                   key={p.id}
-                  className="group bg-white rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-2.5 transition-all border border-border cursor-pointer"
+                  className="group bg-card rounded-[20px] p-5 sm:p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-2.5 transition-all border border-border cursor-pointer"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <span
@@ -394,11 +394,11 @@ export default function Home() {
                     >
                       {j?.label}
                     </span>
-                    <span className="px-2.5 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium font-caption">
+                    <span className="px-2.5 py-1 bg-primary/15 text-primary dark:text-emerald-400 rounded-full text-xs font-medium font-caption">
                       Berjalan
                     </span>
                   </div>
-                  <h3 className="font-display font-bold text-foreground text-lg mb-2 group-hover:text-primary transition-colors">{p.nama}</h3>
+                  <h3 className="font-display font-bold text-foreground text-base sm:text-lg mb-2 group-hover:text-primary transition-colors">{p.nama}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-4 font-body line-clamp-2">{p.deskripsi}</p>
                   <div className="flex items-center gap-4 text-xs text-muted-foreground font-caption">
                     <div className="flex items-center gap-1">
@@ -425,11 +425,11 @@ export default function Home() {
               Timeline
             </span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white mb-3">Perjalanan KKNT</h2>
-            <p className="text-white/60 max-w-xl mx-auto font-body">Dari observasi hingga penutupan — pengabdian penuh untuk Desa Ngariboyo.</p>
+            <p className="text-white/80 max-w-xl mx-auto font-body">Dari observasi hingga penutupan — pengabdian penuh untuk Desa Ngariboyo.</p>
           </div>
           <div className="relative">
             {/* Line */}
-            <div className="hidden md:block absolute top-8 left-1/4 right-1/4 h-0.5 bg-white/15" />
+            <div className="hidden md:block absolute top-8 left-1/4 right-1/4 h-0.5 bg-white/20" />
             <div className="grid md:grid-cols-2 max-w-3xl mx-auto gap-8">
               {TIMELINE.map((t, i) => (
                 <div key={i} className="relative flex flex-col items-center text-center md:items-center">
@@ -444,8 +444,8 @@ export default function Home() {
                   <h3 className="font-display font-bold text-white mb-3">{t.fase}</h3>
                   <ul className="space-y-1.5">
                     {t.kegiatan.map((k) => (
-                      <li key={k} className="text-white/55 text-sm font-body flex items-center gap-1.5 justify-center">
-                        <span className="w-1 h-1 bg-accent rounded-full shrink-0" />
+                      <li key={k} className="text-white/80 text-sm font-body flex items-center gap-1.5 justify-center">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full shrink-0" />
                         {k}
                       </li>
                     ))}
@@ -495,9 +495,9 @@ export default function Home() {
       {/* ── PREVIEW BERITA ───────────────────────────────────────────────── */}
       <section className="py-20 sm:py-28 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 sm:mb-14 gap-4">
             <div>
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white text-primary mb-4 font-caption">Berita & Aktivitas</span>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption border border-border shadow-sm">Berita & Aktivitas</span>
               <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary">Terkini dari Lapangan</h2>
             </div>
             <Link to="/berita" className="flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all font-body">
@@ -508,7 +508,7 @@ export default function Home() {
             {beritaPreview.map((b) => (
               <article
                 key={b.id}
-                className="group bg-white rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all hover:-translate-y-1 border border-border"
+                className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all hover:-translate-y-1 border border-border"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -532,7 +532,7 @@ export default function Home() {
                     {b.judul}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed font-body line-clamp-2">{b.isi}</p>
-                  <div className="mt-4 flex items-center gap-1 text-primary text-sm font-semibold group-hover:gap-2 transition-all font-body">
+                  <div className="mt-4 flex items-center gap-1 text-primary dark:text-accent text-sm font-semibold group-hover:gap-2 transition-all font-body">
                     Baca Selengkapnya <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>

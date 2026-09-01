@@ -173,7 +173,7 @@ export default function IDCardGallery() {
               ID Card {activeModalMember?.nama}
             </Dialog.Title>
             <Dialog.Description className="sr-only">
-              Detail ID Card resmi {activeModalMember?.nama} mahasiswa {activeModalMember?.prodi} KKNT Desa Ngariboyo 2024.
+              Detail ID Card resmi {activeModalMember?.nama} mahasiswa {activeModalMember?.prodi} KKNT Desa Ngariboyo 2026.
             </Dialog.Description>
 
             <Dialog.Close className="absolute top-5 right-5 z-20 p-2.5 rounded-full bg-muted/80 hover:bg-muted text-foreground transition-colors border border-border">
@@ -194,7 +194,7 @@ export default function IDCardGallery() {
                 {/* Details */}
                 <div className="flex-1 w-full text-left">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold font-caption bg-primary/10 text-primary dark:text-accent mb-3">
-                    <UserCheck className="w-3.5 h-3.5" /> ID Card Resmi KKNT 2024
+                    <UserCheck className="w-3.5 h-3.5" /> ID Card Resmi KKNT 2026
                   </div>
 
                   <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground leading-tight mb-1">

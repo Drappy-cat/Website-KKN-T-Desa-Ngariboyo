@@ -20,9 +20,9 @@ function PageBanner({ title, sub }: { title: string; sub?: string }) {
 }
 
 const STATUS_STYLE: Record<string, string> = {
-  Berjalan: "bg-green-100 text-green-800",
-  Selesai: "bg-blue-100 text-blue-800",
-  Perencanaan: "bg-amber-100 text-amber-800",
+  Berjalan: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30",
+  Selesai: "bg-blue-500/15 text-blue-700 dark:text-blue-400 border border-blue-500/30",
+  Perencanaan: "bg-amber-500/15 text-amber-700 dark:text-amber-400 border border-amber-500/30",
 };
 
 function ProkerCard({ p }: { p: Proker }) {
@@ -30,9 +30,9 @@ function ProkerCard({ p }: { p: Proker }) {
   const j = JURUSAN_LIST.find((x) => x.id === p.jurusan);
 
   return (
-    <div className="bg-white rounded-[20px] border border-border shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-hidden hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all">
+    <div className="bg-card rounded-[20px] border border-border shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-hidden hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all">
       <div
-        className="cursor-pointer p-6"
+        className="cursor-pointer p-5 sm:p-6"
         onClick={() => setExpanded((v) => !v)}
       >
         <div className="flex items-start justify-between gap-4">
@@ -44,16 +44,16 @@ function ProkerCard({ p }: { p: Proker }) {
               >
                 {j?.label}
               </span>
-              <span className={`px-2.5 py-1 rounded-full text-xs font-medium font-caption ${STATUS_STYLE[p.status]}`}>
+              <span className={`px-2.5 py-1 rounded-full text-xs font-medium font-caption ${STATUS_STYLE[p.status] || ""}`}>
                 {p.status}
               </span>
-              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-background text-muted-foreground font-caption">
+              <span className="px-2.5 py-1 rounded-lg text-xs font-medium bg-muted text-muted-foreground font-caption">
                 {p.kategori}
               </span>
             </div>
-            <h3 className="font-display font-bold text-foreground text-lg mb-2 leading-snug">{p.nama}</h3>
+            <h3 className="font-display font-bold text-foreground text-base sm:text-lg mb-2 leading-snug">{p.nama}</h3>
             <p className="text-muted-foreground text-sm leading-relaxed font-body line-clamp-2">{p.deskripsi}</p>
-            <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-muted-foreground font-caption">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-3 text-xs text-muted-foreground font-caption">
               <div className="flex items-center gap-1.5">
                 <Calendar className="w-3.5 h-3.5" />{p.tanggal}
               </div>
@@ -138,7 +138,7 @@ function ProkerCard({ p }: { p: Proker }) {
 }
 
 export default function ProkerPage() {
-  usePageMeta("Program Kerja", "20 program kerja dari 4 jurusan KKNT Desa Ngariboyo — PGSD, Teknik Informatika, Manajemen, dan Ilmu Keolahragaan.");
+  usePageMeta("Program Kerja", "Daftar program kerja dari 4 jurusan KKNT Desa Ngariboyo 2026 — PGSD, Teknik Informatika, Manajemen, dan Ilmu Keolahragaan.");
   const [activeJurusan, setActiveJurusan] = useState("semua");
   const [activeStatus, setActiveStatus] = useState("semua");
 
@@ -159,26 +159,28 @@ export default function ProkerPage() {
     <>
       <PageBanner
         title="Program Kerja KKNT"
-        sub="20 program kerja dari 4 jurusan untuk membangun Desa Ngariboyo yang lebih maju"
+        sub="14 program kerja terencana dari 4 jurusan untuk mengabdi di Desa Ngariboyo 2026"
       />
 
       {/* Summary cards */}
       <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {summary.map((j) => (
               <button
                 key={j.id}
                 onClick={() => setActiveJurusan(activeJurusan === j.id ? "semua" : j.id)}
                 className={`text-left p-5 rounded-[20px] border-2 transition-all hover:-translate-y-1 ${
-                  activeJurusan === j.id ? "border-primary shadow-lg" : "border-border bg-white shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
+                  activeJurusan === j.id
+                    ? "border-primary dark:border-accent bg-card shadow-lg"
+                    : "border-border bg-card shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
                 }`}
               >
                 <div className="font-display font-extrabold text-3xl mb-1" style={{ color: j.warna }}>{j.total}</div>
                 <div className="font-semibold text-foreground font-body mb-3">{j.label}</div>
-                <div className="flex gap-3 text-xs font-caption">
-                  <span className="text-green-700 bg-green-100 px-2 py-0.5 rounded-full">{j.berjalan} Berjalan</span>
-                  <span className="text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full">{j.selesai} Selesai</span>
+                <div className="flex flex-wrap gap-2 text-xs font-caption">
+                  <span className="text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/20 px-2 py-0.5 rounded-full">{j.berjalan} Berjalan</span>
+                  <span className="text-blue-700 dark:text-blue-400 bg-blue-500/15 border border-blue-500/20 px-2 py-0.5 rounded-full">{j.selesai} Selesai</span>
                 </div>
               </button>
             ))}
@@ -187,14 +189,14 @@ export default function ProkerPage() {
       </section>
 
       {/* Filters */}
-      <section className="py-4 bg-muted border-y border-border sticky top-[65px] z-30">
+      <section className="py-4 bg-muted border-y border-border sticky top-[65px] z-30 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-wrap gap-3 items-center">
           <span className="text-xs text-muted-foreground font-caption font-semibold uppercase tracking-wider shrink-0">Filter:</span>
           {/* Jurusan filter */}
           <div className="flex gap-2 flex-wrap">
             <button
               onClick={() => setActiveJurusan("semua")}
-              className={`px-3 py-1.5 rounded-xl text-xs font-medium font-body transition-all ${activeJurusan === "semua" ? "bg-primary text-white" : "bg-white border border-border text-foreground/60 hover:border-primary/40"}`}
+              className={`px-3 py-1.5 rounded-xl text-xs font-medium font-body transition-all ${activeJurusan === "semua" ? "bg-primary text-white shadow-sm" : "bg-card border border-border text-foreground/70 hover:border-primary/40"}`}
             >
               Semua Jurusan
             </button>
@@ -202,8 +204,12 @@ export default function ProkerPage() {
               <button
                 key={j.id}
                 onClick={() => setActiveJurusan(j.id)}
-                className="px-3 py-1.5 rounded-xl text-xs font-medium font-body transition-all border"
-                style={activeJurusan === j.id ? { backgroundColor: j.warna, color: "white", borderColor: j.warna } : { backgroundColor: "white", borderColor: "#e2e8f0", color: "#64748b" }}
+                className={`px-3 py-1.5 rounded-xl text-xs font-medium font-body transition-all border ${
+                  activeJurusan === j.id
+                    ? "shadow-sm"
+                    : "bg-card border-border text-foreground/70 hover:border-primary/40"
+                }`}
+                style={activeJurusan === j.id ? { backgroundColor: j.warna, color: "white", borderColor: j.warna } : {}}
               >
                 {j.label}
               </button>
@@ -211,12 +217,12 @@ export default function ProkerPage() {
           </div>
           <div className="w-px h-5 bg-border mx-1 hidden sm:block" />
           {/* Status filter */}
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
             {["semua", "Berjalan", "Selesai", "Perencanaan"].map((s) => (
               <button
                 key={s}
                 onClick={() => setActiveStatus(s)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-medium font-body transition-all ${activeStatus === s ? "bg-foreground text-background" : "bg-white border border-border text-foreground/60 hover:border-foreground/40"}`}
+                className={`px-3 py-1.5 rounded-xl text-xs font-medium font-body transition-all ${activeStatus === s ? "bg-primary dark:bg-accent text-white dark:text-primary-foreground shadow-sm" : "bg-card border border-border text-foreground/70 hover:border-foreground/40"}`}
               >
                 {s === "semua" ? "Semua Status" : s}
               </button>

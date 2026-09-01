@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE = "KKNT Desa Ngariboyo 2024";
+const SITE = "KKNT Desa Ngariboyo 2026";
 
 export function usePageMeta(title: string, description?: string) {
   useEffect(() => {
@@ -12,7 +12,7 @@ export function usePageMeta(title: string, description?: string) {
       metaDesc.name = "description";
       document.head.appendChild(metaDesc);
     }
-    metaDesc.content = description ?? `${title} — Program KKNT Universitas Negeri Surabaya di Desa Ngariboyo, Magetan, Jawa Timur 2024.`;
+    metaDesc.content = description ?? `${title} — Program KKNT Universitas Negeri Surabaya di Desa Ngariboyo, Magetan, Jawa Timur (13 Agustus – 25 September 2026).`;
 
     let ogTitle = document.querySelector<HTMLMetaElement>('meta[property="og:title"]');
     if (!ogTitle) {

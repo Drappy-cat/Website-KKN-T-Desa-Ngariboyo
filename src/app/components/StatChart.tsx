@@ -1,11 +1,33 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import ReactECharts from 'echarts-for-react';
 
 export default function StatChart() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const checkDark = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkDark();
+
+    const observer = new MutationObserver(() => checkDark());
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => observer.disconnect();
+  }, []);
+
   const option = useMemo(() => {
+    const textColor = isDark ? '#E2E8F0' : '#1E293B';
+    const subTextColor = isDark ? '#94A3B8' : '#64748B';
+    const gridBorderColor = isDark ? 'rgba(226, 232, 240, 0.08)' : 'rgba(15, 58, 29, 0.08)';
+
     return {
+      backgroundColor: 'transparent',
       tooltip: {
         trigger: 'axis',
+        backgroundColor: isDark ? '#1E293B' : '#0F3A1D',
+        borderColor: isDark ? '#334155' : '#1E5E2F',
+        textStyle: { color: '#FFFFFF' },
         axisPointer: { type: 'cross', label: { backgroundColor: '#283b56' } }
       },
       legend: {
@@ -13,14 +35,15 @@ export default function StatChart() {
         bottom: 0,
         textStyle: {
           fontFamily: 'inherit',
-          fontSize: 13,
-          fontWeight: 600
+          fontSize: 12,
+          fontWeight: 600,
+          color: textColor
         }
       },
       grid: {
         left: '2%',
         right: '2%',
-        bottom: '12%',
+        bottom: '14%',
         top: '12%',
         containLabel: true
       },
@@ -32,10 +55,11 @@ export default function StatChart() {
           axisLabel: { 
             fontFamily: 'inherit', 
             fontWeight: 600,
-            fontSize: 13
+            fontSize: 12,
+            color: subTextColor
           },
           axisLine: {
-            lineStyle: { color: '#cbd5e1' }
+            lineStyle: { color: gridBorderColor }
           }
         }
       ],
@@ -44,18 +68,19 @@ export default function StatChart() {
           type: 'value',
           name: 'Program Kerja',
           position: 'left',
-          axisLine: { show: true, lineStyle: { color: '#059669', width: 2 } }, // Emerald 600
-          axisLabel: { formatter: '{value}', fontFamily: 'inherit', fontWeight: 600 },
-          nameTextStyle: { fontWeight: 700, padding: [0, 0, 0, 20] }
+          axisLine: { show: true, lineStyle: { color: isDark ? '#34D399' : '#059669', width: 2 } },
+          axisLabel: { formatter: '{value}', fontFamily: 'inherit', fontWeight: 600, color: isDark ? '#34D399' : '#059669' },
+          splitLine: { lineStyle: { color: gridBorderColor } },
+          nameTextStyle: { fontWeight: 700, padding: [0, 0, 0, 20], color: isDark ? '#34D399' : '#059669' }
         },
         {
           type: 'value',
           name: 'Jiwa Terdampak',
           position: 'right',
-          axisLine: { show: true, lineStyle: { color: '#ea580c', width: 2 } }, // Orange 600
-          axisLabel: { formatter: '{value}', fontFamily: 'inherit', fontWeight: 600 },
+          axisLine: { show: true, lineStyle: { color: '#F97316', width: 2 } },
+          axisLabel: { formatter: '{value}', fontFamily: 'inherit', fontWeight: 600, color: '#F97316' },
           splitLine: { show: false },
-          nameTextStyle: { fontWeight: 700, padding: [0, 20, 0, 0] }
+          nameTextStyle: { fontWeight: 700, padding: [0, 20, 0, 0], color: '#F97316' }
         }
       ],
       series: [
@@ -66,19 +91,19 @@ export default function StatChart() {
           smooth: true,
           showSymbol: true,
           symbolSize: 8,
-          lineStyle: { width: 4, color: '#059669' },
-          itemStyle: { color: '#059669' },
+          lineStyle: { width: 3.5, color: isDark ? '#34D399' : '#059669' },
+          itemStyle: { color: isDark ? '#34D399' : '#059669' },
           areaStyle: {
             color: {
               type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
               colorStops: [
-                { offset: 0, color: 'rgba(5, 150, 105, 0.5)' },
-                { offset: 1, color: 'rgba(5, 150, 105, 0.05)' }
+                { offset: 0, color: isDark ? 'rgba(52, 211, 153, 0.45)' : 'rgba(5, 150, 105, 0.45)' },
+                { offset: 1, color: 'rgba(5, 150, 105, 0.02)' }
               ]
             }
           },
-          data: [3, 6, 10, 14], // Progressive levels 2026
-          animationDuration: 4000,
+          data: [3, 6, 10, 14],
+          animationDuration: 2000,
           animationEasing: 'quarticInOut'
         },
         {
@@ -88,24 +113,24 @@ export default function StatChart() {
           smooth: true,
           showSymbol: true,
           symbolSize: 8,
-          lineStyle: { width: 4, color: '#ea580c' },
-          itemStyle: { color: '#ea580c' },
+          lineStyle: { width: 3.5, color: '#F97316' },
+          itemStyle: { color: '#F97316' },
           areaStyle: {
             color: {
               type: 'linear', x: 0, y: 0, x2: 0, y2: 1,
               colorStops: [
-                { offset: 0, color: 'rgba(234, 88, 12, 0.5)' },
-                { offset: 1, color: 'rgba(234, 88, 12, 0.05)' }
+                { offset: 0, color: 'rgba(249, 115, 22, 0.4)' },
+                { offset: 1, color: 'rgba(249, 115, 22, 0.02)' }
               ]
             }
           },
-          data: [450, 1200, 2800, 4800], // Progressive levels 2026
-          animationDuration: 4000,
+          data: [450, 1200, 2800, 4800],
+          animationDuration: 2000,
           animationEasing: 'quarticInOut'
         }
       ]
     };
-  }, []);
+  }, [isDark]);
 
   return (
     <div className="w-full h-full min-h-[350px]">

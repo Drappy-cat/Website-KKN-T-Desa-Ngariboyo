@@ -60,3 +60,7 @@ export { default as buktiProkerSvg } from "./proker/bukti-proker.svg";
 // ── TIMELINE ──────────────────────────────────────────────────────────────
 export { default as kalenderImg } from "./timeline/kalender-2-bulan.png";
 export { default as kalenderSvg } from "./timeline/kalender-2-bulan.svg";
+
+// ── DOSEN PEMBIMBING LAPANGAN (DPL) ───────────────────────────────────────
+export { default as fotoDplDelia } from "./dosen/delia-indrawati-1.jpg";
+

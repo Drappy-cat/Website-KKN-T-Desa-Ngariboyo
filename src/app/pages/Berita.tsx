@@ -30,7 +30,7 @@ const KAT_WARNA: Record<string, { bg: string; text: string }> = {
 };
 
 export default function Berita() {
-  usePageMeta("Berita & Aktivitas", "Laporan dan cerita terkini dari kegiatan KKNT Desa Ngariboyo 2024.");
+  usePageMeta("Berita & Aktivitas", "Laporan dan cerita terkini dari kegiatan KKNT Desa Ngariboyo 2026.");
   const [selected, setSelected] = useState<typeof BERITA[0] | null>(null);
   const [filterKat, setFilterKat] = useState("Semua");
 
@@ -51,7 +51,7 @@ export default function Berita() {
             >
               <ArrowLeft className="w-4 h-4" /> Kembali ke Berita
             </button>
-            <div className="bg-white rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border">
+            <div className="bg-card rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border">
               <div className="relative h-72 sm:h-96 overflow-hidden">
                 <img src={selected.img} alt={selected.judul} className="w-full h-full object-cover" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -62,7 +62,7 @@ export default function Berita() {
                   {selected.kat}
                 </span>
               </div>
-              <div className="p-8 sm:p-10">
+              <div className="p-6 sm:p-10">
                 <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-5 font-caption">
                   <div className="flex items-center gap-1.5">
                     <Calendar className="w-4 h-4" />{selected.tgl}
@@ -75,11 +75,11 @@ export default function Berita() {
                   {selected.judul}
                 </h1>
                 <div className="prose max-w-none">
-                  <p className="text-foreground/75 text-base leading-relaxed font-body">{selected.isi}</p>
-                  <p className="text-foreground/75 text-base leading-relaxed font-body mt-4">
-                    Kegiatan ini merupakan bagian dari program KKNT Desa Ngariboyo 2024 yang dilaksanakan oleh mahasiswa Universitas Negeri Surabaya. Program ini bertujuan untuk memberikan dampak nyata bagi masyarakat desa melalui berbagai kegiatan yang terencana dan terstruktur.
+                  <p className="text-foreground/80 text-base leading-relaxed font-body">{selected.isi}</p>
+                  <p className="text-foreground/80 text-base leading-relaxed font-body mt-4">
+                    Kegiatan ini merupakan bagian dari program KKNT Desa Ngariboyo 2026 yang dilaksanakan oleh mahasiswa Universitas Negeri Surabaya. Program ini bertujuan untuk memberikan dampak nyata bagi masyarakat desa melalui berbagai kegiatan yang terencana dan terstruktur.
                   </p>
-                  <p className="text-foreground/75 text-base leading-relaxed font-body mt-4">
+                  <p className="text-foreground/80 text-base leading-relaxed font-body mt-4">
                     Partisipasi aktif warga sangat mendukung keberhasilan program ini. Ke depannya, diharapkan program serupa dapat terus dilanjutkan dan dikembangkan secara mandiri oleh masyarakat Desa Ngariboyo.
                   </p>
                 </div>
@@ -95,7 +95,7 @@ export default function Berita() {
                     return (
                       <article
                         key={b.id}
-                        className="group bg-white rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all border border-border cursor-pointer"
+                        className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all border border-border cursor-pointer"
                         onClick={() => { setSelected(b); window.scrollTo(0, 0); }}
                       >
                         <div className="relative h-36 overflow-hidden">
@@ -122,7 +122,7 @@ export default function Berita() {
     <>
       <PageBanner
         title="Berita & Aktivitas"
-        sub="Ikuti perkembangan, dokumentasi kegiatan, dan cerita pengabdian KKNT Desa Ngariboyo 2024"
+        sub="Ikuti perkembangan, dokumentasi kegiatan, dan cerita pengabdian KKNT Desa Ngariboyo 2026"
       />
 
       <section className="py-12 bg-background">
@@ -138,7 +138,7 @@ export default function Berita() {
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all font-body ${
                     active
                       ? "bg-primary text-white shadow-md"
-                      : "bg-white border border-border text-foreground/60 hover:border-primary/40"
+                      : "bg-card border border-border text-foreground/70 hover:border-primary/40"
                   }`}
                 >
                   {k}
@@ -150,7 +150,7 @@ export default function Berita() {
           {/* Featured (first article) */}
           {filtered.length > 0 && (
             <article
-              className="group mb-8 bg-white rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border cursor-pointer hover:shadow-[0_30px_80px_rgba(0,0,0,0.15)] transition-all"
+              className="group mb-8 bg-card rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border cursor-pointer hover:shadow-[0_30px_80px_rgba(0,0,0,0.15)] transition-all"
               onClick={() => setSelected(filtered[0])}
             >
               <div className="grid md:grid-cols-2">
@@ -160,7 +160,7 @@ export default function Berita() {
                 </div>
                 <div className="p-8 flex flex-col justify-center">
                   <span
-                    className="inline-block px-3 py-1 rounded-xl text-sm font-semibold font-caption mb-4"
+                    className="inline-block px-3 py-1 rounded-xl text-sm font-semibold font-caption mb-4 w-fit"
                     style={{ backgroundColor: KAT_WARNA[filtered[0].kat]?.bg || "#E8F5E9", color: KAT_WARNA[filtered[0].kat]?.text || "#14532D" }}
                   >
                     {filtered[0].kat}
@@ -185,7 +185,7 @@ export default function Berita() {
               return (
                 <article
                   key={b.id}
-                  className="group bg-white rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all hover:-translate-y-1 border border-border cursor-pointer"
+                  className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all hover:-translate-y-1 border border-border cursor-pointer"
                   onClick={() => setSelected(b)}
                 >
                   <div className="relative h-48 overflow-hidden">

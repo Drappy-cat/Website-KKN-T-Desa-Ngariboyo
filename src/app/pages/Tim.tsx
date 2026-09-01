@@ -74,28 +74,28 @@ function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <div className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all border border-border cursor-pointer hover:-translate-y-1">
-          <div className="relative">
+          <div className="relative bg-muted/30">
             <img
               src={m.foto}
               alt={m.nama}
-              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-52 object-cover object-top group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
             <div className="absolute bottom-3 left-3 right-3">
-              <span className="inline-block px-2.5 py-1 rounded-lg text-xs font-semibold font-caption text-white" style={{ backgroundColor: j.warna }}>
+              <span className="inline-block px-2.5 py-1 rounded-lg text-xs font-semibold font-caption text-white shadow-sm" style={{ backgroundColor: j.warna }}>
                 {m.prodi}
               </span>
             </div>
           </div>
           <div className="p-5">
-            <h3 className="font-display font-bold text-foreground mb-0.5 text-base group-hover:text-primary dark:group-hover:text-accent transition-colors">{m.nama}</h3>
-            <div className="text-xs text-muted-foreground font-caption mb-1">{m.nim}</div>
+            <h3 className="font-display font-bold text-foreground mb-0.5 text-base group-hover:text-primary dark:group-hover:text-accent transition-colors line-clamp-1">{m.nama}</h3>
+            <div className="text-xs text-muted-foreground font-caption mb-2 font-mono">NIM: {m.nim}</div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-muted-foreground font-body">{m.peran}</span>
-              <span className="text-xs px-2 py-0.5 rounded-full font-caption" style={{ backgroundColor: `${j.warna}20`, color: j.warna }}>
-                {m.divisi}
+              <span className="text-xs text-muted-foreground font-body line-clamp-1">{m.peran}</span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full font-caption font-semibold shrink-0" style={{ backgroundColor: `${j.warna}20`, color: j.warna }}>
+                Divisi {m.divisi}
               </span>
             </div>
             <div className="mt-3 pt-3 border-t border-border">
@@ -116,15 +116,15 @@ function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
           </Dialog.Close>
 
           {/* Hero image */}
-          <div className="relative h-56 overflow-hidden rounded-t-[24px]">
-            <img src={m.foto} alt={m.nama} className="w-full h-full object-cover" loading="lazy" decoding="async" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="relative h-64 overflow-hidden rounded-t-[24px] bg-muted/40">
+            <img src={m.foto} alt={m.nama} className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
             <div className="absolute bottom-5 left-6 right-16">
-              <span className="inline-block px-3 py-1 rounded-xl text-xs font-semibold font-caption text-white mb-2" style={{ backgroundColor: j.warna }}>
+              <span className="inline-block px-3 py-1 rounded-xl text-xs font-semibold font-caption text-white mb-2 shadow-sm" style={{ backgroundColor: j.warna }}>
                 {m.prodi}
               </span>
               <Dialog.Title className="font-display font-extrabold text-2xl text-white">{m.nama}</Dialog.Title>
-              <p className="text-white/70 text-sm font-caption">{m.nim}</p>
+              <p className="text-white/80 text-sm font-caption font-mono">NIM: {m.nim}</p>
             </div>
           </div>
 
@@ -197,7 +197,7 @@ function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
 
 // ── Tim Page ──────────────────────────────────────────────────────────────────
 export default function Tim() {
-  usePageMeta("Tim KKNT", "Profil 15 mahasiswa dan Dosen Pembimbing Lapangan KKNT Desa Ngariboyo 2024.");
+  usePageMeta("Tim KKNT", "Profil 15 mahasiswa dan Dosen Pembimbing Lapangan KKNT Desa Ngariboyo 2026.");
 
   const [filter, setFilter] = useState("semua");
   const [search, setSearch] = useState("");
@@ -251,50 +251,113 @@ export default function Tim() {
       </section>
 
       {/* ── STRUKTUR ─────────────────────────────────────────────────────── */}
-      <section id="struktur" className="py-16 bg-muted">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <section id="struktur" className="py-16 sm:py-24 bg-muted">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption border border-border">Organisasi</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption border border-border shadow-sm">Bagan Tim</span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary dark:text-accent">Struktur Organisasi</h2>
+            <p className="text-muted-foreground text-sm font-body mt-2">Susunan kepengurusan, divisi, dan program studi mahasiswa KKNT Desa Ngariboyo 2026</p>
           </div>
           <div className="flex flex-col items-center gap-4">
-            <div className="bg-primary text-white rounded-[20px] px-8 py-4 text-center shadow-lg">
-              <div className="text-xs text-accent font-caption uppercase tracking-wider mb-1">Dosen Pembimbing Lapangan (DPL)</div>
-              <div className="font-display font-bold text-lg">Dr. Ir. Bambang Widodo, M.T.</div>
+            {/* DPL */}
+            <div className="bg-primary text-white rounded-[22px] px-8 py-5 text-center shadow-xl border border-primary/20 max-w-md w-full">
+              <div className="text-xs text-accent font-caption uppercase tracking-wider mb-1 font-semibold">Dosen Pembimbing Lapangan (DPL)</div>
+              <div className="font-display font-bold text-lg sm:text-xl">Dr. Delia Indrawati, S.Pd., M.Pd.</div>
+              <div className="inline-block mt-2 px-3 py-1 rounded-full bg-white/15 text-white/90 text-xs font-caption border border-white/20">
+                Koordinator S1 PGSD · UNESA Kampus Magetan
+              </div>
             </div>
-            <div className="w-px h-8 bg-primary/30 dark:bg-accent/30" />
-            <div className="bg-secondary text-white rounded-[20px] px-8 py-4 text-center shadow-lg">
-              <div className="text-xs text-accent/80 font-caption uppercase tracking-wider mb-1">Ketua Kelompok</div>
-              <div className="font-display font-bold">Ahmad Fauzi</div>
+
+            <div className="w-px h-8 bg-primary/40 dark:bg-accent/40" />
+
+            {/* Kordes */}
+            <div className="bg-secondary text-white rounded-[22px] px-8 py-5 text-center shadow-xl border border-secondary/20 max-w-md w-full">
+              <div className="text-xs text-accent/90 font-caption uppercase tracking-wider mb-1 font-semibold">Ketua Kelompok (KORDES)</div>
+              <div className="font-display font-bold text-lg sm:text-xl">Iqbal Maulana Setyo Prayogi</div>
+              <div className="inline-block mt-2 px-3 py-1 rounded-full bg-white/15 text-white/90 text-xs font-caption border border-white/20">
+                S1 Manajemen
+              </div>
             </div>
-            <div className="w-px h-8 bg-primary/30 dark:bg-accent/30" />
-            <div className="grid sm:grid-cols-3 gap-4 w-full max-w-2xl">
+
+            <div className="w-px h-8 bg-primary/40 dark:bg-accent/40" />
+
+            {/* Pimpinan Inti (Sekretaris & Bendahara) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl">
               {[
-                { peran: "Sekretaris I", nama: "Siti Rahmah" },
-                { peran: "Sekretaris II", nama: "Budi Santoso" },
-                { peran: "Bendahara", nama: "Dewi Lestari" },
+                { peran: "Sekretaris I", nama: "Adelia Putri Luthfian Dava", prodi: "S1 PGSD", warna: "#14532D" },
+                { peran: "Sekretaris II", nama: "Friska Virginia Vahlevi", prodi: "S1 PGSD", warna: "#14532D" },
+                { peran: "Bendahara", nama: "Ilham Khoiru Rizki", prodi: "S1 Manajemen", warna: "#E65100" },
               ].map((s) => (
-                <div key={s.peran} className="bg-card rounded-[20px] px-5 py-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-border">
-                  <div className="text-xs text-primary dark:text-accent font-caption uppercase tracking-wider mb-1">{s.peran}</div>
-                  <div className="font-display font-bold text-foreground text-sm">{s.nama}</div>
+                <div key={s.peran} className="bg-card rounded-[20px] p-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-border hover:-translate-y-0.5 transition-all">
+                  <div className="text-xs text-primary dark:text-accent font-caption uppercase tracking-wider mb-1 font-bold">{s.peran}</div>
+                  <div className="font-display font-bold text-foreground text-sm leading-snug mb-2">{s.nama}</div>
+                  <span className="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-caption font-semibold" style={{ backgroundColor: `${s.warna}18`, color: s.warna }}>
+                    {s.prodi}
+                  </span>
                 </div>
               ))}
             </div>
-            <div className="w-px h-8 bg-primary/30 dark:bg-accent/30" />
+
+            <div className="w-px h-8 bg-primary/40 dark:bg-accent/40" />
+
+            {/* 4 Divisi */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
               {[
-                { divisi: "Perkap", warna: "#14532D", anggota: ["Kevin Oktavian", "Alya Rahma", "Deni Firmansyah"] },
-                { divisi: "Acara", warna: "#1565C0", anggota: ["Citra Dewi", "Rini Wulandari", "Bagas Prasetyo", "Lita Amelia"] },
-                { divisi: "Humas", warna: "#E65100", anggota: ["Yoga Saputra", "Haris Budiman"] },
-                { divisi: "PDD", warna: "#6A1B9A", anggota: ["Endah Rahayu", "Fandi Ardiansyah"] },
+                {
+                  divisi: "Acara",
+                  warna: "#1565C0",
+                  anggota: [
+                    { nama: "Naufal Akbar Putra Pradana", prodi: "S1 Teknik Informatika", jabatan: "Koordinator" },
+                    { nama: "Desi Alfi Khoiriyah", prodi: "S1 Manajemen" },
+                    { nama: "Devita Natalysa", prodi: "S1 Ilmu Keolahragaan" },
+                    { nama: "Putera Al Khalidi", prodi: "S1 Teknik Informatika" },
+                  ],
+                },
+                {
+                  divisi: "Humas",
+                  warna: "#E65100",
+                  anggota: [
+                    { nama: "Bella Ayu Istiani", prodi: "S1 Ilmu Keolahragaan", jabatan: "Koordinator" },
+                    { nama: "Jovanka Hafidl Celesta", prodi: "S1 Manajemen" },
+                  ],
+                },
+                {
+                  divisi: "Logistik",
+                  warna: "#14532D",
+                  anggota: [
+                    { nama: "Muhammad Arfin Baihaqi", prodi: "S1 Manajemen", jabatan: "Koordinator" },
+                    { nama: "Valencia Sindu Putra", prodi: "S1 Manajemen" },
+                    { nama: "Rifki Wahyu Dwi Saputra", prodi: "S1 Ilmu Keolahragaan" },
+                  ],
+                },
+                {
+                  divisi: "PDD (Pubdekdok)",
+                  warna: "#6A1B9A",
+                  anggota: [
+                    { nama: "Izora Elverda Narulita Putri", prodi: "S1 Teknik Informatika", jabatan: "Koordinator" },
+                    { nama: "Rizma Indra Pramudya", prodi: "S1 Teknik Informatika" },
+                  ],
+                },
               ].map((d) => (
-                <div key={d.divisi} className="bg-card rounded-[20px] px-4 py-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-border flex flex-col items-center">
-                  <div className="px-3 py-1 mb-3 rounded-full text-white text-xs font-bold font-caption uppercase tracking-wider w-max" style={{ backgroundColor: d.warna }}>
+                <div key={d.divisi} className="bg-card rounded-[20px] p-5 text-center shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-border flex flex-col items-center hover:-translate-y-0.5 transition-all">
+                  <div className="px-3.5 py-1 mb-4 rounded-full text-white text-xs font-bold font-caption uppercase tracking-wider w-max shadow-sm" style={{ backgroundColor: d.warna }}>
                     Divisi {d.divisi}
                   </div>
-                  <div className="flex flex-col gap-1.5 w-full">
-                    {d.anggota.map((nama) => (
-                      <div key={nama} className="font-display font-medium text-foreground text-sm">{nama}</div>
+                  <div className="flex flex-col gap-3 w-full">
+                    {d.anggota.map((m) => (
+                      <div key={m.nama} className="p-2.5 rounded-xl bg-muted/40 border border-border/60 text-left">
+                        <div className="flex items-center justify-between gap-1 mb-0.5">
+                          <span className="font-display font-semibold text-foreground text-xs leading-snug line-clamp-1">{m.nama}</span>
+                          {m.jabatan && (
+                            <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400 font-caption font-bold shrink-0">
+                              Koord
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-[11px] text-muted-foreground font-caption">
+                          {m.prodi}
+                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -310,7 +373,7 @@ export default function Tim() {
           <div className="text-center mb-10">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-muted text-primary dark:text-accent mb-4 font-caption">Anggota</span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary dark:text-accent mb-3">Profil 15 Mahasiswa</h2>
-            <p className="text-muted-foreground font-body">Klik kartu untuk melihat profil lengkap, divisi, dan program yang diikuti.</p>
+            <p className="text-muted-foreground font-body text-sm sm:text-base">Klik kartu untuk melihat profil lengkap, divisi, dan program yang diikuti.</p>
           </div>
 
           {/* Filter & Search */}
@@ -322,20 +385,25 @@ export default function Tim() {
                 placeholder="Cari nama, NIM, prodi, atau peran..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-card border border-border rounded-[16px] text-sm font-body outline-none focus:border-primary dark:focus:border-accent transition-colors shadow-sm"
+                className="w-full pl-10 pr-4 py-3 bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary dark:focus:border-accent transition-colors shadow-sm"
               />
             </div>
             <div className="flex gap-2 flex-wrap">
               {[{ id: "semua", label: "Semua" }, ...JURUSAN_LIST.map((j) => ({ id: j.id, label: j.label.split(" ")[0] }))].map((f) => {
                 const j = JURUSAN_LIST.find((x) => x.id === f.id);
+                const isActive = filter === f.id;
                 return (
                   <button
                     key={f.id}
                     onClick={() => setFilter(f.id)}
-                    className="px-4 py-2.5 rounded-[16px] text-sm font-medium transition-all font-body border"
-                    style={filter === f.id
+                    className={`px-4 py-2.5 rounded-[16px] text-sm font-medium transition-all font-body border ${
+                      isActive
+                        ? "shadow-sm"
+                        : "bg-card border-border text-muted-foreground hover:text-foreground hover:border-primary/40"
+                    }`}
+                    style={isActive
                       ? { backgroundColor: j?.warna || "#14532D", color: "white", borderColor: j?.warna || "#14532D" }
-                      : { backgroundColor: "transparent", borderColor: "#e2e8f0", color: "inherit" }
+                      : {}
                     }
                   >
                     {f.label}

@@ -1,5 +1,6 @@
 import { DESA } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
+import DesaMap from "../components/DesaMap";
 
 function PageBanner({ title, sub }: { title: string; sub?: string }) {
   return (
@@ -67,45 +68,73 @@ export default function ProfilDesa() {
         </div>
       </section>
 
-      {/* ── PETA ─────────────────────────────────────────────────────────── */}
-      <section id="peta" className="py-20 bg-muted">
+      {/* ── PETA WILAYAH INTERAKTIF DESA NGARIBOYO ───────────────────────── */}
+      <section id="peta" className="py-20 sm:py-28 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white text-primary mb-4 font-caption">Lokasi</span>
-            <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">Peta Desa Ngariboyo</h2>
-            <p className="text-muted-foreground font-body">Desa Ngariboyo, Kecamatan Ngariboyo, Kabupaten Magetan, Jawa Timur</p>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption shadow-sm border border-border">
+              Peta Administratif & Titik Lokasi
+            </span>
+            <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">
+              Peta Wilayah Desa Ngariboyo
+            </h2>
+            <p className="text-muted-foreground font-body max-w-2xl mx-auto text-sm sm:text-base">
+              Eksplorasi batas wilayah resmi Desa Ngariboyo yang dibatasi garis hijau interaktif, lengkap dengan sebaran fasilitas umum, sentra UMKM, dan Posko KKNT UNESA 2026.
+            </p>
           </div>
-          <div className="grid lg:grid-cols-3 gap-8 items-start">
-            <div className="lg:col-span-2 rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.12)] ring-4 ring-primary/10">
-              <iframe
-                title="Peta Desa Ngariboyo"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=111.43%2C-7.70%2C111.52%2C-7.61&layer=mapnik&marker=-7.652%2C111.472"
-                className="w-full"
-                style={{ height: 440 }}
-                loading="lazy"
-              />
-            </div>
-            <div className="space-y-4">
-              <div className="bg-white rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-border">
-                <h4 className="font-display font-bold text-primary mb-4">Informasi Administratif</h4>
-                {[
-                  { l: "Desa", v: "Ngariboyo" },
-                  { l: "Kecamatan", v: "Ngariboyo" },
-                  { l: "Kabupaten", v: "Magetan" },
-                  { l: "Provinsi", v: "Jawa Timur" },
-                  { l: "Kode Pos", v: "63351" },
-                ].map(({ l, v }) => (
-                  <div key={l} className="flex justify-between py-2 border-b border-border last:border-0 text-sm">
-                    <span className="text-muted-foreground font-body">{l}</span>
-                    <span className="text-foreground font-semibold font-body">{v}</span>
-                  </div>
-                ))}
+
+          {/* Leaflet Interactive Map with Boundary Polygon */}
+          <div className="mb-10">
+            <DesaMap />
+          </div>
+
+          {/* Kartu Informasi Administratif & Geografis */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="bg-card rounded-[22px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-border">
+              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1 font-caption">
+                Kecamatan / Kabupaten
               </div>
-              <div className="bg-primary rounded-[20px] p-6 text-white">
-                <h4 className="font-display font-bold mb-4">Lokasi Strategis</h4>
-                <p className="text-white/70 text-sm font-body leading-relaxed">
-                  Terletak di kaki Gunung Lawu, Desa Ngariboyo memiliki udara sejuk, tanah subur, dan akses mudah dari pusat Kota Magetan (~15 km).
-                </p>
+              <div className="font-display font-bold text-foreground text-lg">
+                Ngariboyo, Magetan
+              </div>
+              <div className="text-xs text-primary dark:text-accent mt-2 font-caption font-semibold">
+                Jawa Timur · Kode Pos 63351
+              </div>
+            </div>
+
+            <div className="bg-card rounded-[22px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-border">
+              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1 font-caption">
+                Luas Wilayah
+              </div>
+              <div className="font-display font-bold text-primary text-2xl">
+                ±8.5 <span className="text-base font-normal text-muted-foreground">km²</span>
+              </div>
+              <div className="text-xs text-muted-foreground mt-2 font-caption">
+                Dominasi persawahan & pemukiman
+              </div>
+            </div>
+
+            <div className="bg-card rounded-[22px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-border">
+              <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1 font-caption">
+                Struktur Dusun
+              </div>
+              <div className="font-display font-bold text-foreground text-lg">
+                6 RW / 18 RT
+              </div>
+              <div className="text-xs text-muted-foreground mt-2 font-caption">
+                Dusun I, II, dan sekitarnya
+              </div>
+            </div>
+
+            <div className="bg-primary rounded-[22px] p-6 text-white shadow-[0_10px_30px_rgba(20,83,45,0.2)]">
+              <div className="text-xs font-semibold uppercase tracking-wider text-accent mb-1 font-caption">
+                Aksesibilitas
+              </div>
+              <div className="font-display font-bold text-white text-lg">
+                Kaki Gunung Lawu
+              </div>
+              <div className="text-xs text-white/70 mt-2 font-caption">
+                ±15 km dari pusat Kota Magetan
               </div>
             </div>
           </div>
@@ -118,16 +147,16 @@ export default function ProfilDesa() {
           <div className="text-center mb-14">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-muted text-primary mb-4 font-caption">Potensi</span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">Potensi Desa</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto font-body">Desa Ngariboyo memiliki beragam potensi yang siap dikembangkan untuk kemakmuran warga.</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto font-body text-sm sm:text-base">Desa Ngariboyo memiliki beragam potensi yang siap dikembangkan untuk kemakmuran warga.</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {DESA.potensi.map((p) => (
               <div
                 key={p.judul}
-                className="group bg-white rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all border border-border"
+                className="group bg-card rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all border border-border"
               >
                 <div className="text-4xl mb-4">{p.ikon}</div>
-                <h3 className="font-display font-bold text-primary text-lg mb-2 group-hover:text-secondary transition-colors">{p.judul}</h3>
+                <h3 className="font-display font-bold text-primary dark:text-accent text-lg mb-2 group-hover:text-secondary transition-colors">{p.judul}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed font-body">{p.deskripsi}</p>
               </div>
             ))}
@@ -139,22 +168,22 @@ export default function ProfilDesa() {
       <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white text-primary mb-4 font-caption">Tantangan</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption border border-border shadow-sm">Tantangan</span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">Permasalahan Desa</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto font-body">Inilah permasalahan yang kami identifikasi dan menjadi fokus program KKNT.</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto font-body text-sm sm:text-base">Inilah permasalahan yang kami identifikasi dan menjadi fokus program KKNT.</p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {DESA.permasalahan.map((p, i) => (
               <div
                 key={p.judul}
-                className="bg-white rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-l-4 border-accent border border-border"
+                className="bg-card rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-l-4 border-accent border border-border"
               >
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-accent/15 rounded-xl flex items-center justify-center text-2xl shrink-0">{p.ikon}</div>
                   <div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="font-display font-bold text-foreground text-base">{p.judul}</span>
-                      <span className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded-full font-caption">#{i + 1}</span>
+                      <span className="px-2 py-0.5 bg-primary/15 text-primary dark:text-accent text-xs rounded-full font-caption">#{i + 1}</span>
                     </div>
                     <p className="text-muted-foreground text-sm leading-relaxed font-body">{p.deskripsi}</p>
                   </div>

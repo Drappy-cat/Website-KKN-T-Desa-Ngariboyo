@@ -22,16 +22,16 @@ function PageBanner({ title, sub }: { title: string; sub?: string }) {
 const KATEGORI = ["Semua", "Desa", "Pendidikan", "Olahraga", "Ekonomi", "Lingkungan", "Teknologi", "Kesehatan", "Kegiatan"];
 
 const VIDEOS = [
-  { judul: "Opening KKNT Desa Ngariboyo 2024", durasi: "3:45", thumb: "https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=500&h=280&fit=crop", yt: "https://youtube.com" },
+  { judul: "Opening KKNT Desa Ngariboyo 2026", durasi: "3:45", thumb: "https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=500&h=280&fit=crop", yt: "https://youtube.com" },
   { judul: "Senam Pagi Bersama Warga Desa", durasi: "5:12", thumb: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=280&fit=crop", yt: "https://youtube.com" },
   { judul: "Workshop Kemasan Produk UMKM", durasi: "8:30", thumb: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=280&fit=crop", yt: "https://youtube.com" },
   { judul: "Bimbingan Belajar Gratis SD–SMP", durasi: "6:15", thumb: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&h=280&fit=crop", yt: "https://youtube.com" },
-  { judul: "Launching Website Desa Ngariboyo", durasi: "4:00", thumb: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=280&fit=crop", yt: "https://youtube.com" },
-  { judul: "Kerja Bakti Revitalisasi Taman Desa", durasi: "7:20", thumb: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&h=280&fit=crop", yt: "https://youtube.com" },
+  { judul: "Inisiasi Website Resmi Desa Ngariboyo", durasi: "4:00", thumb: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500&h=280&fit=crop", yt: "https://youtube.com" },
+  { judul: "Observasi & Pemetaan Wilayah Desa", durasi: "7:20", thumb: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&h=280&fit=crop", yt: "https://youtube.com" },
 ];
 
 export default function Dokumentasi() {
-  usePageMeta("Dokumentasi", "Galeri foto dan video kegiatan KKNT Desa Ngariboyo 2024.");
+  usePageMeta("Dokumentasi", "Galeri foto dan video kegiatan KKNT Desa Ngariboyo 2026.");
   const [filterKat, setFilterKat] = useState("Semua");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [tab, setTab] = useState<"foto" | "video">("foto");
@@ -79,7 +79,7 @@ export default function Dokumentasi() {
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all font-body ${
                     filterKat === k
                       ? "bg-primary text-white shadow-md"
-                      : "bg-white border border-border text-foreground/60 hover:border-primary/40"
+                      : "bg-card border border-border text-foreground/70 hover:border-primary/40"
                   }`}
                 >
                   {k}
@@ -127,7 +127,7 @@ export default function Dokumentasi() {
                   href={v.yt}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-1 border border-border"
+                  className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all hover:-translate-y-1 border border-border"
                 >
                   <div className="relative h-44 overflow-hidden">
                     <img
@@ -146,7 +146,7 @@ export default function Dokumentasi() {
                   </div>
                   <div className="p-4">
                     <h3 className="font-display font-bold text-foreground text-sm leading-snug group-hover:text-primary transition-colors">{v.judul}</h3>
-                    <p className="text-muted-foreground text-xs mt-1 font-caption">KKNT Desa Ngariboyo 2024</p>
+                    <p className="text-muted-foreground text-xs mt-1 font-caption">KKNT Desa Ngariboyo 2026</p>
                   </div>
                 </a>
               ))}

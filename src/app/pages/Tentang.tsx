@@ -158,7 +158,7 @@ export default function Tentang() {
       <section className="py-20 bg-muted">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white text-primary mb-4 font-caption">Tujuan</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption border border-border shadow-sm">Tujuan</span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary">Tujuan Program</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-5">
@@ -168,8 +168,8 @@ export default function Tentang() {
               { no: "03", judul: "Pemberdayaan Warga", deskripsi: "Meningkatkan kapasitas dan kemandirian warga desa melalui pelatihan, pendampingan, dan transfer pengetahuan." },
             ].map((t) => (
               <div key={t.no} className="bg-card rounded-[20px] p-7 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-border hover:-translate-y-1 transition-all">
-                <div className="font-display font-extrabold text-5xl text-primary/10 mb-2">{t.no}</div>
-                <h3 className="font-display font-bold text-primary text-xl mb-3">{t.judul}</h3>
+                <div className="font-display font-extrabold text-5xl text-primary/10 dark:text-accent/15 mb-2">{t.no}</div>
+                <h3 className="font-display font-bold text-primary dark:text-accent text-xl mb-3">{t.judul}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed font-body">{t.deskripsi}</p>
               </div>
             ))}
@@ -191,11 +191,11 @@ export default function Tentang() {
 
             {/* Misi */}
             <div className="bg-card rounded-[20px] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-border">
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-widest mb-5 font-caption border border-primary/20">Misi</span>
+              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary dark:text-accent text-xs font-semibold uppercase tracking-widest mb-5 font-caption border border-primary/20">Misi</span>
               <ul className="space-y-4">
                 {IDENTITAS.misi.map((m, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-primary dark:text-emerald-400 shrink-0 mt-0.5" />
                     <span className="text-foreground text-sm leading-relaxed font-body">{m}</span>
                   </li>
                 ))}
@@ -211,7 +211,7 @@ export default function Tentang() {
             </div>
             <div className="bg-muted rounded-[20px] p-7 text-center border border-border">
               <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3 font-caption">Tagline</div>
-              <h3 className="font-display font-bold text-primary text-xl">{IDENTITAS.tagline}</h3>
+              <h3 className="font-display font-bold text-primary dark:text-accent text-xl">{IDENTITAS.tagline}</h3>
             </div>
           </div>
         </div>
@@ -221,14 +221,14 @@ export default function Tentang() {
       <section id="filosofi" className="py-20 sm:py-28 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-white text-primary mb-4 font-caption">Identitas Visual</span>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption border border-border shadow-sm">Identitas Visual</span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">Filosofi Logo</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto font-body">{IDENTITAS.filosofi}</p>
+            <p className="text-muted-foreground max-w-2xl mx-auto font-body text-sm sm:text-base">{IDENTITAS.filosofi}</p>
           </div>
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Logo display */}
             <div className="lg:sticky lg:top-28 flex flex-col items-center gap-6">
-              <div className="bg-white rounded-[24px] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-border">
+              <div className="bg-card rounded-[24px] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-border">
                 <img src={logoTransparent} alt="Logo KKNT Desa Ngariboyo" className="w-64 h-64 sm:w-80 sm:h-80 object-contain" loading="lazy" decoding="async" />
               </div>
               <div className="bg-primary rounded-[20px] p-6 text-center w-full max-w-sm">

@@ -69,9 +69,9 @@
 
   /* ── Brand — hijau sejuk & natural (bukan neon/terlalu terang) ─────── */
   --primary: #2EA043;           /* Hijau emerald seimbang, tidak menyilaukan */
-  --primary-foreground: #090D11;
+  --primary-foreground: #FFFFFF;
   --secondary: #238636;
-  --secondary-foreground: #090D11;
+  --secondary-foreground: #FFFFFF;
 
   /* ── Aksen — kuning emas tetap, sangat terbaca di latar gelap ───────── */
   --accent: #F4B400;

@@ -54,7 +54,7 @@ function SearchOverlay({ onClose }: { onClose: () => void }) {
                   className="w-full flex items-center gap-3 px-5 py-3 text-left hover:bg-muted transition-colors"
                   onClick={() => { navigate(r.href); onClose(); }}
                 >
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-caption shrink-0">{r.type}</span>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-primary/15 text-primary dark:text-accent font-caption shrink-0 font-medium">{r.type}</span>
                   <span className="text-sm text-foreground font-body truncate">{r.label}</span>
                 </button>
               </li>
@@ -158,7 +158,7 @@ export default function Navbar() {
             </div>
             <div className="leading-tight">
               <div className={`font-display font-extrabold text-sm tracking-wide transition-colors ${scrolled ? "text-primary dark:text-accent" : "text-white"}`}>
-                KKNT 2024
+                KKNT 2026
               </div>
               <div className={`text-xs font-caption transition-colors ${scrolled ? "text-muted-foreground" : "text-white/70"}`}>
                 Desa Ngariboyo
@@ -250,7 +250,7 @@ export default function Navbar() {
                 <img src={logoTransparent} alt="Logo" className="w-8 h-8 object-contain" />
               </div>
               <div>
-                <div className="font-display font-bold text-primary dark:text-accent text-sm">KKNT 2024</div>
+                <div className="font-display font-bold text-primary dark:text-accent text-sm">KKNT 2026</div>
                 <div className="text-xs text-muted-foreground font-caption">Desa Ngariboyo</div>
               </div>
             </div>
@@ -314,7 +314,7 @@ export default function Navbar() {
           </div>
           <div className="p-5 border-t border-border">
             <p className="text-xs text-muted-foreground font-caption text-center">
-              KKNT Universitas Negeri Surabaya<br />Desa Ngariboyo, Magetan 2024
+              KKNT Universitas Negeri Surabaya<br />Desa Ngariboyo, Magetan 2026
             </p>
           </div>
         </div>

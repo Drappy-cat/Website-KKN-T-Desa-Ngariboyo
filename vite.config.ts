@@ -42,6 +42,7 @@ export default defineConfig({
             '@radix-ui/react-dialog',
             'echarts-for-react',
             'fast-deep-equal',
+            'leaflet',
             'clsx',
             'tailwind-merge',
         ],
@@ -52,6 +53,9 @@ export default defineConfig({
             output: {
                 manualChunks(id) {
                     if (id.includes('node_modules')) {
+                        if (id.includes('leaflet')) {
+                            return 'vendor-leaflet';
+                        }
                         if (id.includes('echarts') || id.includes('zrender')) {
                             return 'vendor-echarts';
                         }

@@ -87,35 +87,53 @@ Desa ini memiliki sejarah panjang sejak masa kolonial Belanda, dengan masyarakat
 };
 
 // ── DPL ──────────────────────────────────────────────────────────────────────
+import fotoDplDelia from "../../assets/dosen/delia-indrawati-1.jpg";
+
 export const DPL = [
   {
-    nama: "Dr. Ir. Bambang Widodo, M.T.",
+    nama: "Dr. Delia Indrawati, S.Pd., M.Pd.",
     jabatan: "Dosen Pembimbing Lapangan",
-    prodi: "Teknik Sipil",
-    fakultas: "Fakultas Teknik",
-    email: "b.widodo@unesa.ac.id",
+    prodi: "Pendidikan Guru Sekolah Dasar (PGSD)",
+    fakultas: "Fakultas Ilmu Pendidikan / Kampus Magetan",
+    email: "deliaindrawati@unesa.ac.id",
     telp: "0812-3456-7890",
-    foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&auto=format",
+    foto: fotoDplDelia,
   },
 ];
 
 // ── MAHASISWA ────────────────────────────────────────────────────────────────
+import mhs1Iqbal from "../../assets/mahasiswa/mhs_1_iqbal.png";
+import mhs2Adelia from "../../assets/mahasiswa/mhs_2_adelia.png";
+import mhs3Friska from "../../assets/mahasiswa/mhs_3_friska.png";
+import mhs4Ilham from "../../assets/mahasiswa/mhs_4_ilham.png";
+import mhs5Devita from "../../assets/mahasiswa/mhs_5_devita.png";
+import mhs6Putera from "../../assets/mahasiswa/mhs_6_putera.png";
+import mhs7Naufal from "../../assets/mahasiswa/mhs_7_naufal.png";
+import mhs8Desi from "../../assets/mahasiswa/mhs_8_desi.png";
+import mhs9Bella from "../../assets/mahasiswa/mhs_9_bella.png";
+import mhs10Jovanka from "../../assets/mahasiswa/mhs_10_jovanka.png";
+import mhs11Rifki from "../../assets/mahasiswa/mhs_11_rifki.png";
+import mhs12Valencia from "../../assets/mahasiswa/mhs_12_valencia.png";
+import mhs13Arfin from "../../assets/mahasiswa/mhs_13_arfin.png";
+import mhs14Rizma from "../../assets/mahasiswa/mhs_14_rizma.png";
+import mhs15Izora from "../../assets/mahasiswa/mhs_15_izora.png";
+
 export const MAHASISWA = [
-  { id: 1, nama: "Iqbal Maulana Setyo Prayogi", nim: "24111784051", prodi: "Manajemen", divisi: "Inti", peran: "Kordes / Ketua Kelompok", foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&auto=format" },
-  { id: 2, nama: "Adelia Putri Luthfian Dava", nim: "24111744136", prodi: "PGSD", divisi: "Inti", peran: "Sekretaris I", foto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&auto=format" },
-  { id: 3, nama: "Friska Virginia Vahlevi", nim: "24111744138", prodi: "PGSD", divisi: "Inti", peran: "Sekretaris II", foto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&auto=format" },
-  { id: 4, nama: "Ilham Khoiru Rizki", nim: "24111784052", prodi: "Manajemen", divisi: "Inti", peran: "Bendahara", foto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&auto=format" },
-  { id: 5, nama: "Devita Natalysa", nim: "24060484050", prodi: "Ilmu Keolahragaan", divisi: "Acara", peran: "Anggota", foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&auto=format" },
-  { id: 6, nama: "Putera Al Khalidi", nim: "25051204362", prodi: "Teknik Informatika", divisi: "Acara", peran: "Anggota", foto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&auto=format" },
-  { id: 7, nama: "Naufal Akbar Putra Pradana", nim: "25051204322", prodi: "Teknik Informatika", divisi: "Acara", peran: "Koordinator", foto: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&auto=format" },
-  { id: 8, nama: "Desi Alfi Khoiriyah", nim: "24111784114", prodi: "Manajemen", divisi: "Acara", peran: "Anggota", foto: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&auto=format" },
-  { id: 9, nama: "Bella Ayu Istiani", nim: "24060484058", prodi: "Ilmu Keolahragaan", divisi: "Humas", peran: "Koordinator", foto: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&h=300&fit=crop&auto=format" },
-  { id: 10, nama: "Jovanka Hafidl Celesta", nim: "24111784049", prodi: "Manajemen", divisi: "Humas", peran: "Anggota", foto: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&h=300&fit=crop&auto=format" },
-  { id: 11, nama: "Rifki Wahyu Dwi Saputra", nim: "24060484027", prodi: "Ilmu Keolahragaan", divisi: "Logistik", peran: "Anggota", foto: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=300&h=300&fit=crop&auto=format" },
-  { id: 12, nama: "Valencia Sindu Putra", nim: "24111784181", prodi: "Manajemen", divisi: "Logistik", peran: "Anggota", foto: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=300&h=300&fit=crop&auto=format" },
-  { id: 13, nama: "Muhammad Arfin Baihaqi", nim: "24111784182", prodi: "Manajemen", divisi: "Logistik", peran: "Koordinator", foto: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&auto=format" },
-  { id: 14, nama: "Rizma Indra Pramudya", nim: "25051204370", prodi: "Teknik Informatika", divisi: "PDD", peran: "Anggota", foto: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=300&h=300&fit=crop&auto=format" },
-  { id: 15, nama: "Izora Elverda Narulita Putri", nim: "25051204287", prodi: "Teknik Informatika", divisi: "PDD", peran: "Koordinator", foto: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=300&h=300&fit=crop&auto=format" },
+  { id: 1, nama: "Iqbal Maulana Setyo Prayogi", nim: "24111784051", prodi: "Manajemen", divisi: "Inti", peran: "Kordes / Ketua Kelompok", foto: mhs1Iqbal },
+  { id: 2, nama: "Adelia Putri Luthfian Dava", nim: "24111744136", prodi: "PGSD", divisi: "Inti", peran: "Sekretaris I", foto: mhs2Adelia },
+  { id: 3, nama: "Friska Virginia Vahlevi", nim: "24111744138", prodi: "PGSD", divisi: "Inti", peran: "Sekretaris II", foto: mhs3Friska },
+  { id: 4, nama: "Ilham Khoiru Rizki", nim: "24111784052", prodi: "Manajemen", divisi: "Inti", peran: "Bendahara", foto: mhs4Ilham },
+  { id: 5, nama: "Devita Natalysa", nim: "24060484050", prodi: "Ilmu Keolahragaan", divisi: "Acara", peran: "Anggota", foto: mhs5Devita },
+  { id: 6, nama: "Putera Al Khalidi", nim: "25051204362", prodi: "Teknik Informatika", divisi: "Acara", peran: "Anggota", foto: mhs6Putera },
+  { id: 7, nama: "Naufal Akbar Putra Pradana", nim: "25051204322", prodi: "Teknik Informatika", divisi: "Acara", peran: "Koordinator", foto: mhs7Naufal },
+  { id: 8, nama: "Desi Alfi Khoiriyah", nim: "24111784114", prodi: "Manajemen", divisi: "Acara", peran: "Anggota", foto: mhs8Desi },
+  { id: 9, nama: "Bella Ayu Istiani", nim: "24060484058", prodi: "Ilmu Keolahragaan", divisi: "Humas", peran: "Koordinator", foto: mhs9Bella },
+  { id: 10, nama: "Jovanka Hafidl Celesta", nim: "24111784049", prodi: "Manajemen", divisi: "Humas", peran: "Anggota", foto: mhs10Jovanka },
+  { id: 11, nama: "Rifki Wahyu Dwi Saputra", nim: "24060484027", prodi: "Ilmu Keolahragaan", divisi: "Logistik", peran: "Anggota", foto: mhs11Rifki },
+  { id: 12, nama: "Valencia Sindu Putra", nim: "24111784181", prodi: "Manajemen", divisi: "Logistik", peran: "Anggota", foto: mhs12Valencia },
+  { id: 13, nama: "Muhammad Arfin Baihaqi", nim: "24111784182", prodi: "Manajemen", divisi: "Logistik", peran: "Koordinator", foto: mhs13Arfin },
+  { id: 14, nama: "Rizma Indra Pramudya", nim: "25051204370", prodi: "Teknik Informatika", divisi: "PDD", peran: "Anggota", foto: mhs14Rizma },
+  { id: 15, nama: "Izora Elverda Narulita Putri", nim: "25051204287", prodi: "Teknik Informatika", divisi: "PDD", peran: "Koordinator", foto: mhs15Izora },
 ];
 
 // ── JURUSAN ──────────────────────────────────────────────────────────────────
