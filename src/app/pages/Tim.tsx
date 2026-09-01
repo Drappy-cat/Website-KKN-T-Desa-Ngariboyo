@@ -232,28 +232,15 @@ export default function Tim() {
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary dark:text-accent mb-3">Dosen Pembimbing Lapangan</h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto">Dosen yang membimbing dan mendampingi seluruh program KKNT di Desa Ngariboyo.</p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-8 max-w-3xl mx-auto">
             {DPL.map((d, i) => (
-              <div key={i} className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all border border-border hover:-translate-y-1">
-                <div className="relative h-56 overflow-hidden">
+              <div key={i} className="w-full max-w-sm group rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all border border-border hover:-translate-y-1">
+                <div className="relative h-80 overflow-hidden">
                   <img src={d.foto} alt={d.nama} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5">
                     <div className="text-accent text-xs font-semibold uppercase tracking-wider mb-1 font-caption">{d.jabatan}</div>
-                    <h3 className="font-display font-bold text-white text-lg leading-snug">{d.nama}</h3>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <p className="text-muted-foreground text-sm font-body mb-4">{d.prodi} · {d.fakultas}</p>
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2.5 text-sm text-foreground/65 font-body">
-                      <Mail className="w-4 h-4 text-primary dark:text-accent shrink-0" />
-                      <span className="truncate">{d.email}</span>
-                    </div>
-                    <div className="flex items-center gap-2.5 text-sm text-foreground/65 font-body">
-                      <Phone className="w-4 h-4 text-primary dark:text-accent shrink-0" />
-                      {d.telp}
-                    </div>
+                    <h3 className="font-display font-bold text-white text-xl leading-snug">{d.nama}</h3>
                   </div>
                 </div>
               </div>
@@ -271,39 +258,44 @@ export default function Tim() {
           </div>
           <div className="flex flex-col items-center gap-4">
             <div className="bg-primary text-white rounded-[20px] px-8 py-4 text-center shadow-lg">
-              <div className="text-xs text-accent font-caption uppercase tracking-wider mb-1">Pembimbing</div>
-              <div className="font-display font-bold">Dosen Pembimbing Lapangan (DPL)</div>
+              <div className="text-xs text-accent font-caption uppercase tracking-wider mb-1">Dosen Pembimbing Lapangan (DPL)</div>
+              <div className="font-display font-bold text-lg">Dr. Ir. Bambang Widodo, M.T.</div>
             </div>
             <div className="w-px h-8 bg-primary/30 dark:bg-accent/30" />
             <div className="bg-secondary text-white rounded-[20px] px-8 py-4 text-center shadow-lg">
               <div className="text-xs text-accent/80 font-caption uppercase tracking-wider mb-1">Ketua Kelompok</div>
               <div className="font-display font-bold">Ahmad Fauzi</div>
-              <div className="text-white/60 text-sm font-body">PGSD</div>
             </div>
             <div className="w-px h-8 bg-primary/30 dark:bg-accent/30" />
             <div className="grid sm:grid-cols-3 gap-4 w-full max-w-2xl">
               {[
-                { peran: "Wakil Ketua", nama: "Siti Rahmah", prodi: "PGSD" },
-                { peran: "Sekretaris", nama: "Kevin Oktavian", prodi: "Teknik Informatika" },
-                { peran: "Bendahara", nama: "Deni Firmansyah", prodi: "Teknik Informatika" },
+                { peran: "Sekretaris I", nama: "Siti Rahmah" },
+                { peran: "Sekretaris II", nama: "Budi Santoso" },
+                { peran: "Bendahara", nama: "Dewi Lestari" },
               ].map((s) => (
                 <div key={s.peran} className="bg-card rounded-[20px] px-5 py-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-border">
                   <div className="text-xs text-primary dark:text-accent font-caption uppercase tracking-wider mb-1">{s.peran}</div>
                   <div className="font-display font-bold text-foreground text-sm">{s.nama}</div>
-                  <div className="text-muted-foreground text-xs font-body">{s.prodi}</div>
                 </div>
               ))}
             </div>
             <div className="w-px h-8 bg-primary/30 dark:bg-accent/30" />
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
               {[
-                { divisi: "Pendidikan", warna: "#14532D" },
-                { divisi: "Teknologi", warna: "#1565C0" },
-                { divisi: "Ekonomi", warna: "#E65100" },
-                { divisi: "Olahraga", warna: "#6A1B9A" },
+                { divisi: "Perkap", warna: "#14532D", anggota: ["Kevin Oktavian", "Alya Rahma", "Deni Firmansyah"] },
+                { divisi: "Acara", warna: "#1565C0", anggota: ["Citra Dewi", "Rini Wulandari", "Bagas Prasetyo", "Lita Amelia"] },
+                { divisi: "Humas", warna: "#E65100", anggota: ["Yoga Saputra", "Haris Budiman"] },
+                { divisi: "PDD", warna: "#6A1B9A", anggota: ["Endah Rahayu", "Fandi Ardiansyah"] },
               ].map((d) => (
-                <div key={d.divisi} className="rounded-[16px] px-4 py-3 text-center text-white text-sm font-semibold font-body" style={{ backgroundColor: d.warna }}>
-                  {d.divisi}
+                <div key={d.divisi} className="bg-card rounded-[20px] px-4 py-4 text-center shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-border flex flex-col items-center">
+                  <div className="px-3 py-1 mb-3 rounded-full text-white text-xs font-bold font-caption uppercase tracking-wider w-max" style={{ backgroundColor: d.warna }}>
+                    Divisi {d.divisi}
+                  </div>
+                  <div className="flex flex-col gap-1.5 w-full">
+                    {d.anggota.map((nama) => (
+                      <div key={nama} className="font-display font-medium text-foreground text-sm">{nama}</div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>

@@ -90,41 +90,32 @@ Desa ini memiliki sejarah panjang sejak masa kolonial Belanda, dengan masyarakat
 export const DPL = [
   {
     nama: "Dr. Ir. Bambang Widodo, M.T.",
-    jabatan: "Dosen Pembimbing Lapangan I",
+    jabatan: "Dosen Pembimbing Lapangan",
     prodi: "Teknik Sipil",
     fakultas: "Fakultas Teknik",
     email: "b.widodo@unesa.ac.id",
     telp: "0812-3456-7890",
     foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&auto=format",
   },
-  {
-    nama: "Dr. Sri Wahyuni, M.Pd.",
-    jabatan: "Dosen Pembimbing Lapangan II",
-    prodi: "Pendidikan Dasar",
-    fakultas: "Fakultas Ilmu Pendidikan",
-    email: "s.wahyuni@unesa.ac.id",
-    telp: "0813-4567-8901",
-    foto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&auto=format",
-  },
 ];
 
 // ── MAHASISWA ────────────────────────────────────────────────────────────────
 export const MAHASISWA = [
-  { id: 1, nama: "Ahmad Fauzi", nim: "22010174001", prodi: "PGSD", divisi: "Koordinator", peran: "Ketua Kelompok", foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&auto=format" },
-  { id: 2, nama: "Siti Rahmah", nim: "22010174002", prodi: "PGSD", divisi: "Pendidikan", peran: "Wakil Ketua", foto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&auto=format" },
-  { id: 3, nama: "Budi Santoso", nim: "22010174003", prodi: "PGSD", divisi: "Pendidikan", peran: "Pengajar", foto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&auto=format" },
-  { id: 4, nama: "Dewi Lestari", nim: "22010174004", prodi: "PGSD", divisi: "Pendidikan", peran: "Pengajar", foto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&auto=format" },
-  { id: 5, nama: "Kevin Oktavian", nim: "22050514001", prodi: "Teknik Informatika", divisi: "Teknologi", peran: "Sekretaris", foto: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&auto=format" },
-  { id: 6, nama: "Alya Rahma", nim: "22050514002", prodi: "Teknik Informatika", divisi: "Teknologi", peran: "Anggota", foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&auto=format" },
-  { id: 7, nama: "Deni Firmansyah", nim: "22050514003", prodi: "Teknik Informatika", divisi: "Teknologi", peran: "Bendahara I", foto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&auto=format" },
-  { id: 8, nama: "Citra Dewi", nim: "22050514004", prodi: "Teknik Informatika", divisi: "Teknologi", peran: "Anggota", foto: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&h=300&fit=crop&auto=format" },
-  { id: 9, nama: "Rini Wulandari", nim: "22080574001", prodi: "Manajemen", divisi: "Ekonomi", peran: "Bendahara II", foto: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&auto=format" },
-  { id: 10, nama: "Bagas Prasetyo", nim: "22080574002", prodi: "Manajemen", divisi: "Ekonomi", peran: "Humas I", foto: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=300&h=300&fit=crop&auto=format" },
-  { id: 11, nama: "Lita Amelia", nim: "22080574003", prodi: "Manajemen", divisi: "Ekonomi", peran: "Humas II", foto: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&h=300&fit=crop&auto=format" },
-  { id: 12, nama: "Yoga Saputra", nim: "22080574004", prodi: "Manajemen", divisi: "Ekonomi", peran: "Anggota", foto: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&auto=format" },
-  { id: 13, nama: "Haris Budiman", nim: "22060424001", prodi: "Ilmu Keolahragaan", divisi: "Kesehatan & Olahraga", peran: "Koordinator Lapangan", foto: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=300&h=300&fit=crop&auto=format" },
-  { id: 14, nama: "Endah Rahayu", nim: "22060424002", prodi: "Ilmu Keolahragaan", divisi: "Kesehatan & Olahraga", peran: "Dokumentasi", foto: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=300&h=300&fit=crop&auto=format" },
-  { id: 15, nama: "Fandi Ardiansyah", nim: "22060424003", prodi: "Ilmu Keolahragaan", divisi: "Kesehatan & Olahraga", peran: "Anggota", foto: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=300&h=300&fit=crop&auto=format" },
+  { id: 1, nama: "Ahmad Fauzi", nim: "22010174001", prodi: "PGSD", divisi: "Inti", peran: "Kordes / Ketua Kelompok", foto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&auto=format" },
+  { id: 2, nama: "Siti Rahmah", nim: "22010174002", prodi: "PGSD", divisi: "Inti", peran: "Sekretaris I", foto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&auto=format" },
+  { id: 3, nama: "Budi Santoso", nim: "22010174003", prodi: "PGSD", divisi: "Inti", peran: "Sekretaris II", foto: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&auto=format" },
+  { id: 4, nama: "Dewi Lestari", nim: "22010174004", prodi: "PGSD", divisi: "Inti", peran: "Bendahara", foto: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&auto=format" },
+  { id: 5, nama: "Kevin Oktavian", nim: "22050514001", prodi: "Teknik Informatika", divisi: "Perkap", peran: "Koordinator", foto: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&auto=format" },
+  { id: 6, nama: "Alya Rahma", nim: "22050514002", prodi: "Teknik Informatika", divisi: "Perkap", peran: "Anggota", foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&auto=format" },
+  { id: 7, nama: "Deni Firmansyah", nim: "22050514003", prodi: "Teknik Informatika", divisi: "Perkap", peran: "Anggota", foto: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&auto=format" },
+  { id: 8, nama: "Citra Dewi", nim: "22050514004", prodi: "Teknik Informatika", divisi: "Acara", peran: "Koordinator", foto: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&h=300&fit=crop&auto=format" },
+  { id: 9, nama: "Rini Wulandari", nim: "22080574001", prodi: "Manajemen", divisi: "Acara", peran: "Anggota", foto: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=300&fit=crop&auto=format" },
+  { id: 10, nama: "Bagas Prasetyo", nim: "22080574002", prodi: "Manajemen", divisi: "Acara", peran: "Anggota", foto: "https://images.unsplash.com/photo-1463453091185-61582044d556?w=300&h=300&fit=crop&auto=format" },
+  { id: 11, nama: "Lita Amelia", nim: "22080574003", prodi: "Manajemen", divisi: "Acara", peran: "Anggota", foto: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&h=300&fit=crop&auto=format" },
+  { id: 12, nama: "Yoga Saputra", nim: "22080574004", prodi: "Manajemen", divisi: "Humas", peran: "Koordinator", foto: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&h=300&fit=crop&auto=format" },
+  { id: 13, nama: "Haris Budiman", nim: "22060424001", prodi: "Ilmu Keolahragaan", divisi: "Humas", peran: "Anggota", foto: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=300&h=300&fit=crop&auto=format" },
+  { id: 14, nama: "Endah Rahayu", nim: "22060424002", prodi: "Ilmu Keolahragaan", divisi: "PDD", peran: "Koordinator", foto: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=300&h=300&fit=crop&auto=format" },
+  { id: 15, nama: "Fandi Ardiansyah", nim: "22060424003", prodi: "Ilmu Keolahragaan", divisi: "PDD", peran: "Anggota", foto: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=300&h=300&fit=crop&auto=format" },
 ];
 
 // ── JURUSAN ──────────────────────────────────────────────────────────────────
