@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { MapPin, Mail, Instagram, ArrowUp, Phone } from "lucide-react";
 import { NAV_LINKS } from "../data";
-import logoVest from "../../assets/logos/kknt/logo-kknt-vest.png";
+import logoTransparent from "../../assets/logos/kknt/logo-kknt-removebg.png";
 
 export default function Footer() {
   const backToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-12 h-12 bg-white rounded-full p-1.5 shrink-0 shadow-md overflow-hidden border-2 border-white/40 flex items-center justify-center">
-                <img src={logoVest} alt="Logo KKNT" className="w-full h-full object-contain" />
+                <img src={logoTransparent} alt="Logo KKNT" className="w-full h-full object-contain" loading="lazy" decoding="async" />
               </div>
               <div>
                 <div className="font-display font-extrabold text-lg">KKNT 2024</div>

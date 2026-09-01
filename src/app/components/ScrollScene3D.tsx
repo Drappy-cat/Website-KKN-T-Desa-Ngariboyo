@@ -189,27 +189,41 @@ export default function ScrollScene3D() {
     return () => clearTimeout(tid);
   }, [pathname]);
 
-  // ── Parallax rAF loop ───────────────────────────────────────────────────────
+  // ── Parallax rAF loop (On-demand scroll driven) ─────────────────────────────
   useEffect(() => {
-    const onScroll = () => { syRef.current = window.scrollY; };
-    window.addEventListener("scroll", onScroll, { passive: true });
+    let isScheduled = false;
 
-    const tick = () => {
-      const sy = syRef.current;
+    const renderParallax = () => {
+      const sy = window.scrollY;
       shapeEls.current.forEach((el, i) => {
         if (!el) return;
-        const s   = SHAPES[i];
-        const ty  = sy * s.speed;
+        const s = SHAPES[i];
+        const ty = sy * s.speed;
         const rot = s.rot0 + sy * 0.022 * (i % 2 === 0 ? 1 : -1);
-        el.style.transform = `translateY(${ty}px) rotate(${rot}deg)`;
+        el.style.transform = `translate3d(0, ${ty}px, 0) rotate(${rot}deg)`;
       });
-      rafRef.current = requestAnimationFrame(tick);
+      isScheduled = false;
     };
-    rafRef.current = requestAnimationFrame(tick);
+
+    const requestTick = () => {
+      if (!isScheduled) {
+        isScheduled = true;
+        rafRef.current = requestAnimationFrame(renderParallax);
+      }
+    };
+
+    window.addEventListener("scroll", requestTick, { passive: true });
+    window.addEventListener("resize", requestTick, { passive: true });
+
+    // Initial render
+    requestTick();
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("scroll", requestTick);
+      window.removeEventListener("resize", requestTick);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
   }, []);
 

@@ -104,6 +104,7 @@ export default function Dokumentasi() {
                     alt={g.alt}
                     className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
                     <span className="text-white text-sm font-semibold font-body">{g.alt}</span>
@@ -133,6 +134,8 @@ export default function Dokumentasi() {
                       src={v.thumb}
                       alt={v.judul}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                       <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { Link } from "react-router";
 import {
   ArrowRight, Calendar, MapPin, Users, ChevronRight, ChevronLeft,
@@ -25,7 +25,16 @@ import slide6 from "../../assets/galeri/bagian 6.png";
 import slide7 from "../../assets/galeri/bagian 7.png";
 import slide8 from "../../assets/galeri/bagian 8.png";
 
-import StatChart from "../components/StatChart";
+const StatChart = lazy(() => import("../components/StatChart"));
+
+function StatChartSkeleton() {
+  return (
+    <div className="w-full min-h-[350px] flex flex-col items-center justify-center bg-muted/30 rounded-2xl animate-pulse p-6">
+      <div className="w-1/3 h-4 bg-muted rounded-full mb-4" />
+      <div className="w-full h-56 bg-muted/60 rounded-xl" />
+    </div>
+  );
+}
 
 // ── Counter Hook ───────────────────────────────────────────────────────────────
 function useCounter(target: number, started: boolean, duration = 1800) {
@@ -67,11 +76,12 @@ const JURUSAN_LOGOS: Record<string, string> = {
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 export default function Home() {
-  usePageMeta("Beranda", "Website resmi KKNT Desa Ngariboyo 2024 — 15 mahasiswa Universitas Negeri Surabaya mengabdi di Magetan, Jawa Timur.");
+  usePageMeta("Beranda", "Website resmi KKNT Desa Ngariboyo 2026 — 15 mahasiswa Universitas Negeri Surabaya mengabdi di Magetan, Jawa Timur.");
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
   const [heroLoaded, setHeroLoaded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [loadedSlides, setLoadedSlides] = useState<number[]>([0, 1]);
 
   const heroImages = [
     slide1,
@@ -88,6 +98,11 @@ export default function Home() {
     const timer = setTimeout(() => setHeroLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const nextIdx = (currentSlide + 1) % heroImages.length;
+    setLoadedSlides((prev) => (prev.includes(currentSlide) && prev.includes(nextIdx) ? prev : Array.from(new Set([...prev, currentSlide, nextIdx]))));
+  }, [currentSlide, heroImages.length]);
 
   useEffect(() => {
     const slideTimer = setInterval(() => {
@@ -132,17 +147,20 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#071F11]">
         {/* Background image slider */}
-        {heroImages.map((src, idx) => (
-          <div
-            key={idx}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-              idx === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              backgroundImage: `url('${src}')`,
-            }}
-          />
-        ))}
+        {heroImages.map((src, idx) => {
+          const isLoaded = loadedSlides.includes(idx);
+          return (
+            <div
+              key={idx}
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+                idx === currentSlide ? "opacity-100" : "opacity-0"
+              }`}
+              style={{
+                backgroundImage: isLoaded ? `url('${src}')` : undefined,
+              }}
+            />
+          );
+        })}
         {/* Overlay - Deep Dark Emerald Forest (Eye-friendly, Low Glare) */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#071F11]/60 via-[#0B2E1A]/40 to-[#05170D]/70" />
 
@@ -185,14 +203,14 @@ export default function Home() {
           {/* Logo with mountain-rise animation */}
           <div className="anim-mountain flex justify-center mb-8">
             <div className="logo-pulse w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-white shadow-2xl border-4 border-white/50 flex items-center justify-center overflow-hidden">
-              <img src={logoTransparent} alt="KKNT Ngariboyo" className="w-36 h-36 sm:w-44 sm:h-44 object-contain" />
+              <img src={logoTransparent} alt="KKNT Ngariboyo" className="w-36 h-36 sm:w-44 sm:h-44 object-contain" decoding="async" />
             </div>
           </div>
 
           {/* Location badge */}
           <div className="anim-fade-up-0 inline-flex items-center gap-2 bg-accent/20 border border-accent/40 rounded-full px-4 py-1.5 text-accent text-sm font-medium mb-5 font-body">
             <MapPin className="w-3.5 h-3.5 shrink-0" />
-            Universitas Negeri Surabaya · Magetan, Jawa Timur · 2024
+            Universitas Negeri Surabaya · Magetan, Jawa Timur · 2026
           </div>
 
           {/* Title */}
@@ -209,7 +227,7 @@ export default function Home() {
           {/* Meta */}
           <div className="anim-fade-up-2 flex flex-wrap justify-center gap-6 text-sm text-white/55 mb-10 font-body">
             {[
-              { Icon: Calendar, text: "Agustus – November 2024" },
+              { Icon: Calendar, text: "13 Agustus – 25 September 2026" },
               { Icon: MapPin, text: "Ngariboyo, Magetan, Jatim" },
               { Icon: Users, text: "15 Mahasiswa · 4 Jurusan" },
             ].map(({ Icon, text }) => (
@@ -272,15 +290,15 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { img: logoKknImg, judul: "4 Jurusan", sub: "PGSD, TI, Manajemen, Ikor" },
-                { img: kalenderImg, judul: "4 Bulan", sub: "Agustus – November 2024" },
+                { img: kalenderImg, judul: "2 Bulan", sub: "13 Agustus – 25 September 2026" },
                 { img: logoDesaImg, judul: "1 Desa", sub: "Ngariboyo, Magetan" },
-                { img: buktiProkerImg, judul: "20+ Proker", sub: "Beragam bidang pengabdian" },
+                { img: buktiProkerImg, judul: "14 Proker", sub: "Program Kerja Terencana" },
               ].map((item) => (
                 <div
                   key={item.judul}
                   className="bg-white rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all flex flex-col"
                 >
-                  <img src={item.img} alt={item.judul} className="w-full h-32 object-cover" />
+                  <img src={item.img} alt={item.judul} className="w-full h-32 object-cover" loading="lazy" decoding="async" />
                   <div className="p-5 flex-1 bg-white">
                     <div className="font-display font-bold text-primary text-lg">{item.judul}</div>
                     <div className="text-muted-foreground text-xs font-caption mt-1">{item.sub}</div>
@@ -304,9 +322,11 @@ export default function Home() {
               <StatCard key={s.label} target={s.target} label={s.label} satuan={s.satuan} started={statsVisible} />
             ))}
           </div>
-          {/* 2D Area Chart Animation */}
+          {/* 2D Area Chart Animation with Suspense */}
           <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] overflow-hidden border border-border p-2 sm:p-6 hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-shadow">
-            <StatChart />
+            <Suspense fallback={<StatChartSkeleton />}>
+              <StatChart />
+            </Suspense>
           </div>
         </div>
       </section>
@@ -333,7 +353,7 @@ export default function Home() {
                     className="w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-transform group-hover:rotate-6 overflow-hidden shadow-sm border border-border"
                     style={{ backgroundColor: j.warnaLight }}
                   >
-                    <img src={logoSrc} alt={`Logo ${j.label}`} className="w-full h-full object-cover" />
+                    <img src={logoSrc} alt={`Logo ${j.label}`} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                   </div>
                   <h3 className="font-display font-bold text-foreground mb-1 text-lg">{j.label}</h3>
                   <p className="text-muted-foreground text-sm font-body mb-4">{count} Program Kerja</p>
@@ -405,12 +425,12 @@ export default function Home() {
               Timeline
             </span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white mb-3">Perjalanan KKNT</h2>
-            <p className="text-white/60 max-w-xl mx-auto font-body">Dari observasi hingga pelaporan — 4 bulan penuh dedikasi dan pengabdian.</p>
+            <p className="text-white/60 max-w-xl mx-auto font-body">Dari observasi hingga penutupan — pengabdian penuh untuk Desa Ngariboyo.</p>
           </div>
           <div className="relative">
             {/* Line */}
-            <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-white/15" />
-            <div className="grid md:grid-cols-4 gap-8">
+            <div className="hidden md:block absolute top-8 left-1/4 right-1/4 h-0.5 bg-white/15" />
+            <div className="grid md:grid-cols-2 max-w-3xl mx-auto gap-8">
               {TIMELINE.map((t, i) => (
                 <div key={i} className="relative flex flex-col items-center text-center md:items-center">
                   {/* Node */}
@@ -461,6 +481,7 @@ export default function Home() {
                   alt={g.alt}
                   className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
                   <span className="text-white text-xs font-caption font-medium">{g.alt}</span>
@@ -494,6 +515,8 @@ export default function Home() {
                     src={b.img}
                     alt={b.judul}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                   <span className="absolute top-3 left-3 px-2.5 py-1 bg-primary text-white rounded-lg text-xs font-caption font-semibold">

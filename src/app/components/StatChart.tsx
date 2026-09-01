@@ -28,7 +28,7 @@ export default function StatChart() {
         {
           type: 'category',
           boundaryGap: false,
-          data: ['Agustus', 'September', 'Oktober', 'November'],
+          data: ['13–20 Agust', '21–31 Agust', '1–12 Sept', '13–25 Sept (Target)'],
           axisLabel: { 
             fontFamily: 'inherit', 
             fontWeight: 600,
@@ -77,8 +77,7 @@ export default function StatChart() {
               ]
             }
           },
-          data: [2, 8, 15, 20], // Progressive levels
-          // Animation per level (tingkatan)
+          data: [3, 6, 10, 14], // Progressive levels 2026
           animationDuration: 4000,
           animationEasing: 'quarticInOut'
         },
@@ -100,9 +99,8 @@ export default function StatChart() {
               ]
             }
           },
-          data: [150, 1200, 3000, 4800], // Progressive levels
+          data: [450, 1200, 2800, 4800], // Progressive levels 2026
           animationDuration: 4000,
-          animationDelay: 1000, // Starts after the first line has begun
           animationEasing: 'quarticInOut'
         }
       ]

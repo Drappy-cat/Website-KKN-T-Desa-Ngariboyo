@@ -59,6 +59,8 @@ export default function ProfilDesa() {
                 src="https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=700&h=500&fit=crop&auto=format"
                 alt="Desa Ngariboyo"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -180,7 +182,7 @@ export default function ProfilDesa() {
               "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=350&fit=crop",
             ].map((src, i) => (
               <div key={i} className="rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] group hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all">
-                <img src={src} alt={`Suasana desa ${i + 1}`} className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+                <img src={src} alt={`Suasana desa ${i + 1}`} className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
               </div>
             ))}
           </div>

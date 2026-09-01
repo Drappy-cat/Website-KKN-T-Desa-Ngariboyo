@@ -21,39 +21,39 @@ function PageBanner({ title, sub }: { title: string; sub?: string }) {
 }
 
 const PROKER_PER_MAHASISWA: Record<number, string[]> = {
-  1: ["Bimbingan Belajar Gratis SD–SMP", "English Fun Class Anak Desa", "Pembangunan Perpustakaan Mini Desa"],
-  2: ["Bimbingan Belajar Gratis SD–SMP", "Program Literasi Membaca Anak", "Pelatihan Pedagogi Guru SD Lokal"],
-  3: ["Bimbingan Belajar Gratis SD–SMP", "English Fun Class Anak Desa"],
-  4: ["Program Literasi Membaca Anak", "Pembangunan Perpustakaan Mini Desa"],
-  5: ["Website Profil Desa Ngariboyo", "Aplikasi Pencatatan UMKM Digital", "Pengelolaan Media Sosial Desa", "Sistem Inventaris BUMDes Digital"],
-  6: ["Pelatihan Microsoft Office Warga", "Pengelolaan Media Sosial Desa"],
-  7: ["Website Profil Desa Ngariboyo", "Aplikasi Pencatatan UMKM Digital", "Sistem Inventaris BUMDes Digital"],
-  8: ["Pelatihan Microsoft Office Warga", "Pengelolaan Media Sosial Desa"],
-  9: ["Digitalisasi 25 UMKM Desa", "Pelatihan Kemasan & Branding Produk", "Koperasi Simpan Pinjam Digital"],
-  10: ["Digitalisasi 25 UMKM Desa", "Pelatihan Kemasan & Branding Produk", "Pemasaran Online Produk Lokal"],
-  11: ["Pemasaran Online Produk Lokal", "BUMDes Goes Digital"],
-  12: ["BUMDes Goes Digital", "Koperasi Simpan Pinjam Digital"],
-  13: ["Senam Pagi Bersama", "Turnamen Olahraga Antar RT", "Sosialisasi Hidup Aktif & Sehat"],
-  14: ["Sosialisasi Hidup Aktif & Sehat", "Pelatihan Instruktur Senam Desa"],
-  15: ["Senam Pagi Bersama", "Turnamen Sepak Bola Mini Anak", "Pelatihan Instruktur Senam Desa"],
+  1: ["Pendampingan Manajemen & Pemasaran UMKM Lokal", "Optimalisasi Tata Kelola & Potensi BUMDes"],
+  2: ["Bimbingan Belajar Gratis SD–SMP", "Program Literasi Membaca Anak & Pojok Baca", "English Fun Class Anak Desa", "Penyuluhan Edukasi & Karakter Anak"],
+  3: ["Bimbingan Belajar Gratis SD–SMP", "Program Literasi Membaca Anak & Pojok Baca", "English Fun Class Anak Desa", "Penyuluhan Edukasi & Karakter Anak"],
+  4: ["Pendampingan Manajemen & Pemasaran UMKM Lokal", "Optimalisasi Tata Kelola & Potensi BUMDes"],
+  5: ["Program Senam Sehat Bugar Warga Desa", "Sosialisasi Gaya Hidup Aktif & Kesehatan Jasmani"],
+  6: ["Pengembangan Website Resmi Desa Ngariboyo", "Digitalisasi Pencatatan & Katalog UMKM Desa"],
+  7: ["Pengembangan Website Resmi Desa Ngariboyo", "Digitalisasi Pencatatan & Katalog UMKM Desa"],
+  8: ["Pendampingan Manajemen & Pemasaran UMKM Lokal", "Workshop Desain Kemasan & Branding Produk"],
+  9: ["Program Senam Sehat Bugar Warga Desa", "Sosialisasi Gaya Hidup Aktif & Kesehatan Jasmani"],
+  10: ["Pendampingan Manajemen & Pemasaran UMKM Lokal"],
+  11: ["Program Senam Sehat Bugar Warga Desa", "Aktivitas Olahraga Gembira & Permainan Tradisional"],
+  12: ["Workshop Desain Kemasan & Branding Produk", "Optimalisasi Tata Kelola & Potensi BUMDes"],
+  13: ["Workshop Desain Kemasan & Branding Produk", "Aktivitas Olahraga Gembira & Permainan Tradisional"],
+  14: ["Pengembangan Website Resmi Desa Ngariboyo", "Pelatihan Literasi Digital & Pengenalan Komputer", "Pengelolaan Media Sosial & Dokumentasi Kreatif Desa"],
+  15: ["Pengembangan Website Resmi Desa Ngariboyo", "Pelatihan Literasi Digital & Pengenalan Komputer", "Pengelolaan Media Sosial & Dokumentasi Kreatif Desa"],
 };
 
 const DESKRIPSI_MAHASISWA: Record<number, string> = {
-  1: "Ahmad Fauzi adalah ketua kelompok KKNT yang berperan sebagai koordinator utama seluruh kegiatan. Dengan latar belakang PGSD, ia fokus pada program pendidikan dan literasi anak-anak desa.",
-  2: "Siti Rahmah berperan sebagai wakil ketua yang aktif dalam program bimbingan belajar dan literasi membaca. Ia dikenal sebagai fasilitator yang sabar dan kreatif.",
-  3: "Budi Santoso aktif dalam pengajaran matematika dan sains untuk bimbingan belajar. Pendekatan gamifikasi yang ia terapkan membuat siswa lebih antusias belajar.",
-  4: "Dewi Lestari berfokus pada program literasi dan pengembangan perpustakaan mini. Ia mengelola koleksi buku dan sistem peminjaman dengan rapi.",
-  5: "Kevin Oktavian adalah kepala divisi teknologi. Ia memimpin pengembangan website desa dan aplikasi digital untuk mendukung transformasi smart village.",
-  6: "Alya Rahma mengelola konten media sosial desa dengan estetika visual yang konsisten. Kreativitasnya membuat konten desa viral di berbagai platform.",
-  7: "Deni Firmansyah adalah backend developer yang membangun sistem inventaris BUMDes dan aplikasi pencatatan UMKM.",
-  8: "Citra Dewi bertanggung jawab untuk pelatihan Microsoft Office kepada warga desa, membantu meningkatkan literasi digital masyarakat.",
-  9: "Rini Wulandari memimpin program digitalisasi UMKM. Dengan latar belakang manajemen, ia mendampingi 25 UMKM untuk hadir di ekosistem digital.",
-  10: "Bagas Prasetyo ahli dalam strategi pemasaran online. Ia membantu UMKM desa memasuki marketplace dan meningkatkan omzet secara signifikan.",
-  11: "Lita Amelia fokus pada program BUMDes Goes Digital dan pemasaran online produk lokal, membantu memperluas jangkauan pasar.",
-  12: "Yoga Saputra mengerjakan program koperasi simpan pinjam digital dan digitalisasi BUMDes untuk memodernisasi sistem keuangan desa.",
-  13: "Haris Budiman adalah koordinator lapangan program olahraga. Dengan keahlian di bidang ilmu keolahragaan, ia memimpin senam pagi dan turnamen.",
-  14: "Endah Rahayu aktif dalam sosialisasi hidup sehat dan pelatihan instruktur senam. Ia juga menangani dokumentasi video kegiatan olahraga.",
-  15: "Fandi Ardiansyah berfokus pada turnamen sepak bola mini dan pelatihan instruktur senam, mendukung keberlanjutan program olahraga desa.",
+  1: "Iqbal Maulana Setyo Prayogi adalah Koordinator Desa (KORDES) yang memimpin dan mengoordinasikan seluruh pelaksanaan program KKNT di Desa Ngariboyo.",
+  2: "Adelia Putri Luthfian Dava bertindak sebagai Sekretaris I yang mengelola persuratan, administrasi, dan koordinasi program kerja pendidikan di desa.",
+  3: "Friska Virginia Vahlevi bertindak sebagai Sekretaris II yang bertanggung jawab atas dokumentasi notulensi, arsip kegiatan, dan laporan berkala kelompok.",
+  4: "Ilham Khoiru Rizki adalah Bendahara kelompok yang mengelola anggaran, alokasi dana operasional, dan laporan pertanggungjawaban keuangan.",
+  5: "Devita Natalysa adalah anggota Divisi Acara yang mengorganisir jadwal, konsep, dan pelaksanaan berbagai program kemasyarakatan.",
+  6: "Putera Al Khalidi berkontribusi dalam Divisi Acara dan integrasi teknologi untuk mendukung kelancaran seluruh agenda kegiatan KKNT.",
+  7: "Naufal Akbar Putra Pradana adalah Koordinator Divisi Acara yang memimpin perancangan timeline kegiatan, lokakarya, dan agenda puncak.",
+  8: "Desi Alfi Khoiriyah adalah anggota Divisi Acara dengan fokus pada pengorganisasian kegiatan pemberdayaan ekonomi dan UMKM warga.",
+  9: "Bella Ayu Istiani adalah Koordinator Divisi Humas yang menjalin komunikasi aktif dengan perangkat desa, karang taruna, dan tokoh masyarakat.",
+  10: "Jovanka Hafidl Celesta bertugas di Divisi Humas dalam publikasi informasi dan sosialisasi program kepada seluruh warga Desa Ngariboyo.",
+  11: "Rifki Wahyu Dwi Saputra bertugas di Divisi Logistik dalam pengadaan perlengkapan, fasilitas lapangan, dan sarana prasarana program.",
+  12: "Valencia Sindu Putra bertugas di Divisi Logistik yang memastikan seluruh kebutuhan teknis dan logistik posko serta kegiatan terpenuhi.",
+  13: "Muhammad Arfin Baihaqi adalah Koordinator Divisi Logistik yang memimpin manajemen inventaris, operasional, dan mobilitas tim.",
+  14: "Rizma Indra Pramudya bertugas di Divisi PDD (Publikasi, Dokumentasi & Desain) yang mengembangkan website, multimedia, dan sistem digital desa.",
+  15: "Izora Elverda Narulita Putri adalah Koordinator Divisi PDD yang mengarahkan desain visual, dokumentasi fotografi/videografi, dan identitas resmi KKNT.",
 };
 
 function getJurusan(prodi: string) {
@@ -80,6 +80,7 @@ function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
               alt={m.nama}
               className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-3 left-3 right-3">
@@ -108,7 +109,7 @@ function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
         <Dialog.Overlay className="fixed inset-0 z-[150] bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
         <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[160] w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-card rounded-[24px] shadow-2xl border border-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=open]:slide-in-from-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-top-[48%]">
           <Dialog.Description className="sr-only">
-            Detail profil {m.nama} — mahasiswa {m.prodi} peserta KKNT Desa Ngariboyo 2024.
+            Detail profil {m.nama} — mahasiswa {m.prodi} peserta KKNT Desa Ngariboyo 2026.
           </Dialog.Description>
           <Dialog.Close className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-card/80 backdrop-blur-sm hover:bg-muted transition-colors border border-border">
             <X className="w-4 h-4 text-foreground" />
@@ -116,7 +117,7 @@ function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
 
           {/* Hero image */}
           <div className="relative h-56 overflow-hidden rounded-t-[24px]">
-            <img src={m.foto} alt={m.nama} className="w-full h-full object-cover" loading="lazy" />
+            <img src={m.foto} alt={m.nama} className="w-full h-full object-cover" loading="lazy" decoding="async" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             <div className="absolute bottom-5 left-6 right-16">
               <span className="inline-block px-3 py-1 rounded-xl text-xs font-semibold font-caption text-white mb-2" style={{ backgroundColor: j.warna }}>
@@ -236,7 +237,7 @@ export default function Tim() {
             {DPL.map((d, i) => (
               <div key={i} className="w-full max-w-sm group rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)] transition-all border border-border hover:-translate-y-1">
                 <div className="relative h-80 overflow-hidden">
-                  <img src={d.foto} alt={d.nama} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <img src={d.foto} alt={d.nama} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
                   <div className="absolute bottom-5 left-5 right-5">
                     <div className="text-accent text-xs font-semibold uppercase tracking-wider mb-1 font-caption">{d.jabatan}</div>

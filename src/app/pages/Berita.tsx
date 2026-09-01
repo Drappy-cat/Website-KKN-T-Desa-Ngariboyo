@@ -53,7 +53,7 @@ export default function Berita() {
             </button>
             <div className="bg-white rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border">
               <div className="relative h-72 sm:h-96 overflow-hidden">
-                <img src={selected.img} alt={selected.judul} className="w-full h-full object-cover" />
+                <img src={selected.img} alt={selected.judul} className="w-full h-full object-cover" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <span
                   className="absolute top-5 left-5 px-3 py-1.5 rounded-xl text-sm font-semibold font-caption"
@@ -99,7 +99,7 @@ export default function Berita() {
                         onClick={() => { setSelected(b); window.scrollTo(0, 0); }}
                       >
                         <div className="relative h-36 overflow-hidden">
-                          <img src={b.img} alt={b.judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                          <img src={b.img} alt={b.judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
                           <span className="absolute top-2 left-2 px-2 py-0.5 rounded-lg text-xs font-semibold font-caption" style={{ backgroundColor: rk.bg, color: rk.text }}>{b.kat}</span>
                         </div>
                         <div className="p-4">
@@ -122,25 +122,24 @@ export default function Berita() {
     <>
       <PageBanner
         title="Berita & Aktivitas"
-        sub="Laporan dan cerita terkini dari kegiatan KKNT Desa Ngariboyo 2024"
+        sub="Ikuti perkembangan, dokumentasi kegiatan, dan cerita pengabdian KKNT Desa Ngariboyo 2024"
       />
 
-      <section className="py-16 bg-background">
+      <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Filter */}
+          {/* Category Filter */}
           <div className="flex flex-wrap gap-2 mb-10">
             {kategori.map((k) => {
-              const kw = KAT_WARNA[k];
+              const active = filterKat === k;
               return (
                 <button
                   key={k}
                   onClick={() => setFilterKat(k)}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all font-body ${
-                    filterKat === k
-                      ? "shadow-md"
+                    active
+                      ? "bg-primary text-white shadow-md"
                       : "bg-white border border-border text-foreground/60 hover:border-primary/40"
                   }`}
-                  style={filterKat === k && kw ? { backgroundColor: kw.bg, color: kw.text, borderColor: kw.bg } : filterKat === k ? { backgroundColor: "#14532D", color: "white" } : {}}
                 >
                   {k}
                 </button>
@@ -156,7 +155,7 @@ export default function Berita() {
             >
               <div className="grid md:grid-cols-2">
                 <div className="relative h-64 md:h-auto overflow-hidden">
-                  <img src={filtered[0].img} alt={filtered[0].judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={filtered[0].img} alt={filtered[0].judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10" />
                 </div>
                 <div className="p-8 flex flex-col justify-center">
@@ -190,7 +189,7 @@ export default function Berita() {
                   onClick={() => setSelected(b)}
                 >
                   <div className="relative h-48 overflow-hidden">
-                    <img src={b.img} alt={b.judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img src={b.img} alt={b.judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     <span
                       className="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-xs font-semibold font-caption"

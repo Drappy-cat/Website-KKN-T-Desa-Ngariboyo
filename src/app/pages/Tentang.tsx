@@ -3,6 +3,7 @@ import { useState } from "react";
 import { IDENTITAS, LOGO_ELEMEN } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
 import logoTransparent from "../../assets/logos/kknt/logo-kknt-removebg.png";
+import IDCardGallery from "../components/IDCardGallery";
 
 function IDCardSway({ logoSrc }: { logoSrc: string }) {
   const [hovered, setHovered] = useState(false);
@@ -44,7 +45,7 @@ function IDCardSway({ logoSrc }: { logoSrc: string }) {
                   <img src={logoSrc} className="w-8 h-8 object-contain" alt="Logo" />
                 </div>
                 <div className="text-left">
-                  <div className="text-white font-display font-extrabold text-[11px] leading-tight">KKNT 2024</div>
+                  <div className="text-white font-display font-extrabold text-[11px] leading-tight">KKNT 2026</div>
                   <div className="text-accent text-[8px] font-caption leading-tight">Univ. Negeri Surabaya</div>
                 </div>
               </div>
@@ -62,7 +63,7 @@ function IDCardSway({ logoSrc }: { logoSrc: string }) {
               {/* Info rows */}
               <div className="text-center space-y-1 mb-3">
                 <div className="font-display font-extrabold text-foreground text-xs">NAMA MAHASISWA</div>
-                <div className="text-muted-foreground text-[9px] font-caption">NIM · 21050514XXX</div>
+                <div className="text-muted-foreground text-[9px] font-caption">NIM · 25051204XXX</div>
                 <span className="inline-block px-2.5 py-0.5 bg-primary/10 text-primary text-[9px] font-semibold rounded-full border border-primary/20">
                   Teknik Informatika
                 </span>
@@ -78,12 +79,12 @@ function IDCardSway({ logoSrc }: { logoSrc: string }) {
                   />
                 ))}
               </div>
-              <div className="text-[7px] text-center text-muted-foreground font-caption tracking-widest">21050514XXX</div>
+              <div className="text-[7px] text-center text-muted-foreground font-caption tracking-widest">25051204XXX</div>
             </div>
 
             {/* Footer */}
             <div className="bg-primary/5 dark:bg-primary/15 border-t border-border px-3 py-1.5 flex items-center justify-between">
-              <div className="text-[7px] text-muted-foreground font-caption">Berlaku: Agt – Nov 2024</div>
+              <div className="text-[7px] text-muted-foreground font-caption">Berlaku: 13 Agt – 25 Sept 2026</div>
               <div className="w-2 h-2 rounded-full bg-primary/40" />
             </div>
           </div>
@@ -110,7 +111,7 @@ function PageBanner({ title, sub }: { title: string; sub?: string }) {
 }
 
 export default function Tentang() {
-  usePageMeta("Tentang KKNT", "Visi, misi, filosofi logo, dan latar belakang program KKNT Desa Ngariboyo 2024.");
+  usePageMeta("Tentang KKNT", "Visi, misi, filosofi logo, dan latar belakang program KKNT Desa Ngariboyo 2026.");
   return (
     <>
       <PageBanner
@@ -129,7 +130,7 @@ export default function Tentang() {
                 Kuliah Kerja Nyata Tematik (KKNT) adalah bentuk pengabdian masyarakat yang wajib ditempuh mahasiswa Universitas Negeri Surabaya. Program ini menempatkan mahasiswa langsung di tengah masyarakat untuk mengaplikasikan ilmu yang telah dipelajari di bangku kuliah.
               </p>
               <p className="text-muted-foreground text-base leading-relaxed mb-5 font-body">
-                Di Desa Ngariboyo, KKNT berjalan selama 4 bulan (Agustus – November 2024) dengan melibatkan 15 mahasiswa dari 4 jurusan: PGSD, Teknik Informatika, Manajemen, dan Ilmu Keolahragaan.
+                Di Desa Ngariboyo, KKNT berjalan selama periode 13 Agustus – 25 September 2026 dengan melibatkan 15 mahasiswa dari 4 jurusan: PGSD, Teknik Informatika, Manajemen, dan Ilmu Keolahragaan.
               </p>
               <p className="text-muted-foreground text-base leading-relaxed font-body">
                 Seluruh program kerja dirancang berdasarkan hasil observasi dan diskusi langsung dengan warga dan perangkat desa, sehingga setiap kegiatan benar-benar menjawab kebutuhan nyata masyarakat.
@@ -138,8 +139,8 @@ export default function Tentang() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { nilai: "15", label: "Mahasiswa", sub: "Dari 4 jurusan berbeda" },
-                { nilai: "4 Bln", label: "Durasi Program", sub: "Agustus – November 2024" },
-                { nilai: "20+", label: "Program Kerja", sub: "Beragam bidang" },
+                { nilai: "2 Bln", label: "Durasi Program", sub: "13 Agustus – 25 September 2026" },
+                { nilai: "14", label: "Program Kerja", sub: "Terencana & Berjalan" },
                 { nilai: "4.800+", label: "Jiwa Terdampak", sub: "Warga Desa Ngariboyo" },
               ].map((item) => (
                 <div key={item.label} className="bg-card rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] text-center border border-border">
@@ -228,7 +229,7 @@ export default function Tentang() {
             {/* Logo display */}
             <div className="lg:sticky lg:top-28 flex flex-col items-center gap-6">
               <div className="bg-white rounded-[24px] p-10 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-border">
-                <img src={logoTransparent} alt="Logo KKNT Desa Ngariboyo" className="w-64 h-64 sm:w-80 sm:h-80 object-contain" />
+                <img src={logoTransparent} alt="Logo KKNT Desa Ngariboyo" className="w-64 h-64 sm:w-80 sm:h-80 object-contain" loading="lazy" decoding="async" />
               </div>
               <div className="bg-primary rounded-[20px] p-6 text-center w-full max-w-sm">
                 <div className="text-accent text-xs font-semibold uppercase tracking-widest mb-2 font-caption">Makna Keseluruhan</div>
@@ -294,7 +295,7 @@ export default function Tentang() {
                   {/* Center text */}
                   <text x="100" y="170" textAnchor="middle" fill="white" fontSize="9" fontFamily="sans-serif" fontWeight="700" opacity="0.8">UNIVERSITAS</text>
                   <text x="100" y="182" textAnchor="middle" fill="white" fontSize="8" fontFamily="sans-serif" opacity="0.6">NEGERI SURABAYA</text>
-                  <text x="100" y="197" textAnchor="middle" fill="#F4B400" fontSize="11" fontFamily="sans-serif" fontWeight="900">2024</text>
+                  <text x="100" y="197" textAnchor="middle" fill="#F4B400" fontSize="11" fontFamily="sans-serif" fontWeight="900">2026</text>
                   {/* Center buttons */}
                   <circle cx="100" cy="115" r="3" fill="white" opacity="0.35" />
                   <circle cx="100" cy="128" r="3" fill="white" opacity="0.35" />
@@ -322,7 +323,7 @@ export default function Tentang() {
                 <div className="mt-1 w-32 bg-white dark:bg-muted rounded-2xl border border-border shadow-[0_8px_24px_rgba(0,0,0,0.15)] overflow-hidden">
                   {/* Card header */}
                   <div className="bg-primary px-3 py-2 text-center">
-                    <span className="text-accent text-[8px] font-display font-extrabold">KKNT 2024</span>
+                    <span className="text-accent text-[8px] font-display font-extrabold">KKNT 2026</span>
                     <div className="text-white/60 text-[7px] font-caption">DESA NGARIBOYO</div>
                   </div>
                   {/* Card body */}
@@ -350,14 +351,31 @@ export default function Tentang() {
               </p>
             </div>
 
-            {/* ── ID CARD ─────────────────────────────────────────── */}
+            {/* ── ID CARD OVERVIEW ─────────────────────────────────── */}
             <div className="bg-card rounded-[20px] p-8 border border-border shadow-[0_10px_30px_rgba(0,0,0,0.07)] flex flex-col items-center text-center">
               <IDCardSway logoSrc={logoTransparent} />
-              <h3 className="font-display font-bold text-foreground text-lg mb-2 mt-6">ID Card</h3>
+              <h3 className="font-display font-bold text-foreground text-lg mb-2 mt-6">ID Card Resmi</h3>
               <p className="text-muted-foreground text-sm font-body leading-relaxed">
                 Kartu identitas resmi peserta berisi nama, NIM, jurusan, dan barcode. Arahkan kursor untuk melihat animasinya.
               </p>
             </div>
+          </div>
+
+          {/* ── GALERI ID CARD SELURUH ANGGOTA PER DIVISI ─────────────────── */}
+          <div className="mt-20 pt-16 border-t border-border">
+            <div className="text-center mb-12">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-primary/10 text-primary dark:text-accent mb-4 font-caption">
+                Koleksi Identitas
+              </span>
+              <h3 className="font-display font-extrabold text-2xl sm:text-4xl text-foreground mb-3">
+                Galeri ID Card Anggota KKNT
+              </h3>
+              <p className="text-muted-foreground max-w-2xl mx-auto font-body text-sm sm:text-base">
+                ID Card resmi untuk seluruh 15 mahasiswa peserta KKNT Desa Ngariboyo 2026 yang dikelompokkan berdasarkan divisi dan program studi.
+              </p>
+            </div>
+
+            <IDCardGallery />
           </div>
         </div>
       </section>
