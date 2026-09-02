@@ -11,19 +11,8 @@ import kalenderImg from "../../assets/timeline/kalender-2-bulan.png";
 import logoKknImg from "../../assets/logos/kknt/logo-kknt-banner.png";
 import logoDesaImg from "../../assets/logos/desa/logo-desa-ngariboyo.png";
 import buktiProkerImg from "../../assets/proker/bukti-proker.png";
-import logoPgsd from "../../assets/logos/jurusan/logo-pgsd.png";
-import logoTi from "../../assets/logos/jurusan/logo-ti.png";
-import logoManajemen from "../../assets/logos/jurusan/logo-manajemen.png";
-import logoIkor from "../../assets/logos/jurusan/logo-ikor.png";
 
-import slide1 from "../../assets/galeri/bagian 1.png";
-import slide2 from "../../assets/galeri/bagian 2.png";
-import slide3 from "../../assets/galeri/bagian 3.png";
-import slide4 from "../../assets/galeri/bagian 4.png";
-import slide5 from "../../assets/galeri/bagian 5.png";
-import slide6 from "../../assets/galeri/bagian 6.png";
-import slide7 from "../../assets/galeri/bagian 7.png";
-import slide8 from "../../assets/galeri/bagian 8.png";
+import { HERO_IMAGES, JURUSAN_LOGOS } from "../data/images";
 
 const StatChart = lazy(() => import("../components/StatChart"));
 
@@ -67,12 +56,7 @@ function StatCard({ target, label, satuan, started }: { target: number; label: s
 }
 
 // ── Jurusan Logo Map ──────────────────────────────────────────────────────────
-const JURUSAN_LOGOS: Record<string, string> = {
-  pgsd: logoPgsd,
-  ti: logoTi,
-  manajemen: logoManajemen,
-  ikor: logoIkor,
-};
+// Dipindahkan ke ../data/images.ts
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 export default function Home() {
@@ -83,36 +67,25 @@ export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loadedSlides, setLoadedSlides] = useState<number[]>([0, 1]);
 
-  const heroImages = [
-    slide1,
-    slide2,
-    slide3,
-    slide4,
-    slide5,
-    slide6,
-    slide7,
-    slide8,
-  ];
-
   useEffect(() => {
     const timer = setTimeout(() => setHeroLoaded(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    const nextIdx = (currentSlide + 1) % heroImages.length;
+    const nextIdx = (currentSlide + 1) % HERO_IMAGES.length;
     setLoadedSlides((prev) => (prev.includes(currentSlide) && prev.includes(nextIdx) ? prev : Array.from(new Set([...prev, currentSlide, nextIdx]))));
-  }, [currentSlide, heroImages.length]);
+  }, [currentSlide, HERO_IMAGES.length]);
 
   useEffect(() => {
     const slideTimer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
     return () => clearInterval(slideTimer);
-  }, [heroImages.length]);
+  }, [HERO_IMAGES.length]);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -147,7 +120,7 @@ export default function Home() {
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#071F11]">
         {/* Background image slider */}
-        {heroImages.map((src, idx) => {
+        {HERO_IMAGES.map((src, idx) => {
           const isLoaded = loadedSlides.includes(idx);
           return (
             <div
@@ -182,7 +155,7 @@ export default function Home() {
 
         {/* Slide Indicators */}
         <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-          {heroImages.map((_, idx) => (
+          {HERO_IMAGES.map((_, idx) => (
              <button
                key={idx}
                onClick={() => setCurrentSlide(idx)}

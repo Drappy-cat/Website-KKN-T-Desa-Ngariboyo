@@ -460,6 +460,8 @@ export const STATISTIK = [
 ];
 
 // ── GALERI ───────────────────────────────────────────────────────────────────
+import buktiBannerProker from "../../assets/proker/bukti-proker.png";
+
 export const GALERI = [
   { src: buktiBannerProker, alt: "Sawah Desa Ngariboyo", kat: "Desa" },
   { src: buktiBannerProker, alt: "Bimbingan Belajar", kat: "Pendidikan" },
