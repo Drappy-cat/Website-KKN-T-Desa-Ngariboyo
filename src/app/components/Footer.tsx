@@ -85,7 +85,7 @@ export default function Footer() {
           </p>
           <button
             onClick={backToTop}
-            className="flex items-center gap-2 px-4 py-2 bg-accent text-primary rounded-xl text-sm font-semibold hover:bg-accent/90 transition-all hover:scale-105 active:scale-95 font-body"
+            className="flex items-center gap-2 px-4 py-2 bg-accent text-primary rounded-xl text-sm font-semibold hover:bg-accent/90 transition-all active:scale-95 font-body hover:scale-105 motion-safe:hover:scale-105 motion-reduce:hover:scale-100"
           >
             <ArrowUp className="w-4 h-4" />
             Kembali ke Atas

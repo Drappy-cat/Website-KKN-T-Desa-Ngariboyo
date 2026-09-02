@@ -1,3 +1,7 @@
+// ── IMPORTS ─────────────────────────────────────────────────────────────────
+import logoBannerKKNT from '../../assets/logos/kknt/logo-kknt-banner.svg';
+import buktiBannerProker from '../../assets/proker/bukti-proker.svg';
+
 // ── NAV ─────────────────────────────────────────────────────────────────────
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -476,7 +480,7 @@ export const BERITA = [
     kat: "Pertanian",
     penulis: "Ahmad Fauzi",
     isi: "Divisi Pertanian mengadakan penyuluhan teknik budidaya organik kepada petani lokal. Antusiasme petani sangat tinggi untuk meningkatkan kualitas dan nilai jual hasil panen mereka. Narasumber dari Dinas Pertanian Kabupaten Magetan hadir memberikan materi terkini tentang pupuk organik dan pengendalian hama terpadu.",
-    img: "https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=600&h=380&fit=crop&auto=format",
+    img: logoBannerKKNT,
   },
   {
     id: 2,
@@ -485,7 +489,7 @@ export const BERITA = [
     kat: "Pendidikan",
     penulis: "Siti Rahmah",
     isi: "Program bimbingan belajar sore mendapat respons luar biasa dari warga desa. Mahasiswa mendampingi siswa SD-SMP dalam pelajaran matematika, IPA, dan bahasa. Para orang tua sangat mengapresiasi program ini karena membantu anak mereka yang kesulitan belajar mandiri di rumah.",
-    img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=380&fit=crop&auto=format",
+    img: logoBannerKKNT,
   },
   {
     id: 3,
@@ -494,7 +498,7 @@ export const BERITA = [
     kat: "Ekonomi",
     penulis: "Rini Wulandari",
     isi: "25 pelaku UMKM mengikuti pelatihan desain kemasan, fotografi produk, dan strategi pemasaran digital yang digelar Divisi Manajemen. Produk-produk lokal kini tampil lebih profesional dan siap bersaing di pasar modern serta platform e-commerce.",
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=380&fit=crop&auto=format",
+    img: logoBannerKKNT,
   },
   {
     id: 4,
@@ -503,7 +507,7 @@ export const BERITA = [
     kat: "Teknologi",
     penulis: "Kevin Oktavian",
     isi: "Tim IT resmi meluncurkan website Desa Ngariboyo yang memuat profil desa, katalog UMKM, dan agenda kegiatan secara real-time. Kepala Desa Ngariboyo menyambut antusias inisiatif ini sebagai langkah nyata menuju smart village.",
-    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=380&fit=crop&auto=format",
+    img: logoBannerKKNT,
   },
   {
     id: 5,
@@ -512,7 +516,7 @@ export const BERITA = [
     kat: "Olahraga",
     penulis: "Haris Budiman",
     isi: "Antusiasme warga luar biasa di senam pagi pertama bersama mahasiswa KKNT Ilmu Keolahragaan. Lebih dari 100 warga dari berbagai usia hadir memenuhi lapangan desa. Program ini akan terus dilanjutkan setiap Minggu pagi.",
-    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=380&fit=crop&auto=format",
+    img: logoBannerKKNT,
   },
   {
     id: 6,
@@ -521,7 +525,7 @@ export const BERITA = [
     kat: "Lingkungan",
     penulis: "Ahmad Fauzi",
     isi: "Lebih dari 100 warga dan mahasiswa bergotong royong memperbaiki saluran irigasi dan menanam pohon penghijauan di taman desa. Kegiatan ini mempererat hubungan antara mahasiswa KKNT dengan masyarakat Desa Ngariboyo.",
-    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=380&fit=crop&auto=format",
+    img: logoBannerKKNT,
   },
 ];
 
@@ -535,13 +539,13 @@ export const STATISTIK = [
 
 // ── GALERI ───────────────────────────────────────────────────────────────────
 export const GALERI = [
-  { src: "https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=600&h=400&fit=crop", alt: "Sawah Desa Ngariboyo", kat: "Desa" },
-  { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=800&fit=crop", alt: "Bimbingan Belajar", kat: "Pendidikan" },
-  { src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop", alt: "Senam Bersama", kat: "Olahraga" },
-  { src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop", alt: "Workshop UMKM", kat: "Ekonomi" },
-  { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=600&fit=crop", alt: "Kerja Bakti", kat: "Lingkungan" },
-  { src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop", alt: "Teknologi Desa", kat: "Teknologi" },
-  { src: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=800&fit=crop", alt: "Posyandu", kat: "Kesehatan" },
-  { src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=400&fit=crop", alt: "Kegiatan Bersama", kat: "Kegiatan" },
-  { src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=600&fit=crop", alt: "Kesehatan Warga", kat: "Kesehatan" },
+  { src: buktiBannerProker, alt: "Sawah Desa Ngariboyo", kat: "Desa" },
+  { src: buktiBannerProker, alt: "Bimbingan Belajar", kat: "Pendidikan" },
+  { src: buktiBannerProker, alt: "Senam Bersama", kat: "Olahraga" },
+  { src: buktiBannerProker, alt: "Workshop UMKM", kat: "Ekonomi" },
+  { src: buktiBannerProker, alt: "Kerja Bakti", kat: "Lingkungan" },
+  { src: buktiBannerProker, alt: "Teknologi Desa", kat: "Teknologi" },
+  { src: buktiBannerProker, alt: "Posyandu", kat: "Kesehatan" },
+  { src: buktiBannerProker, alt: "Kegiatan Bersama", kat: "Kegiatan" },
+  { src: buktiBannerProker, alt: "Kesehatan Warga", kat: "Kesehatan" },
 ];
