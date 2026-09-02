@@ -1,0 +1,3 @@
+const hashtags = ["#KKNTNgariboyo2024", "#SmartVillageNgariboyo", "#BergerakBersama", "#MahasiswaMengabdi", "#DesaNgariboyo"];
+
+export default function Hashtags() { return <div><h4 className="font-semibold text-foreground mb-3 font-body text-sm">Gunakan tagar kami:</h4><div className="flex flex-wrap gap-2">{hashtags.map((tag) => <span key={tag} className="px-3 py-1.5 bg-muted border border-primary/20 text-primary text-xs rounded-xl font-medium font-caption">{tag}</span>)}</div></div>; }

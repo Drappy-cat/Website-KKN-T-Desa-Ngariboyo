@@ -1,0 +1,5 @@
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
+
+const details = [{ Icon: MapPin, label: "Alamat", value: "Desa Ngariboyo, Kec. Ngariboyo, Kab. Magetan, Jawa Timur 63351" }, { Icon: Mail, label: "Email", value: "kknt.ngariboyo2024@gmail.com" }, { Icon: Phone, label: "Telepon", value: "0812-3456-7890 (Ahmad Fauzi)" }, { Icon: Instagram, label: "Instagram", value: "@kknt_ngariboyo24" }];
+
+export default function ContactDetails() { return <div className="grid sm:grid-cols-2 gap-4">{details.map(({ Icon, label, value }) => <div key={label} className="bg-white rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-border hover:-translate-y-0.5 transition-all"><div className="flex items-center gap-2.5 mb-2"><div className="w-8 h-8 bg-muted rounded-lg flex items-center justify-center"><Icon className="w-4 h-4 text-primary" /></div><span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground font-caption">{label}</span></div><p className="text-foreground text-sm font-body leading-relaxed">{value}</p></div>)}</div>; }

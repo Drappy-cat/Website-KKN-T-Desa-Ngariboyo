@@ -1,4 +1,4 @@
-// ── NAV ───────────
+// ── NAV ─────────────────────────────────────────────────────────────────────
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   {
@@ -431,6 +431,24 @@ export const BERITA = [
     isi: "Program bimbingan belajar gratis resmi dimulai di Balai Desa Ngariboyo. Puluhan siswa SD dan SMP hadir dengan antusiasme tinggi untuk belajar matematika, membaca, dan materi sekolah bersama mahasiswa PGSD.",
     img: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=380&fit=crop&auto=format",
   },
+  {
+    id: 5,
+    judul: "Senam Pagi Rutin: Warga Desa Ngariboyo Bergerak Bersama",
+    tgl: "28 Agustus 2026",
+    kat: "Olahraga",
+    penulis: "Putera Al Khalidi",
+    isi: "Antusiasme warga luar biasa di senam pagi bersama mahasiswa KKNT Ilmu Keolahragaan. Warga dari berbagai usia hadir memenuhi lapangan desa. Program ini bertujuan meningkatkan kebugaran jasmani masyarakat.",
+    img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=380&fit=crop&auto=format",
+  },
+  {
+    id: 6,
+    judul: "Revitalisasi Fasilitas Desa dan Gerakan Lingkungan Bersih",
+    tgl: "1 September 2026",
+    kat: "Lingkungan",
+    penulis: "Rifki Wahyu Dwi Saputra",
+    isi: "Warga dan mahasiswa bergotong royong membersihkan area publik dan menata fasilitas umum di Desa Ngariboyo guna menciptakan lingkungan yang asri, nyaman, dan sehat.",
+    img: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=380&fit=crop&auto=format",
+  },
 ];
 
 // ── STATISTIK HOME ───────────────────────────────────────────────────────────
@@ -443,13 +461,13 @@ export const STATISTIK = [
 
 // ── GALERI ───────────────────────────────────────────────────────────────────
 export const GALERI = [
-  { src: "https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=600&h=400&fit=crop", alt: "Sawah Desa Ngariboyo", kat: "Desa" },
-  { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=800&fit=crop", alt: "Bimbingan Belajar", kat: "Pendidikan" },
-  { src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop", alt: "Senam Bersama", kat: "Olahraga" },
-  { src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop", alt: "Workshop UMKM", kat: "Ekonomi" },
-  { src: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&h=600&fit=crop", alt: "Kerja Bakti", kat: "Lingkungan" },
-  { src: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop", alt: "Teknologi Desa", kat: "Teknologi" },
-  { src: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&h=800&fit=crop", alt: "Posyandu", kat: "Kesehatan" },
-  { src: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=400&fit=crop", alt: "Kegiatan Bersama", kat: "Kegiatan" },
-  { src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=600&fit=crop", alt: "Kesehatan Warga", kat: "Kesehatan" },
+  { src: buktiBannerProker, alt: "Sawah Desa Ngariboyo", kat: "Desa" },
+  { src: buktiBannerProker, alt: "Bimbingan Belajar", kat: "Pendidikan" },
+  { src: buktiBannerProker, alt: "Senam Bersama", kat: "Olahraga" },
+  { src: buktiBannerProker, alt: "Workshop UMKM", kat: "Ekonomi" },
+  { src: buktiBannerProker, alt: "Kerja Bakti", kat: "Lingkungan" },
+  { src: buktiBannerProker, alt: "Teknologi Desa", kat: "Teknologi" },
+  { src: buktiBannerProker, alt: "Posyandu", kat: "Kesehatan" },
+  { src: buktiBannerProker, alt: "Kegiatan Bersama", kat: "Kegiatan" },
+  { src: buktiBannerProker, alt: "Kesehatan Warga", kat: "Kesehatan" },
 ];
