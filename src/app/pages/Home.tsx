@@ -101,22 +101,6 @@ export default function Home() {
 
   return (
     <>
-      <style>{`
-        @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-        @keyframes cloudLeft { 0%,100%{transform:translateX(0)} 50%{transform:translateX(-18px)} }
-        @keyframes cloudRight { 0%,100%{transform:translateX(0)} 50%{transform:translateX(14px)} }
-        @keyframes mountainRise { from { opacity:0; transform:translateY(60px) scale(0.95); } to { opacity:1; transform:translateY(0) scale(1); } }
-        @keyframes logoPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.04)} }
-        .anim-fade-up-0 { opacity:0; animation: fadeUp 0.7s ease forwards 0.1s; }
-        .anim-fade-up-1 { opacity:0; animation: fadeUp 0.7s ease forwards 0.4s; }
-        .anim-fade-up-2 { opacity:0; animation: fadeUp 0.7s ease forwards 0.7s; }
-        .anim-fade-up-3 { opacity:0; animation: fadeUp 0.7s ease forwards 1.0s; }
-        .anim-mountain { opacity:0; animation: mountainRise 1.2s cubic-bezier(.16,1,.3,1) forwards 0.2s; }
-        .cloud-l { animation: cloudLeft 8s ease-in-out infinite; }
-        .cloud-r { animation: cloudRight 10s ease-in-out infinite; }
-        .logo-pulse { animation: logoPulse 4s ease-in-out infinite; }
-      `}</style>
-
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#071F11]">
         {/* Background image slider */}

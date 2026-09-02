@@ -9,15 +9,6 @@ function IDCardSway({ logoSrc }: { logoSrc: string }) {
   const [hovered, setHovered] = useState(false);
   return (
     <>
-      <style>{`
-        @keyframes kkntCardSway {
-          0%,100% { transform: perspective(600px) rotateZ(-5deg) rotateY(-6deg); }
-          20%     { transform: perspective(600px) rotateZ(7deg)  rotateY(8deg);  }
-          40%     { transform: perspective(600px) rotateZ(-4deg) rotateY(-4deg); }
-          60%     { transform: perspective(600px) rotateZ(8deg)  rotateY(7deg);  }
-          80%     { transform: perspective(600px) rotateZ(-6deg) rotateY(-8deg); }
-        }
-      `}</style>
       <div
         className="flex flex-col items-center cursor-pointer select-none"
         onMouseEnter={() => setHovered(true)}
