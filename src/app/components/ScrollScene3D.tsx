@@ -1,46 +1,12 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 
-// ── CSS entrance animation ringan dan halus (Bebas lag & ramah mobile) ────────
-const ENTRANCE_CSS = `
-  @keyframes kkntFadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .kknt-fade-up {
-      animation: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-  .kknt-fade-up {
-    animation: kkntFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
-`;
-
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 export default function ScrollScene3D() {
   const { pathname } = useLocation();
-
-  // Inject animation CSS sekali saja
-  useEffect(() => {
-    const id = "kknt-entrance-css";
-    if (document.getElementById(id)) return;
-    const el = document.createElement("style");
-    el.id = id;
-    el.textContent = ENTRANCE_CSS;
-    document.head.appendChild(el);
-  }, []);
 
   // Animasi section reveal yang ringan via IntersectionObserver
   useEffect(() => {

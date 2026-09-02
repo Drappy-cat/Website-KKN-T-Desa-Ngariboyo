@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { X, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { GALERI } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
@@ -36,7 +36,10 @@ export default function Dokumentasi() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [tab, setTab] = useState<"foto" | "video">("foto");
 
-  const filteredGaleri = GALERI.filter((g) => filterKat === "Semua" || g.kat === filterKat);
+  const filteredGaleri = useMemo(
+    () => GALERI.filter((g) => filterKat === "Semua" || g.kat === filterKat),
+    [filterKat]
+  );
 
   const prev = () => setLightbox((v) => (v !== null ? (v - 1 + filteredGaleri.length) % filteredGaleri.length : null));
   const next = () => setLightbox((v) => (v !== null ? (v + 1) % filteredGaleri.length : null));

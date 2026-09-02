@@ -40,3 +40,27 @@
   80%     { transform: perspective(600px) rotateZ(-6deg) rotateY(-8deg); }
 }
 
+@keyframes kkntFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kknt-fade-up {
+  animation: kkntFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kknt-fade-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+

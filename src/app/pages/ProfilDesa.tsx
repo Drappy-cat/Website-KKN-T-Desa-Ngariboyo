@@ -1,6 +1,17 @@
+import { lazy, Suspense } from "react";
 import { DESA } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
-import DesaMap from "../components/DesaMap";
+
+const DesaMap = lazy(() => import("../components/DesaMap"));
+
+function MapSkeleton() {
+  return (
+    <div className="w-full h-[520px] rounded-[26px] bg-muted/40 animate-pulse flex flex-col items-center justify-center border border-border">
+      <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mb-3" />
+      <p className="text-muted-foreground text-sm font-body">Memuat Peta Interaktif Desa Ngariboyo...</p>
+    </div>
+  );
+}
 
 function PageBanner({ title, sub }: { title: string; sub?: string }) {
   return (
@@ -85,7 +96,9 @@ export default function ProfilDesa() {
 
           {/* Leaflet Interactive Map with Boundary Polygon */}
           <div className="mb-10">
-            <DesaMap />
+            <Suspense fallback={<MapSkeleton />}>
+              <DesaMap />
+            </Suspense>
           </div>
 
           {/* Kartu Informasi Administratif & Geografis */}

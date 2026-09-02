@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, lazy, Suspense } from "react";
+import { useEffect, useRef, useState, lazy, Suspense, memo, useMemo, useCallback } from "react";
 import { Link } from "react-router";
 import {
   ArrowRight, Calendar, MapPin, Users, ChevronRight, ChevronLeft,
@@ -26,24 +26,31 @@ function StatChartSkeleton() {
 }
 
 // ── Counter Hook ───────────────────────────────────────────────────────────────
-function useCounter(target: number, started: boolean, duration = 1800) {
+function useCounter(target: number, started: boolean, duration = 1500) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     if (!started) return;
-    const steps = 60;
-    const step = target / steps;
-    let current = 0;
-    const timer = setInterval(() => {
-      current += step;
-      if (current >= target) { setCount(target); clearInterval(timer); }
-      else setCount(Math.floor(current));
-    }, duration / steps);
-    return () => clearInterval(timer);
+    let startTimestamp: number | null = null;
+    let animFrameId: number;
+
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeOut * target));
+
+      if (progress < 1) {
+        animFrameId = requestAnimationFrame(step);
+      }
+    };
+
+    animFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animFrameId);
   }, [started, target, duration]);
   return count;
 }
 
-function StatCard({ target, label, satuan, started }: { target: number; label: string; satuan: string; started: boolean }) {
+const StatCard = memo(function StatCard({ target, label, satuan, started }: { target: number; label: string; satuan: string; started: boolean }) {
   const count = useCounter(target, started);
   return (
     <div className="text-center p-6 bg-card rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all border border-border">
@@ -53,7 +60,7 @@ function StatCard({ target, label, satuan, started }: { target: number; label: s
       <div className="text-muted-foreground text-xs sm:text-sm font-body">{label}</div>
     </div>
   );
-}
+});
 
 // ── Jurusan Logo Map ──────────────────────────────────────────────────────────
 // Dipindahkan ke ../data/images.ts
@@ -79,13 +86,20 @@ export default function Home() {
 
   useEffect(() => {
     const slideTimer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+      if (!document.hidden) {
+        setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+      }
     }, 5000);
     return () => clearInterval(slideTimer);
-  }, [HERO_IMAGES.length]);
+  }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % HERO_IMAGES.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
+  }, []);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -96,8 +110,8 @@ export default function Home() {
     return () => obs.disconnect();
   }, []);
 
-  const prokerHighlight = PROKER.filter((p) => p.status === "Berjalan").slice(0, 4);
-  const beritaPreview = BERITA.slice(0, 3);
+  const prokerHighlight = useMemo(() => PROKER.filter((p) => p.status === "Berjalan").slice(0, 4), []);
+  const beritaPreview = useMemo(() => BERITA.slice(0, 3), []);
 
   return (
     <>
@@ -109,8 +123,8 @@ export default function Home() {
           return (
             <div
               key={idx}
-              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-                idx === currentSlide ? "opacity-100" : "opacity-0"
+              className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 pointer-events-none will-change-[opacity] ${
+                idx === currentSlide ? "opacity-100 z-0" : "opacity-0 -z-10"
               }`}
               style={{
                 backgroundImage: isLoaded ? `url('${src}')` : undefined,
