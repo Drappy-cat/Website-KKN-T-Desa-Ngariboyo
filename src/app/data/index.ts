@@ -459,6 +459,8 @@ export const STATISTIK = [
   { target: 4800, label: "Jiwa Terdampak", satuan: "+" },
 ];
 
+import buktiBannerProker from "../../assets/proker/bukti-proker.png";
+
 // ── GALERI ───────────────────────────────────────────────────────────────────
 import slide1 from "../../assets/galeri/bagian 1.png";
 import slide2 from "../../assets/galeri/bagian 2.png";
