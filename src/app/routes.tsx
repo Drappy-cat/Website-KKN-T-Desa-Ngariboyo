@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router";
 import Root from "./layout/Root";
 import PageLoader from "./components/PageLoader";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const Home = lazy(() => import("./pages/Home"));
 const Tentang = lazy(() => import("./pages/Tentang"));
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
+    ErrorBoundary: ErrorBoundary,
     children: [
       { index: true, element: <Lazy><Home /></Lazy> },
       { path: "tentang", element: <Lazy><Tentang /></Lazy> },
@@ -29,6 +31,7 @@ export const router = createBrowserRouter([
       { path: "dokumentasi", element: <Lazy><Dokumentasi /></Lazy> },
       { path: "berita", element: <Lazy><Berita /></Lazy> },
       { path: "kontak", element: <Lazy><Kontak /></Lazy> },
+      { path: "*", element: <ErrorBoundary /> },
     ],
   },
 ]);

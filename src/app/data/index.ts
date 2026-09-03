@@ -460,16 +460,24 @@ export const STATISTIK = [
 ];
 
 // ── GALERI ───────────────────────────────────────────────────────────────────
+import slide1 from "../../assets/galeri/bagian 1.png";
+import slide2 from "../../assets/galeri/bagian 2.png";
+import slide3 from "../../assets/galeri/bagian 3.png";
+import slide4 from "../../assets/galeri/bagian 4.png";
+import slide5 from "../../assets/galeri/bagian 5.png";
+import slide6 from "../../assets/galeri/bagian 6.png";
+import slide7 from "../../assets/galeri/bagian 7.png";
+import slide8 from "../../assets/galeri/bagian 8.png";
 import buktiBannerProker from "../../assets/proker/bukti-proker.png";
 
 export const GALERI = [
-  { src: buktiBannerProker, alt: "Sawah Desa Ngariboyo", kat: "Desa" },
-  { src: buktiBannerProker, alt: "Bimbingan Belajar", kat: "Pendidikan" },
-  { src: buktiBannerProker, alt: "Senam Bersama", kat: "Olahraga" },
-  { src: buktiBannerProker, alt: "Workshop UMKM", kat: "Ekonomi" },
-  { src: buktiBannerProker, alt: "Kerja Bakti", kat: "Lingkungan" },
-  { src: buktiBannerProker, alt: "Teknologi Desa", kat: "Teknologi" },
-  { src: buktiBannerProker, alt: "Posyandu", kat: "Kesehatan" },
-  { src: buktiBannerProker, alt: "Kegiatan Bersama", kat: "Kegiatan" },
-  { src: buktiBannerProker, alt: "Kesehatan Warga", kat: "Kesehatan" },
+  { src: slide1, alt: "Suasana Lanskap & Sawah Desa Ngariboyo", kat: "Desa" },
+  { src: slide2, alt: "Kegiatan Bimbingan Belajar Anak Desa", kat: "Pendidikan" },
+  { src: slide3, alt: "Senam Bugar Sehat Bersama Warga", kat: "Olahraga" },
+  { src: slide4, alt: "Pemberdayaan Produk Unggulan UMKM", kat: "Ekonomi" },
+  { src: slide5, alt: "Gotong Royong & Kerja Bakti Lingkungan", kat: "Lingkungan" },
+  { src: slide6, alt: "Edukasi Literasi & Teknologi Desa", kat: "Teknologi" },
+  { src: slide7, alt: "Pemeriksaan Kesehatan di Posyandu", kat: "Kesehatan" },
+  { src: slide8, alt: "Kebersamaan Mahasiswa KKNT & Warga", kat: "Kegiatan" },
+  { src: buktiBannerProker, alt: "Dokumentasi & Bukti Pelaksanaan Proker", kat: "Desa" },
 ];
