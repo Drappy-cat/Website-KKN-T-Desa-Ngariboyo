@@ -459,6 +459,8 @@ export const STATISTIK = [
   { target: 4800, label: "Jiwa Terdampak", satuan: "+" },
 ];
 
+import buktiBannerProker from "../../assets/proker/bukti-proker.png";
+
 // ── GALERI ───────────────────────────────────────────────────────────────────
 export const GALERI = [
   { src: buktiBannerProker, alt: "Sawah Desa Ngariboyo", kat: "Desa" },

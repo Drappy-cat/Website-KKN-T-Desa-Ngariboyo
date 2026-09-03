@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, lazy, Suspense } from "react";
 import { Link } from "react-router";
 import {
   ArrowRight, Calendar, MapPin, Users, ChevronRight, ChevronLeft,
-  BookOpen, Monitor, Briefcase, Dumbbell,
 } from "lucide-react";
 import { STATISTIK, JURUSAN_LIST, PROKER, BERITA, TIMELINE, GALERI, IDENTITAS } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
