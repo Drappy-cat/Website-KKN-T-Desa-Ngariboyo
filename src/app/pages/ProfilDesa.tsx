@@ -166,11 +166,31 @@ export default function ProfilDesa() {
             {DESA.potensi.map((p) => (
               <div
                 key={p.judul}
-                className="group bg-card rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all border border-border"
+                className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] hover:-translate-y-2 transition-all border border-border flex flex-col"
               >
-                <div className="text-4xl mb-4">{p.ikon}</div>
-                <h3 className="font-display font-bold text-primary dark:text-accent text-lg mb-2 group-hover:text-secondary transition-colors">{p.judul}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed font-body">{p.deskripsi}</p>
+                <div className="w-full h-48 sm:h-56 overflow-hidden relative">
+                  {/* Decorative Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Image */}
+                  <img 
+                    src={p.img} 
+                    alt={p.judul} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                    loading="lazy" 
+                  />
+                  
+
+                </div>
+                
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="font-display font-bold text-primary dark:text-accent text-lg mb-2 group-hover:text-secondary transition-colors">
+                    {p.judul}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed font-body">
+                    {p.deskripsi}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -191,15 +211,9 @@ export default function ProfilDesa() {
                 key={p.judul}
                 className="bg-card rounded-[20px] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-l-4 border-accent border border-border"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-accent/15 rounded-xl flex items-center justify-center text-2xl shrink-0">{p.ikon}</div>
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="font-display font-bold text-foreground text-base">{p.judul}</span>
-                      <span className="px-2 py-0.5 bg-primary/15 text-primary dark:text-accent text-xs rounded-full font-caption">#{i + 1}</span>
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed font-body">{p.deskripsi}</p>
-                  </div>
+                <div className="flex flex-col">
+                  <h3 className="font-display font-bold text-foreground text-base mb-2">{p.judul}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed font-body text-justify">{p.deskripsi}</p>
                 </div>
               </div>
             ))}

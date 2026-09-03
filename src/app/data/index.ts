@@ -65,18 +65,18 @@ export const DESA = {
 
 Desa ini memiliki sejarah panjang sejak masa kolonial Belanda, dengan masyarakat yang dikenal gigih dalam bertani dan menjaga tradisi gotong royong. Sawah-sawah yang menghijau di kaki Gunung Lawu menjadi saksi bisu perjuangan generasi demi generasi warga Ngariboyo dalam membangun dan mempertahankan kehidupan desa.`,
   potensi: [
-    { judul: "Pertanian Padi & Jagung", ikon: "🌾", deskripsi: "Lahan pertanian subur menghasilkan padi dan jagung berkualitas tinggi yang menjadi komoditas utama perekonomian desa." },
-    { judul: "Pariwisata Alam", ikon: "🏔️", deskripsi: "Pemandangan alam indah kaki Gunung Lawu dengan udara sejuk dan lanskap persawahan yang menawan berpotensi sebagai destinasi agrowisata." },
-    { judul: "UMKM Produk Lokal", ikon: "🏪", deskripsi: "Lebih dari 25 UMKM aktif memproduksi olahan makanan, kerajinan, dan produk lokal bernilai tinggi yang siap dipasarkan secara digital." },
-    { judul: "Sumber Daya Air", ikon: "💧", deskripsi: "Aliran sungai dan irigasi yang melimpah mendukung pertanian intensif dan budidaya ikan air tawar sepanjang tahun." },
-    { judul: "Sumber Daya Manusia", ikon: "👥", deskripsi: "Warga yang aktif dan semangat belajar tinggi, dengan banyak pemuda yang terbuka terhadap inovasi dan teknologi digital." },
-    { judul: "Budaya & Tradisi", ikon: "🎭", deskripsi: "Kekayaan tradisi lokal, seni budaya Jawa, dan kearifan lokal yang masih terjaga menjadi identitas dan daya tarik unik desa." },
+    { judul: "Pertanian Padi & Jagung", ikon: "🌾", img: "https://images.unsplash.com/photo-1586771107445-d3af07e86e10?w=600&h=400&fit=crop", deskripsi: "Lahan pertanian subur menghasilkan padi dan jagung berkualitas tinggi yang menjadi komoditas utama perekonomian desa." },
+    { judul: "Wisata Air & Waduk (Embung Pendem)", ikon: "🌊", img: "https://images.unsplash.com/photo-1437482078695-73f5ff6e6559?w=600&h=400&fit=crop", deskripsi: "Fasilitas penampungan air buatan Embung Pendem yang dikembangkan menjadi objek wisata air, menawarkan panorama persawahan yang menawan serta wahana perahu kano untuk pengunjung." },
+    { judul: "Destinasi Wisata Religi & Sejarah", ikon: "🕌", img: "https://images.unsplash.com/photo-1574895067204-c1fb700fbe76?w=600&h=400&fit=crop", deskripsi: "Adanya situs Makam Kuno Ngariboyo yang menjadi pusat ziarah religius bagi masyarakat serta pusat pelestarian sejarah cagar budaya lokal." },
+    { judul: "UMKM Anyaman Tas & Produk Lokal", ikon: "🛍️", img: "https://images.unsplash.com/photo-1605814510757-5561a0d8bb5d?w=600&h=400&fit=crop", deskripsi: "Sentra industri rumah tangga kreatif yang berfokus pada kerajinan anyaman tas di Dukuh Jetis, didukung oleh lebih dari 25 UMKM aktif yang siap Go Digital." },
+    { judul: "Sumber Daya Air", ikon: "💧", img: "https://images.unsplash.com/photo-1517409249719-756d11f92c10?w=600&h=400&fit=crop", deskripsi: "Aliran sungai melimpah dan jaringan irigasi embung yang andal untuk mendukung pertanian intensif serta budidaya ikan air tawar sepanjang tahun." },
+    { judul: "Budaya & Tradisi", ikon: "🎭", img: "https://images.unsplash.com/photo-1604928141064-207cea6f5822?w=600&h=400&fit=crop", deskripsi: "Kekayaan adat Jawa Mataraman yang masih terjaga melalui tradisi bersih desa dan seni budaya lokal, menjadi identitas serta daya tarik unik desa." },
   ],
   permasalahan: [
-    { judul: "Literasi Digital Rendah", ikon: "📱", deskripsi: "Sebagian besar warga belum memanfaatkan teknologi digital secara optimal untuk produktivitas dan pemasaran produk lokal." },
-    { judul: "Keterbatasan Akses Pasar", ikon: "📦", deskripsi: "Produk UMKM lokal belum memiliki akses pasar yang luas karena minimnya pengetahuan e-commerce dan branding digital." },
-    { judul: "Infrastruktur Pendukung", ikon: "🏗️", deskripsi: "Beberapa fasilitas umum seperti saluran irigasi dan jalan desa perlu perbaikan untuk mendukung aktivitas pertanian dan mobilitas warga." },
-    { judul: "Kualitas SDM Pertanian", ikon: "🌿", deskripsi: "Petani masih banyak yang menggunakan metode konvensional dan belum mengenal teknologi pertanian organik yang lebih efisien." },
+    { judul: "Tata Kelola Pemerintahan (Kasus Korupsi)", ikon: "⚖️", deskripsi: "Desa Ngariboyo mengalami masalah serius dalam transparansi anggaran. Mantan Kepala Desa, Sumadi, terjerat kasus korupsi dan penyalahgunaan Dana Desa berturut-turut (proyek fiktif 2019 & penyimpangan anggaran 2023), menghambat pembangunan fisik." },
+    { judul: "Banjir Luapan Akibat Sampah & Drainase", ikon: "🌊", deskripsi: "Meski di kaki gunung, area perempatan dan utara Puskesmas Ngariboyo kerap banjir saat hujan deras akibat buruknya pengelolaan limbah. Saluran tersumbat tumpukan sampah hingga air meluap ke jalan raya setinggi pinggang." },
+    { judul: "Ancaman Kekeringan & Krisis Air Bersih", ikon: "🏜️", deskripsi: "Tantangan alam berupa ancaman kekeringan saat kemarau panjang. Sektor pertanian sangat bergantung pada pasokan air, rentan mengalami krisis air dan penurunan produktivitas lahan jika jaringan embung tidak dikelola baik." },
+    { judul: "Kendala Distribusi & Harga Pupuk Subsidi", ikon: "🌱", deskripsi: "Sebagai desa penghasil padi & jagung, petani dihadapkan pada carut-marut distribusi pupuk bersubsidi. Sempat muncul sengketa akibat dugaan penjualan tidak merata dan harga di atas HET yang mencekik modal petani." },
   ],
   statistik: [
     { nilai: "±8.5", satuan: "km²", label: "Luas Wilayah" },

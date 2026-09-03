@@ -4,8 +4,12 @@ import { IDENTITAS, LOGO_ELEMEN } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
 import logoTransparent from "../../assets/logos/kknt/logo-kknt-removebg.png";
 import IDCardGallery from "../components/IDCardGallery";
+import vestFront from "../../assets/perlengkapan/43.svg";
+import vestBack from "../../assets/perlengkapan/41.svg";
+import lanyardImg from "../../assets/perlengkapan/42.svg";
+import izoraIdCard from "../../assets/id-card/Izora Elverda Narulita Putri_Pubdedok_Teknik Informatika.svg";
 
-function IDCardSway({ logoSrc }: { logoSrc: string }) {
+function IDCardSway() {
   const [hovered, setHovered] = useState(false);
   return (
     <>
@@ -27,57 +31,8 @@ function IDCardSway({ logoSrc }: { logoSrc: string }) {
           <div className="w-6 h-2.5 bg-gray-300 dark:bg-gray-600 rounded-sm border border-gray-400/50 shadow -mt-px" />
 
           {/* ID Card */}
-          <div className="w-44 rounded-2xl overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.25)] border border-border -mt-0.5">
-            {/* Header */}
-            <div className="bg-primary px-4 pt-5 pb-4 text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -translate-y-10 translate-x-10 pointer-events-none" />
-              <div className="flex items-center justify-center gap-2 mb-1 relative z-10">
-                <div className="w-9 h-9 rounded-full bg-white/15 border border-white/25 flex items-center justify-center overflow-hidden shrink-0">
-                  <img src={logoSrc} className="w-8 h-8 object-contain" alt="Logo" />
-                </div>
-                <div className="text-left">
-                  <div className="text-white font-display font-extrabold text-[11px] leading-tight">KKNT 2026</div>
-                  <div className="text-accent text-[8px] font-caption leading-tight">Univ. Negeri Surabaya</div>
-                </div>
-              </div>
-              <div className="text-white/50 text-[7px] font-caption tracking-widest mt-1 relative z-10">DESA NGARIBOYO · MAGETAN</div>
-            </div>
-
-            {/* Body */}
-            <div className="bg-white dark:bg-card px-4 py-3">
-              {/* Photo */}
-              <div className="w-16 h-20 mx-auto rounded-xl mb-3 border-2 border-border bg-muted overflow-hidden flex flex-col items-center justify-end">
-                <div className="w-10 h-10 rounded-full bg-foreground/10 mb-0.5" />
-                <div className="w-14 h-8 rounded-t-full bg-foreground/10" />
-              </div>
-
-              {/* Info rows */}
-              <div className="text-center space-y-1 mb-3">
-                <div className="font-display font-extrabold text-foreground text-xs">NAMA MAHASISWA</div>
-                <div className="text-muted-foreground text-[9px] font-caption">NIM · 25051204XXX</div>
-                <span className="inline-block px-2.5 py-0.5 bg-primary/10 text-primary text-[9px] font-semibold rounded-full border border-primary/20">
-                  Teknik Informatika
-                </span>
-              </div>
-
-              {/* Barcode */}
-              <div className="flex justify-center gap-px mb-1">
-                {Array.from({ length: 26 }, (_, i) => (
-                  <div
-                    key={i}
-                    className="bg-foreground/75 rounded-[1px]"
-                    style={{ width: "1.5px", height: `${10 + (i % 5) * 3}px` }}
-                  />
-                ))}
-              </div>
-              <div className="text-[7px] text-center text-muted-foreground font-caption tracking-widest">25051204XXX</div>
-            </div>
-
-            {/* Footer */}
-            <div className="bg-primary/5 dark:bg-primary/15 border-t border-border px-3 py-1.5 flex items-center justify-between">
-              <div className="text-[7px] text-muted-foreground font-caption">Berlaku: 13 Agt – 25 Sept 2026</div>
-              <div className="w-2 h-2 rounded-full bg-primary/40" />
-            </div>
+          <div className="w-56 rounded-[20px] overflow-hidden shadow-[0_16px_48px_rgba(0,0,0,0.25)] border-2 border-white/60 dark:border-white/10 -mt-2 bg-gradient-to-b from-white/80 to-white/40 dark:from-muted/80 dark:to-muted/40 backdrop-blur-sm">
+            <img src={izoraIdCard} alt="ID Card Izora" className="w-full h-auto object-contain" />
           </div>
         </div>
       </div>
@@ -259,39 +214,40 @@ export default function Tentang() {
             <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-muted text-primary mb-4 font-caption border border-border">Identitas Fisik</span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">Desain Atribut</h2>
             <p className="text-muted-foreground max-w-xl mx-auto font-body text-sm">
-              Setiap peserta KKNT dilengkapi atribut identitas resmi — vest, lanyard, dan ID card — yang mencerminkan semangat dan identitas program.
+              Setiap peserta KKNT dilengkapi atribut identitas resmi vest, lanyard, dan ID card yang mencerminkan semangat dan identitas program.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* ── VEST ─────────────────────────────────────────────── */}
             <div className="bg-card rounded-[20px] p-8 border border-border shadow-[0_10px_30px_rgba(0,0,0,0.07)] flex flex-col items-center text-center hover:-translate-y-1 transition-all group">
-              <div className="mb-6 relative">
-                <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl scale-110 group-hover:scale-125 transition-transform duration-500" />
-                <svg viewBox="0 0 200 230" className="w-44 h-48 drop-shadow-xl relative z-10" fill="none">
-                  {/* Vest body */}
-                  <path d="M 50 55 L 25 100 L 58 108 L 58 205 L 142 205 L 142 108 L 175 100 L 150 55 Q 125 18 100 38 Q 75 18 50 55 Z"
-                        fill="#14532D" />
-                  {/* Darker side panels */}
-                  <path d="M 50 55 L 25 100 L 58 108 L 58 130 Q 40 120 30 105 Z" fill="#0F3D1E" opacity="0.5" />
-                  <path d="M 150 55 L 175 100 L 142 108 L 142 130 Q 160 120 170 105 Z" fill="#0F3D1E" opacity="0.5" />
-                  {/* V-collar */}
-                  <path d="M 82 38 L 100 68 L 118 38" fill="#0F3D1E" stroke="#1E5D3A" strokeWidth="2" strokeLinejoin="round" />
-                  {/* Left chest pocket */}
-                  <rect x="62" y="118" width="38" height="28" rx="5" fill="#0F3D1E" opacity="0.5" />
-                  {/* Chest logo area */}
-                  <circle cx="81" cy="132" r="14" fill="#F4B400" opacity="0.15" />
-                  <text x="81" y="128" textAnchor="middle" fill="#F4B400" fontSize="7" fontFamily="sans-serif" fontWeight="900">KKNT</text>
-                  <text x="81" y="138" textAnchor="middle" fill="white" fontSize="5.5" fontFamily="sans-serif" opacity="0.8">NGARIBOYO</text>
-                  {/* Center text */}
-                  <text x="100" y="170" textAnchor="middle" fill="white" fontSize="9" fontFamily="sans-serif" fontWeight="700" opacity="0.8">UNIVERSITAS</text>
-                  <text x="100" y="182" textAnchor="middle" fill="white" fontSize="8" fontFamily="sans-serif" opacity="0.6">NEGERI SURABAYA</text>
-                  <text x="100" y="197" textAnchor="middle" fill="#F4B400" fontSize="11" fontFamily="sans-serif" fontWeight="900">2026</text>
-                  {/* Center buttons */}
-                  <circle cx="100" cy="115" r="3" fill="white" opacity="0.35" />
-                  <circle cx="100" cy="128" r="3" fill="white" opacity="0.35" />
-                  <circle cx="100" cy="141" r="3" fill="white" opacity="0.35" />
-                </svg>
+              <div className="mb-6 relative" style={{ perspective: "1000px" }}>
+                <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl scale-125 group-hover:scale-150 transition-transform duration-500" />
+                
+                <div 
+                  className="w-64 h-64 sm:w-80 sm:h-80 drop-shadow-xl relative z-10 transition-transform duration-700 cursor-pointer"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <style>{`
+                    .vest-flip-container:hover .vest-flipper {
+                      transform: rotateY(180deg);
+                    }
+                  `}</style>
+                  {/* Container flipper yang dikontrol oleh hover parent card */}
+                  <div className="w-full h-full relative transition-transform duration-700 group-hover:[transform:rotateY(180deg)]" style={{ transformStyle: "preserve-3d" }}>
+                    
+                    {/* Bagian Depan (43.svg) */}
+                    <div className="absolute inset-0 flex items-center justify-center" style={{ backfaceVisibility: "hidden" }}>
+                      <img src={vestFront} alt="Vest Depan" className="w-[140%] h-[140%] max-w-none object-contain" />
+                    </div>
+                    
+                    {/* Bagian Belakang (41.svg) */}
+                    <div className="absolute inset-0 flex items-center justify-center" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
+                      <img src={vestBack} alt="Vest Belakang" className="w-[140%] h-[140%] max-w-none object-contain" />
+                    </div>
+                    
+                  </div>
+                </div>
               </div>
               <h3 className="font-display font-bold text-foreground text-lg mb-2">Vest Peserta</h3>
               <p className="text-muted-foreground text-sm font-body leading-relaxed">
@@ -301,39 +257,11 @@ export default function Tentang() {
 
             {/* ── LANYARD ──────────────────────────────────────────── */}
             <div className="bg-card rounded-[20px] p-8 border border-border shadow-[0_10px_30px_rgba(0,0,0,0.07)] flex flex-col items-center text-center hover:-translate-y-1 transition-all group">
-              <div className="mb-6 flex flex-col items-center">
-                {/* Lanyard strap */}
-                <div className="flex gap-0.5 mb-0">
-                  <div className="w-3 h-20 bg-gradient-to-b from-primary to-primary/80 rounded-t-full shadow-sm" />
-                  <div className="w-3 h-20 bg-gradient-to-b from-accent to-accent/80 rounded-t-full shadow-sm" />
-                  <div className="w-3 h-20 bg-gradient-to-b from-primary to-primary/80 rounded-t-full shadow-sm" />
-                </div>
-                {/* Metal clip */}
-                <div className="w-7 h-3.5 border-2 border-gray-300 bg-gray-100 dark:border-gray-600 dark:bg-gray-700 rounded-sm shadow-inner -mt-px" />
-                {/* Card holder preview */}
-                <div className="mt-1 w-32 bg-white dark:bg-muted rounded-2xl border border-border shadow-[0_8px_24px_rgba(0,0,0,0.15)] overflow-hidden">
-                  {/* Card header */}
-                  <div className="bg-primary px-3 py-2 text-center">
-                    <span className="text-accent text-[8px] font-display font-extrabold">KKNT 2026</span>
-                    <div className="text-white/60 text-[7px] font-caption">DESA NGARIBOYO</div>
-                  </div>
-                  {/* Card body */}
-                  <div className="px-3 py-2 flex gap-2 items-start">
-                    <div className="w-10 h-12 bg-gray-100 dark:bg-card rounded-lg border border-border shrink-0 flex flex-col items-center justify-end overflow-hidden">
-                      <div className="w-6 h-6 rounded-full bg-gray-200 dark:bg-muted" />
-                      <div className="w-8 h-4 rounded-t-full bg-gray-200 dark:bg-muted" />
-                    </div>
-                    <div className="flex-1 space-y-1.5 pt-1">
-                      <div className="h-1.5 w-full bg-foreground/15 rounded-full" />
-                      <div className="h-1.5 w-3/4 bg-foreground/10 rounded-full" />
-                      <div className="h-1.5 w-1/2 bg-primary/30 rounded-full" />
-                    </div>
-                  </div>
-                  <div className="flex justify-center gap-px pb-2 px-3">
-                    {Array.from({ length: 18 }, (_, i) => (
-                      <div key={i} className="bg-foreground/50 rounded-px" style={{ width: "1.5px", height: `${8 + (i % 3) * 3}px` }} />
-                    ))}
-                  </div>
+              <div className="mb-6 relative">
+                <div className="absolute inset-0 bg-primary/5 rounded-full blur-2xl scale-125 group-hover:scale-150 transition-transform duration-500" />
+                
+                <div className="w-64 h-64 sm:w-80 sm:h-80 drop-shadow-xl relative z-10 transition-transform duration-700 cursor-pointer flex items-center justify-center">
+                  <img src={lanyardImg} alt="Lanyard Peserta" className="w-[170%] h-[170%] max-w-none object-contain translate-y-10" />
                 </div>
               </div>
               <h3 className="font-display font-bold text-foreground text-lg mb-2">Lanyard</h3>
@@ -344,10 +272,10 @@ export default function Tentang() {
 
             {/* ── ID CARD OVERVIEW ─────────────────────────────────── */}
             <div className="bg-card rounded-[20px] p-8 border border-border shadow-[0_10px_30px_rgba(0,0,0,0.07)] flex flex-col items-center text-center">
-              <IDCardSway logoSrc={logoTransparent} />
+              <IDCardSway />
               <h3 className="font-display font-bold text-foreground text-lg mb-2 mt-6">ID Card Resmi</h3>
               <p className="text-muted-foreground text-sm font-body leading-relaxed">
-                Kartu identitas resmi peserta berisi nama, NIM, jurusan, dan barcode. Arahkan kursor untuk melihat animasinya.
+                Kartu identitas resmi peserta berisi nama, NIM, jurusan, dan media sosial kknt. Arahkan kursor untuk melihat animasinya.
               </p>
             </div>
           </div>
