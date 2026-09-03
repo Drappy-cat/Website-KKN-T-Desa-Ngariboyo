@@ -205,37 +205,37 @@ export default function IDCardGallery() {
                   </p>
 
                   <div className="space-y-2.5 bg-muted/50 rounded-[20px] p-5 border border-border text-sm">
-                    <div className="flex justify-between items-center py-1 border-b border-border/60">
-                      <span className="text-muted-foreground font-body">Divisi</span>
-                      <span className="font-semibold text-foreground font-caption">
+                    <div className="flex justify-between items-start sm:items-center py-1 border-b border-border/60 gap-4">
+                      <span className="text-muted-foreground font-body shrink-0">Divisi</span>
+                      <span className="font-semibold text-foreground font-caption text-right">
                         {activeModalMember.divisi}
                       </span>
                     </div>
 
-                    <div className="flex justify-between items-center py-1 border-b border-border/60">
-                      <span className="text-muted-foreground font-body">Program Studi</span>
-                      <span className="font-semibold text-foreground font-caption">
+                    <div className="flex justify-between items-start sm:items-center py-1 border-b border-border/60 gap-4">
+                      <span className="text-muted-foreground font-body shrink-0">Program Studi</span>
+                      <span className="font-semibold text-foreground font-caption text-right">
                         {activeModalMember.prodi}
                       </span>
                     </div>
 
-                    <div className="flex justify-between items-center py-1 border-b border-border/60">
-                      <span className="text-muted-foreground font-body">Fakultas / Kampus</span>
-                      <span className="font-semibold text-foreground font-caption">
+                    <div className="flex justify-between items-start sm:items-center py-1 border-b border-border/60 gap-4">
+                      <span className="text-muted-foreground font-body shrink-0">Fakultas / Kampus</span>
+                      <span className="font-semibold text-foreground font-caption text-right">
                         {activeModalMember.fakultas}
                       </span>
                     </div>
 
-                    <div className="flex justify-between items-center py-1 border-b border-border/60">
-                      <span className="text-muted-foreground font-body">Email Mahasiswa</span>
-                      <span className="font-semibold text-primary dark:text-accent font-caption text-xs">
+                    <div className="flex justify-between items-start sm:items-center py-1 border-b border-border/60 gap-4">
+                      <span className="text-muted-foreground font-body shrink-0 mt-0.5 sm:mt-0">Email Mahasiswa</span>
+                      <span className="font-semibold text-primary dark:text-accent font-caption text-xs text-right break-all">
                         {activeModalMember.email}
                       </span>
                     </div>
 
-                    <div className="flex justify-between items-center py-1">
-                      <span className="text-muted-foreground font-body">Universitas</span>
-                      <span className="font-semibold text-foreground font-caption">
+                    <div className="flex justify-between items-start sm:items-center py-1 gap-4">
+                      <span className="text-muted-foreground font-body shrink-0">Universitas</span>
+                      <span className="font-semibold text-foreground font-caption text-right">
                         Universitas Negeri Surabaya
                       </span>
                     </div>
