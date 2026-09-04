@@ -1,7 +1,8 @@
-﻿import { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { Mail, Phone, Search, X, Award, BookOpen, Users } from "lucide-react";
+import { Mail, Phone, Search, X, Award, BookOpen, Users, Download, UserCheck } from "lucide-react";
 import { DPL, MAHASISWA, JURUSAN_LIST, PROKER } from "../data";
+import { ID_CARD_MEMBERS } from "../data/idCards";
 import { usePageMeta } from "../hooks/usePageMeta";
 import PageBanner from "../components/PageBanner";
 
@@ -46,124 +47,175 @@ function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
   const j = getJurusan(m.prodi);
   const proker = getProkerForMahasiswa(m.nama);
   const desc = DESKRIPSI_MAHASISWA[m.id] || "";
+  const idCard = ID_CARD_MEMBERS.find((c) => c.id === m.id) || ID_CARD_MEMBERS[0];
 
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
-        <div className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all border border-border cursor-pointer hover:-translate-y-1">
-          <div className="relative bg-muted/30">
+        <div className="group bg-card rounded-[24px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_22px_45px_rgba(0,0,0,0.12)] transition-all border border-border cursor-pointer hover:-translate-y-1.5 flex flex-col">
+          {/* ID Card SVG Frame */}
+          <div className="relative w-full h-64 sm:h-72 flex items-center justify-center p-3.5 bg-gradient-to-b from-muted/70 via-muted/30 to-card overflow-hidden border-b border-border/60">
+            <div className="absolute inset-0 bg-primary/5 opacity-50 pointer-events-none" />
             <img
-              src={m.foto}
-              alt={m.nama}
-              className="w-full h-52 object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              src={idCard.svg}
+              alt={`ID Card ${m.nama}`}
+              className="w-full h-full object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform duration-500"
               loading="lazy"
               decoding="async"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-            <div className="absolute bottom-3 left-3 right-3">
-              <span className="inline-block px-2.5 py-1 rounded-lg text-xs font-semibold font-caption text-white shadow-sm" style={{ backgroundColor: j.warna }}>
-                {m.prodi}
-              </span>
-            </div>
           </div>
-          <div className="p-5">
-            <h3 className="font-display font-bold text-foreground mb-0.5 text-base group-hover:text-primary dark:group-hover:text-accent transition-colors line-clamp-1">{m.nama}</h3>
-            <div className="text-xs text-muted-foreground font-caption mb-2 font-mono">NIM: {m.nim}</div>
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-muted-foreground font-body line-clamp-1">{m.peran}</span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full font-caption font-semibold shrink-0" style={{ backgroundColor: `${j.warna}20`, color: j.warna }}>
-                Divisi {m.divisi}
-              </span>
+
+          {/* Card Body */}
+          <div className="p-5 flex flex-col flex-1 justify-between">
+            <div>
+              <h3 className="font-display font-bold text-foreground mb-0.5 text-base group-hover:text-primary dark:group-hover:text-accent transition-colors line-clamp-1">
+                {m.nama}
+              </h3>
+              <div className="text-xs text-muted-foreground font-caption mb-2 font-mono">
+                NIM: {m.nim}
+              </div>
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-xs text-muted-foreground font-body line-clamp-1">
+                  {idCard.divisi}
+                </span>
+                <span
+                  className="text-xs px-2.5 py-0.5 rounded-full font-caption font-semibold shrink-0"
+                  style={{ backgroundColor: `${idCard.warnaDivisi}18`, color: idCard.warnaDivisi }}
+                >
+                  {idCard.prodi.replace("S1 ", "")}
+                </span>
+              </div>
             </div>
-            <div className="mt-3 pt-3 border-t border-border">
-              <span className="text-xs text-primary dark:text-accent font-semibold font-caption">Lihat Detail →</span>
+
+            <div className="mt-4 pt-3 border-t border-border flex items-center justify-between">
+              <span className="text-xs text-primary dark:text-accent font-semibold font-caption">
+                Lihat Detail →
+              </span>
+              <span className="text-[11px] text-muted-foreground font-caption">
+                {proker.length} Program
+              </span>
             </div>
           </div>
         </div>
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-[150] bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[160] w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-card rounded-[24px] shadow-2xl border border-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=open]:slide-in-from-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-top-[48%]">
+        <Dialog.Overlay className="fixed inset-0 z-[150] bg-black/65 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-[160] w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-card rounded-[28px] shadow-2xl border border-border p-6 sm:p-8 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
+          <Dialog.Title className="sr-only">
+            Detail Profil & ID Card {m.nama}
+          </Dialog.Title>
           <Dialog.Description className="sr-only">
             Detail profil {m.nama} — mahasiswa {m.prodi} peserta KKNT Desa Ngariboyo 2026.
           </Dialog.Description>
-          <Dialog.Close className="absolute top-4 right-4 z-10 p-2 rounded-xl bg-card/80 backdrop-blur-sm hover:bg-muted transition-colors border border-border">
-            <X className="w-4 h-4 text-foreground" />
+          <Dialog.Close className="absolute top-5 right-5 z-20 p-2.5 rounded-full bg-muted/80 hover:bg-muted text-foreground transition-colors border border-border">
+            <X className="w-5 h-5" />
           </Dialog.Close>
 
-          {/* Hero image */}
-          <div className="relative h-64 overflow-hidden rounded-t-[24px] bg-muted/40">
-            <img src={m.foto} alt={m.nama} className="w-full h-full object-cover object-top" loading="lazy" decoding="async" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
-            <div className="absolute bottom-5 left-6 right-16">
-              <span className="inline-block px-3 py-1 rounded-xl text-xs font-semibold font-caption text-white mb-2 shadow-sm" style={{ backgroundColor: j.warna }}>
-                {m.prodi}
-              </span>
-              <Dialog.Title className="font-display font-extrabold text-2xl text-white">{m.nama}</Dialog.Title>
-              <p className="text-white/80 text-sm font-caption font-mono">NIM: {m.nim}</p>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="p-6 space-y-6">
-            {/* Info badges */}
-            <div className="flex flex-wrap gap-3">
-              <div className="flex items-center gap-2 px-3 py-2 bg-muted rounded-xl text-sm font-body">
-                <Award className="w-4 h-4 text-primary dark:text-accent" />
-                <span className="text-foreground font-medium">{m.peran}</span>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+            {/* ID Card Display & Download Button */}
+            <div className="flex flex-col items-center gap-4 shrink-0 w-full max-w-[260px]">
+              <div className="relative w-full h-[360px] flex items-center justify-center p-3 rounded-[24px] bg-gradient-to-b from-muted to-card border border-border shadow-xl">
+                <img
+                  src={idCard.svg}
+                  alt={`ID Card ${m.nama}`}
+                  className="w-full h-full object-contain filter drop-shadow-xl"
+                />
               </div>
-              <div className="flex items-center gap-2 px-3 py-2 bg-muted rounded-xl text-sm font-body">
-                <Users className="w-4 h-4 text-primary dark:text-accent" />
-                <span className="text-foreground font-medium">Divisi {m.divisi}</span>
-              </div>
-              <div className="flex items-center gap-2 px-3 py-2 bg-muted rounded-xl text-sm font-body">
-                <BookOpen className="w-4 h-4 text-primary dark:text-accent" />
-                <span className="text-foreground font-medium">{m.prodi}</span>
-              </div>
+              <a
+                href={idCard.svg}
+                download={`ID_Card_${m.nama.replace(/\s+/g, "_")}.svg`}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-white text-xs sm:text-sm font-semibold font-caption hover:bg-primary/90 transition-all shadow-md hover:shadow-lg w-full"
+              >
+                <Download className="w-4 h-4" /> Unduh ID Card (SVG)
+              </a>
             </div>
 
-            {/* Deskripsi */}
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2 font-caption">Tentang</h4>
-              <p className="text-foreground/75 text-sm leading-relaxed font-body">{desc}</p>
-            </div>
-
-            {/* Kontribusi */}
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 font-caption">
-                Program yang Diikuti ({proker.length})
-              </h4>
-              <ul className="space-y-2">
-                {proker.map((pk, i) => (
-                  <li key={i} className="flex items-center gap-3 p-3 bg-muted rounded-xl">
-                    <div className="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold font-caption text-white shrink-0" style={{ backgroundColor: j.warna }}>
-                      {i + 1}
-                    </div>
-                    <span className="text-sm text-foreground font-body">{pk}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Kontribusi meter */}
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 font-caption">Tingkat Kontribusi</h4>
-              <div className="space-y-2">
-                {[
-                  { label: "Keaktifan Program", nilai: Math.min(95, 70 + proker.length * 7) },
-                  { label: "Kerja Tim", nilai: 88 },
-                  { label: "Inovasi", nilai: 82 },
-                ].map((k) => (
-                  <div key={k.label} className="flex items-center gap-3">
-                    <span className="text-xs text-muted-foreground font-caption w-36 shrink-0">{k.label}</span>
-                    <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full rounded-full transition-all duration-1000" style={{ width: `${k.nilai}%`, backgroundColor: j.warna }} />
-                    </div>
-                    <span className="text-xs font-bold font-caption text-foreground w-8 text-right">{k.nilai}%</span>
-                  </div>
-                ))}
+            {/* Profile Information */}
+            <div className="flex-1 w-full text-left space-y-6">
+              <div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold font-caption bg-primary/10 text-primary dark:text-accent mb-2">
+                  <UserCheck className="w-3.5 h-3.5" /> ID Card Resmi & Profil Mahasiswa
+                </div>
+                <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground leading-tight">
+                  {m.nama}
+                </h2>
+                <p className="text-muted-foreground font-caption text-sm font-mono mt-1">
+                  NIM: <span className="font-semibold text-foreground">{m.nim}</span>
+                </p>
               </div>
+
+              {/* Isian Data Akademik & Organisasi */}
+              <div className="space-y-2.5 bg-muted/50 rounded-[20px] p-5 border border-border text-sm">
+                <div className="flex justify-between items-start sm:items-center py-1 border-b border-border/60 gap-4">
+                  <span className="text-muted-foreground font-body shrink-0">Divisi / Peran</span>
+                  <span className="font-semibold text-foreground font-caption text-right">
+                    {idCard.divisi}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start sm:items-center py-1 border-b border-border/60 gap-4">
+                  <span className="text-muted-foreground font-body shrink-0">Program Studi</span>
+                  <span className="font-semibold text-foreground font-caption text-right">
+                    {idCard.prodi}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start sm:items-center py-1 border-b border-border/60 gap-4">
+                  <span className="text-muted-foreground font-body shrink-0">Fakultas / Kampus</span>
+                  <span className="font-semibold text-foreground font-caption text-right">
+                    {idCard.fakultas}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start sm:items-center py-1 border-b border-border/60 gap-4">
+                  <span className="text-muted-foreground font-body shrink-0 mt-0.5 sm:mt-0">Email Mahasiswa</span>
+                  <span className="font-semibold text-primary dark:text-accent font-caption text-xs text-right break-all">
+                    {idCard.email}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start sm:items-center py-1 gap-4">
+                  <span className="text-muted-foreground font-body shrink-0">Universitas</span>
+                  <span className="font-semibold text-foreground font-caption text-right">
+                    Universitas Negeri Surabaya
+                  </span>
+                </div>
+              </div>
+
+              {/* Deskripsi Tentang */}
+              {desc && (
+                <div>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 font-caption">
+                    Tentang
+                  </h4>
+                  <p className="text-foreground/80 text-sm leading-relaxed font-body">
+                    {desc}
+                  </p>
+                </div>
+              )}
+
+              {/* Program Kerja yang Diikuti */}
+              {proker.length > 0 && (
+                <div>
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2.5 font-caption">
+                    Program Kerja yang Diikuti ({proker.length})
+                  </h4>
+                  <ul className="space-y-2">
+                    {proker.map((pk, i) => (
+                      <li key={i} className="flex items-center gap-3 p-3 bg-muted rounded-xl">
+                        <div
+                          className="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold font-caption text-white shrink-0"
+                          style={{ backgroundColor: j.warna }}
+                        >
+                          {i + 1}
+                        </div>
+                        <span className="text-sm text-foreground font-body">{pk}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
         </Dialog.Content>
