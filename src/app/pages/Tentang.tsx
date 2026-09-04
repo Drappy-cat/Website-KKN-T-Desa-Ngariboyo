@@ -7,7 +7,7 @@ import IDCardGallery from "../components/IDCardGallery";
 import vestFront from "../../assets/perlengkapan/43.svg";
 import vestBack from "../../assets/perlengkapan/41.svg";
 import lanyardImg from "../../assets/perlengkapan/42.svg";
-import izoraIdCard from "../../assets/id-card/Izora Elverda Narulita Putri_Pubdedok_Teknik Informatika.svg";
+import izoraIdCard from "../../assets/id-card/idcard/20.svg";
 import PageBanner from "../components/PageBanner";
 
 function IDCardSway() {

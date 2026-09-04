@@ -1,18 +1,18 @@
-import cardIqbal from "../../assets/id-card/iqbal maulana_kordes_Manajemen.svg";
-import cardAdelia from "../../assets/id-card/Adelia Putri Luthfian Dava_sekretaris_PGSD.svg";
-import cardFriska from "../../assets/id-card/Friska Virginia Vahlevi_sekretaris_PGSD.svg";
-import cardIlham from "../../assets/id-card/ilham khoiru rizki_bendahara_manajemen.svg";
-import cardDevita from "../../assets/id-card/Devita Natalysa_acara_Ilmu keolahragaan.svg";
-import cardPutera from "../../assets/id-card/Putera Al Khalidi_acara_Teknik Informatika.svg";
-import cardNaufal from "../../assets/id-card/Naufal Akbar Putra Pradana_acara_Teknik Informatika.svg";
-import cardDesi from "../../assets/id-card/Desi Alfi Khoiriyah_acara_manajemen.svg";
-import cardBella from "../../assets/id-card/Bella Ayu Istiani_humas_imu keolahragaan.svg";
-import cardJovanka from "../../assets/id-card/Jovanka Hafidl Celesta_humas_manajemen.svg";
-import cardRifki from "../../assets/id-card/Rifki Wahyu Dwi Saputra_perkap_ilmu keolahragaan.svg";
-import cardValencia from "../../assets/id-card/Valencia Sindu Putra_perkap_manajemen.svg";
-import cardArfin from "../../assets/id-card/Muhammad Arfin Baihaqi_perkap_manajemen.svg";
-import cardRizma from "../../assets/id-card/rizma indra pramudya_Pubdedok_Teknik Informatika.svg";
-import cardIzora from "../../assets/id-card/Izora Elverda Narulita Putri_Pubdedok_Teknik Informatika.svg";
+import card6Svg from "../../assets/id-card/idcard/6.svg";
+import card7Svg from "../../assets/id-card/idcard/7.svg";
+import card8Svg from "../../assets/id-card/idcard/8.svg";
+import card9Svg from "../../assets/id-card/idcard/9.svg";
+import card10Svg from "../../assets/id-card/idcard/10.svg";
+import card11Svg from "../../assets/id-card/idcard/11.svg";
+import card12Svg from "../../assets/id-card/idcard/12.svg";
+import card13Svg from "../../assets/id-card/idcard/13.svg";
+import card14Svg from "../../assets/id-card/idcard/14.svg";
+import card15Svg from "../../assets/id-card/idcard/15.svg";
+import card16Svg from "../../assets/id-card/idcard/16.svg";
+import card17Svg from "../../assets/id-card/idcard/17.svg";
+import card18Svg from "../../assets/id-card/idcard/18.svg";
+import card19Svg from "../../assets/id-card/idcard/19.svg";
+import card20Svg from "../../assets/id-card/idcard/20.svg";
 
 export interface IdCardMember {
   id: number;
@@ -43,7 +43,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24111784051@mhs.unesa.ac.id",
     jurusanKey: "manajemen",
     warnaDivisi: "#1E5E2F",
-    svg: cardIqbal,
+    svg: card6Svg,
   },
   {
     id: 2,
@@ -57,7 +57,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24111744136@mhs.unesa.ac.id",
     jurusanKey: "pgsd",
     warnaDivisi: "#1E5E2F",
-    svg: cardAdelia,
+    svg: card7Svg,
   },
   {
     id: 3,
@@ -71,7 +71,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24111744138@mhs.unesa.ac.id",
     jurusanKey: "pgsd",
     warnaDivisi: "#1E5E2F",
-    svg: cardFriska,
+    svg: card8Svg,
   },
   {
     id: 4,
@@ -85,7 +85,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24111784052@mhs.unesa.ac.id",
     jurusanKey: "manajemen",
     warnaDivisi: "#1E5E2F",
-    svg: cardIlham,
+    svg: card9Svg,
   },
 
   // ── 2. DIVISI ACARA ───────────────────────────────────────────────────────
@@ -101,7 +101,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24060484050@mhs.unesa.ac.id",
     jurusanKey: "ikor",
     warnaDivisi: "#1565C0",
-    svg: cardDevita,
+    svg: card10Svg,
   },
   {
     id: 6,
@@ -115,7 +115,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "25051204362@mhs.unesa.ac.id",
     jurusanKey: "ti",
     warnaDivisi: "#1565C0",
-    svg: cardPutera,
+    svg: card11Svg,
   },
   {
     id: 7,
@@ -129,7 +129,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "25051204322@mhs.unesa.ac.id",
     jurusanKey: "ti",
     warnaDivisi: "#1565C0",
-    svg: cardNaufal,
+    svg: card12Svg,
   },
   {
     id: 8,
@@ -143,7 +143,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24111784114@mhs.unesa.ac.id",
     jurusanKey: "manajemen",
     warnaDivisi: "#1565C0",
-    svg: cardDesi,
+    svg: card13Svg,
   },
 
   // ── 3. DIVISI HUMAS ───────────────────────────────────────────────────────
@@ -159,7 +159,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24060484058@mhs.unesa.ac.id",
     jurusanKey: "ikor",
     warnaDivisi: "#E65100",
-    svg: cardBella,
+    svg: card14Svg,
   },
   {
     id: 10,
@@ -173,7 +173,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24111784049@mhs.unesa.ac.id",
     jurusanKey: "manajemen",
     warnaDivisi: "#E65100",
-    svg: cardJovanka,
+    svg: card15Svg,
   },
 
   // ── 4. DIVISI LOGISTIK ────────────────────────────────────────────────────
@@ -189,7 +189,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24060484027@mhs.unesa.ac.id",
     jurusanKey: "ikor",
     warnaDivisi: "#14532D",
-    svg: cardRifki,
+    svg: card16Svg,
   },
   {
     id: 12,
@@ -203,7 +203,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24111784181@mhs.unesa.ac.id",
     jurusanKey: "manajemen",
     warnaDivisi: "#14532D",
-    svg: cardValencia,
+    svg: card17Svg,
   },
   {
     id: 13,
@@ -217,7 +217,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "24111784182@mhs.unesa.ac.id",
     jurusanKey: "manajemen",
     warnaDivisi: "#14532D",
-    svg: cardArfin,
+    svg: card18Svg,
   },
 
   // ── 5. DIVISI PDD (PUBLIKASI, DOKUMENTASI & DESAIN) ───────────────────────
@@ -233,7 +233,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "25051204370@mhs.unesa.ac.id",
     jurusanKey: "ti",
     warnaDivisi: "#6A1B9A",
-    svg: cardRizma,
+    svg: card19Svg,
   },
   {
     id: 15,
@@ -247,7 +247,7 @@ export const ID_CARD_MEMBERS: IdCardMember[] = [
     email: "25051204287@mhs.unesa.ac.id",
     jurusanKey: "ti",
     warnaDivisi: "#6A1B9A",
-    svg: cardIzora,
+    svg: card20Svg,
   },
 ];
 
