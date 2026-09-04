@@ -12,32 +12,87 @@ import {
 } from "lucide-react";
 
 // ── KOORDINAT POLIGON BATAS WILAYAH RESMI DESA NGARIBOYO ──────────────────────
-// Ditracing presisi sesuai peta batas administratif Desa Ngariboyo (Google Maps)
+// Ditracing presisi 1:1 sesuai peta batas resmi administratif Desa Ngariboyo di Google Maps
 const NGARIBOYO_POLYGON: [number, number][] = [
-  [-7.6705, 111.3365], // Utara: Dekat perbatasan Puskesmas Ngariboyo
-  [-7.6715, 111.3415], // Timur Laut: Perbatasan menuju Jl. Sriwijaya
-  [-7.6740, 111.3430], // Timur: Belokan timur Jl. Demak
-  [-7.6762, 111.3425], // Timur: Sayap perumahan timur pasar
-  [-7.6750, 111.3485], // Kantung Timur: Jalur perbukitan & persawahan
-  [-7.6732, 111.3550], // Ujung Timur Laut: Batas area hijau
-  [-7.6742, 111.3598], // Ujung Timur: Batas sawah timur
-  [-7.6775, 111.3615], // Lengkungan Timur: Puncak batas timur
-  [-7.6815, 111.3590], // Tenggara: Mendekati aliran sungai
-  [-7.6835, 111.3555], // Tenggara: Dekat Masjid Al Fallah / barat Embung Klumpit
-  [-7.6860, 111.3505], // Selatan-Timur: Menyusuri kontur lembah
-  [-7.6875, 111.3450], // Selatan: Area persawahan selatan
-  [-7.6898, 111.3385], // Selatan: Memotong Jl. Raya Parang
-  [-7.6918, 111.3355], // Barat Daya: Menuju Jl. Raya Slungguh
-  [-7.6940, 111.3330], // Barat Daya: Persimpangan jalan desa
-  [-7.6975, 111.3320], // Ujung Selatan Slungguh
-  [-7.6985, 111.3275], // Sudut Barat Daya
-  [-7.6920, 111.3268], // Barat Daya: Naik ke arah utara
-  [-7.6865, 111.3280], // Barat: Lembah barat
-  [-7.6825, 111.3242], // Barat: Selatan Terapi PAZ AL-KASAW
-  [-7.6780, 111.3235], // Barat: Memotong Jl. Ngariboyo-Plaosan
-  [-7.6735, 111.3262], // Barat Laut: Menghadap Balegondo
-  [-7.6708, 111.3312], // Utara-Barat: Area persawahan utara
-  [-7.6705, 111.3365], // Kembali ke titik awal di utara
+  [-7.682068, 111.317954], // Ujung Barat: Jl. Ngariboyo-Plaosan / Perbatasan Balegondo
+  [-7.679180, 111.320633],
+  [-7.677887, 111.322192],
+  [-7.676923, 111.324637],
+  [-7.676582, 111.325995],
+  [-7.675596, 111.328335], // Barat Laut
+  [-7.674634, 111.332849],
+  [-7.673069, 111.336422], // Menghadap Balegondo Utara
+  [-7.672339, 111.339428], // Utara: Sisi utara Puskesmas Ngariboyo
+  [-7.672289, 111.342115], // Puncak Batas Utara (Jl. Sriwijaya)
+  [-7.672491, 111.343010],
+  [-7.672386, 111.344400],
+  [-7.672562, 111.344646],
+  [-7.672943, 111.344727],
+  [-7.673735, 111.346005],
+  [-7.675312, 111.346176], // Timur Laut: Utara Jl. Raya Mojopurno
+  [-7.675517, 111.347651],
+  [-7.676826, 111.347054],
+  [-7.677637, 111.346014],
+  [-7.677872, 111.346321],
+  [-7.677216, 111.350371], // Menuju Kawasan Hutan & Perbukitan Timur
+  [-7.676285, 111.353354],
+  [-7.675983, 111.357179],
+  [-7.676298, 111.357741],
+  [-7.676900, 111.360114],
+  [-7.677375, 111.360862], // Puncak Batas Paling Timur (kawasan perbukitan)
+  [-7.677778, 111.360814],
+  [-7.678123, 111.360529],
+  [-7.678607, 111.359626],
+  [-7.679146, 111.359023],
+  [-7.679534, 111.358947],
+  [-7.680079, 111.359609],
+  [-7.680449, 111.359558],
+  [-7.681858, 111.357561],
+  [-7.682429, 111.357491],
+  [-7.682135, 111.355857], // Tenggara: Barat Embung Klumpit & Dekat Masjid Al Fallah
+  [-7.682272, 111.353636],
+  [-7.682436, 111.353495],
+  [-7.682991, 111.353418],
+  [-7.683566, 111.352767],
+  [-7.684058, 111.351623],
+  [-7.684734, 111.350630],
+  [-7.685365, 111.348556],
+  [-7.686278, 111.347320],
+  [-7.687163, 111.345166],
+  [-7.687266, 111.344617], // Selatan-Timur: Melintasi kontur persawahan
+  [-7.687208, 111.341982], // Memotong Jl. Raya Parang selatan pemukiman
+  [-7.686921, 111.336071],
+  [-7.688001, 111.334699],
+  [-7.688695, 111.333505],
+  [-7.689157, 111.332264], // Selatan: Menuju arah barat
+  [-7.689160, 111.331703],
+  [-7.689517, 111.331073],
+  [-7.689616, 111.329684],
+  [-7.689916, 111.328318],
+  [-7.691584, 111.327962],
+  [-7.691746, 111.327018],
+  [-7.692316, 111.326014],
+  [-7.692358, 111.325477],
+  [-7.692791, 111.324262],
+  [-7.692812, 111.323023], // Barat Daya: Sisi utara Jl. Raya Slungguh
+  [-7.692680, 111.322021],
+  [-7.693000, 111.321025], // Titik Terendah Selatan
+  [-7.692925, 111.320791],
+  [-7.692725, 111.320767],
+  [-7.692135, 111.320882],
+  [-7.691061, 111.321465],
+  [-7.690361, 111.321393],
+  [-7.687947, 111.320576],
+  [-7.687019, 111.320819],
+  [-7.686794, 111.321019], // Barat: Lereng barat perbukitan
+  [-7.685554, 111.323470],
+  [-7.684848, 111.324044],
+  [-7.684552, 111.323873],
+  [-7.684192, 111.322708],
+  [-7.683747, 111.318572],
+  [-7.683414, 111.318221],
+  [-7.682725, 111.317826], // Titik Terjauh Barat
+  [-7.682068, 111.317954], // Kembali ke titik awal (menutup loop)
 ];
 
 // Inverse Polygon Mask (Meredupkan wilayah di luar batas Desa Ngariboyo)
@@ -70,8 +125,8 @@ const LOKASI_PENTING: LokasiPenting[] = [
     id: "pasar-ngariboyo",
     nama: "Pasar Ngariboyo",
     kategori: "Ekonomi",
-    lat: -7.6775,
-    lng: 111.3385,
+    lat: -7.6784,
+    lng: 111.3394,
     deskripsi: "Pusat perniagaan dan perputaran ekonomi utama warga Desa Ngariboyo di perempatan jalan utama.",
     alamat: "Jl. Raya Parang - Ngariboyo",
     ikon: "🏪",
@@ -122,22 +177,33 @@ const LOKASI_PENTING: LokasiPenting[] = [
     warna: "#059669",
   },
   {
+    id: "puskesmas-ngariboyo",
+    nama: "Puskesmas Ngariboyo",
+    kategori: "Kesehatan",
+    lat: -7.6730,
+    lng: 111.3394,
+    deskripsi: "Pusat pelayanan kesehatan masyarakat bagi warga Desa & Kecamatan Ngariboyo di sisi utara.",
+    alamat: "Jl. Raya Parang (Perbatasan Utara Desa Ngariboyo)",
+    ikon: "🏥",
+    warna: "#0284C7",
+  },
+  {
     id: "terapi-paz",
     nama: "Terapi PAZ AL-KASAW Magetan",
     kategori: "Kesehatan",
-    lat: -7.6780,
-    lng: 111.3280,
+    lat: -7.68235,
+    lng: 111.3250,
     deskripsi: "Layanan terapi kesehatan holistik dan alternatif rujukan di wilayah barat desa.",
     alamat: "Jl. Ngariboyo-Plaosan, Desa Ngariboyo",
-    ikon: "🏥",
+    ikon: "🩺",
     warna: "#7C3AED",
   },
   {
     id: "masjid-al-fallah",
     nama: "Masjid Al Fallah",
     kategori: "Fasilitas",
-    lat: -7.6835,
-    lng: 111.3555,
+    lat: -7.6824,
+    lng: 111.3558,
     deskripsi: "Pusat ibadah dan kegiatan keagamaan masyarakat Dusun bagian timur Desa Ngariboyo.",
     alamat: "Wilayah Timur Desa Ngariboyo",
     ikon: "🕌",
@@ -145,11 +211,11 @@ const LOKASI_PENTING: LokasiPenting[] = [
   },
   {
     id: "kawasan-pertanian",
-    nama: "Kawasan Persawahan & Agrowisata Hijau",
+    nama: "Kawasan Persawahan & Perbukitan Hijau",
     kategori: "Fasilitas",
-    lat: -7.6760,
+    lat: -7.6775,
     lng: 111.3520,
-    deskripsi: "Hamparan sawah dan ladang subur penghasil padi dan jagung unggulan desa.",
+    deskripsi: "Hamparan sawah subur dan perbukitan hijau penghasil komoditas pertanian unggulan desa.",
     alamat: "Kawasan Timur Desa Ngariboyo",
     ikon: "🌾",
     warna: "#15803D",
@@ -178,8 +244,8 @@ export default function DesaMap() {
 
     // Center tepat di pusat Desa Ngariboyo (Pasar & Balai Desa)
     const map = L.map(mapContainerRef.current, {
-      center: [-7.6790, 111.3420],
-      zoom: 15,
+      center: [-7.6810, 111.3395],
+      zoom: 14,
       minZoom: 13,
       maxZoom: 18,
       zoomControl: false,
@@ -216,6 +282,13 @@ export default function DesaMap() {
       fillOpacity: 0.08,
     }).addTo(map);
     polygonLayerRef.current = villagePolygon;
+
+    // Auto fit pandangan awal ke poligon resmi Desa Ngariboyo
+    map.fitBounds(villagePolygon.getBounds(), {
+      padding: [30, 30],
+      maxZoom: 15,
+      animate: false,
+    });
 
     // Tooltip interaktif poligon batas
     villagePolygon.bindTooltip(
@@ -536,22 +609,25 @@ export default function DesaMap() {
           {/* Batas Administratif Info Badge */}
           <div className="mt-4 pt-3 border-t border-border bg-muted/50 rounded-2xl p-3 text-xs font-caption text-muted-foreground space-y-1">
             <div className="flex items-center gap-1.5 font-bold text-foreground mb-1">
-              <Info className="w-3.5 h-3.5 text-rose-600" /> Batas Wilayah (Sesuai Gambar)
+              <Info className="w-3.5 h-3.5 text-rose-600" /> Batas Wilayah (Sesuai Google Maps)
             </div>
             <div className="flex justify-between">
-              <span>Utara:</span> <span className="font-medium text-foreground">Puskesmas / Balegondo</span>
+              <span>Utara:</span> <span className="font-medium text-foreground">Puskesmas / Jl. Sriwijaya</span>
             </div>
             <div className="flex justify-between">
-              <span>Timur:</span> <span className="font-medium text-foreground">Sabiilul Huda / Mojopurno</span>
+              <span>Timur:</span> <span className="font-medium text-foreground">Perbukitan Hijau & Sabiilul Huda</span>
             </div>
             <div className="flex justify-between">
-              <span>Tenggara:</span> <span className="font-medium text-foreground">Embung Klumpit</span>
+              <span>Tenggara:</span> <span className="font-medium text-foreground">Barat Embung Klumpit / Al-Fallah</span>
             </div>
             <div className="flex justify-between">
-              <span>Barat Daya:</span> <span className="font-medium text-foreground">Jl. Raya Slungguh</span>
+              <span>Selatan:</span> <span className="font-medium text-foreground">Sawah Selatan Jl. Raya Parang</span>
             </div>
             <div className="flex justify-between">
-              <span>Barat:</span> <span className="font-medium text-foreground">Jl. Ngariboyo-Plaosan</span>
+              <span>Barat Daya:</span> <span className="font-medium text-foreground">Utara Jl. Raya Slungguh</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Barat:</span> <span className="font-medium text-foreground">Jl. Ngariboyo-Plaosan / PAZ Al-Kasaw</span>
             </div>
           </div>
         </div>
