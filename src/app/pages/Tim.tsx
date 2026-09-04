@@ -1,42 +1,27 @@
-import { useState } from "react";
+﻿import { useState, useMemo } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Mail, Phone, Search, X, Award, BookOpen, Users } from "lucide-react";
-import { DPL, MAHASISWA, JURUSAN_LIST } from "../data";
+import { DPL, MAHASISWA, JURUSAN_LIST, PROKER } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
+import PageBanner from "../components/PageBanner";
 
-function PageBanner({ title, sub }: { title: string; sub?: string }) {
-  return (
-    <div className="relative bg-gradient-to-b from-[#071F11] via-[#0B2E1A] to-[#05170D] pt-32 pb-20 overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_#F4B400_0%,_transparent_60%)]" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }} />
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent text-xs font-semibold uppercase tracking-widest mb-4 font-caption border border-accent/30">
-          Tim Kami
-        </span>
-        <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white mb-4 leading-tight">{title}</h1>
-        {sub && <p className="text-white/60 text-base font-body max-w-2xl mx-auto">{sub}</p>}
-      </div>
-    </div>
-  );
+// Maps prodi name to jurusan id
+const PRODI_TO_JURUSAN_ID: Record<string, string> = {
+  "PGSD": "pgsd",
+  "Teknik Informatika": "ti",
+  "Manajemen": "manajemen",
+  "Ilmu Keolahragaan": "ikor",
+};
+
+function getJurusan(prodi: string) {
+  const jurusanId = PRODI_TO_JURUSAN_ID[prodi];
+  return JURUSAN_LIST.find((j) => j.id === jurusanId) ?? JURUSAN_LIST[0];
 }
 
-const PROKER_PER_MAHASISWA: Record<number, string[]> = {
-  1: ["Pendampingan Manajemen & Pemasaran UMKM Lokal", "Optimalisasi Tata Kelola & Potensi BUMDes"],
-  2: ["Bimbingan Belajar Gratis SD–SMP", "Program Literasi Membaca Anak & Pojok Baca", "English Fun Class Anak Desa", "Penyuluhan Edukasi & Karakter Anak"],
-  3: ["Bimbingan Belajar Gratis SD–SMP", "Program Literasi Membaca Anak & Pojok Baca", "English Fun Class Anak Desa", "Penyuluhan Edukasi & Karakter Anak"],
-  4: ["Pendampingan Manajemen & Pemasaran UMKM Lokal", "Optimalisasi Tata Kelola & Potensi BUMDes"],
-  5: ["Program Senam Sehat Bugar Warga Desa", "Sosialisasi Gaya Hidup Aktif & Kesehatan Jasmani"],
-  6: ["Pengembangan Website Resmi Desa Ngariboyo", "Digitalisasi Pencatatan & Katalog UMKM Desa"],
-  7: ["Pengembangan Website Resmi Desa Ngariboyo", "Digitalisasi Pencatatan & Katalog UMKM Desa"],
-  8: ["Pendampingan Manajemen & Pemasaran UMKM Lokal", "Workshop Desain Kemasan & Branding Produk"],
-  9: ["Program Senam Sehat Bugar Warga Desa", "Sosialisasi Gaya Hidup Aktif & Kesehatan Jasmani"],
-  10: ["Pendampingan Manajemen & Pemasaran UMKM Lokal"],
-  11: ["Program Senam Sehat Bugar Warga Desa", "Aktivitas Olahraga Gembira & Permainan Tradisional"],
-  12: ["Workshop Desain Kemasan & Branding Produk", "Optimalisasi Tata Kelola & Potensi BUMDes"],
-  13: ["Workshop Desain Kemasan & Branding Produk", "Aktivitas Olahraga Gembira & Permainan Tradisional"],
-  14: ["Pengembangan Website Resmi Desa Ngariboyo", "Pelatihan Literasi Digital & Pengenalan Komputer", "Pengelolaan Media Sosial & Dokumentasi Kreatif Desa"],
-  15: ["Pengembangan Website Resmi Desa Ngariboyo", "Pelatihan Literasi Digital & Pengenalan Komputer", "Pengelolaan Media Sosial & Dokumentasi Kreatif Desa"],
-};
+// Derived dynamically from PROKER data - no more manual duplication
+function getProkerForMahasiswa(nama: string): string[] {
+  return PROKER.filter((p) => p.anggota.includes(nama)).map((p) => p.nama);
+}
 
 const DESKRIPSI_MAHASISWA: Record<number, string> = {
   1: "Iqbal Maulana Setyo Prayogi adalah Koordinator Desa (KORDES) yang memimpin dan mengoordinasikan seluruh pelaksanaan program KKNT di Desa Ngariboyo.",
@@ -56,18 +41,10 @@ const DESKRIPSI_MAHASISWA: Record<number, string> = {
   15: "Izora Elverda Narulita Putri adalah Koordinator Divisi PDD yang mengarahkan desain visual, dokumentasi fotografi/videografi, dan identitas resmi KKNT.",
 };
 
-function getJurusan(prodi: string) {
-  if (prodi === "PGSD") return JURUSAN_LIST[0];
-  if (prodi === "Teknik Informatika") return JURUSAN_LIST[1];
-  if (prodi === "Manajemen") return JURUSAN_LIST[2];
-  if (prodi === "Ilmu Keolahragaan") return JURUSAN_LIST[3];
-  return JURUSAN_LIST[0];
-}
-
 // ── Mahasiswa Detail Modal ────────────────────────────────────────────────────
 function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
   const j = getJurusan(m.prodi);
-  const proker = PROKER_PER_MAHASISWA[m.id] || [];
+  const proker = getProkerForMahasiswa(m.nama);
   const desc = DESKRIPSI_MAHASISWA[m.id] || "";
 
   return (
@@ -202,7 +179,7 @@ export default function Tim() {
   const [filter, setFilter] = useState("semua");
   const [search, setSearch] = useState("");
 
-  const filtered = MAHASISWA.filter((m) => {
+  const filtered = useMemo(() => MAHASISWA.filter((m) => {
     const matchFilter =
       filter === "semua" ||
       (filter === "pgsd" && m.prodi === "PGSD") ||
@@ -216,11 +193,12 @@ export default function Tim() {
       m.prodi.toLowerCase().includes(search.toLowerCase()) ||
       m.peran.toLowerCase().includes(search.toLowerCase());
     return matchFilter && matchSearch;
-  });
+  }), [filter, search]);
 
   return (
     <>
       <PageBanner
+        badge="Tim Kami"
         title="Tim KKNT Ngariboyo"
         sub="15 mahasiswa dari 4 jurusan bersatu untuk mengabdi dan membangun Desa Ngariboyo"
       />
@@ -281,7 +259,7 @@ export default function Tim() {
 
             <div className="w-px h-8 bg-primary/40 dark:bg-accent/40" />
 
-            {/* Pimpinan Inti (Sekretaris & Bendahara) */}
+            {/* Pimpinan Inti */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl">
               {[
                 { peran: "Sekretaris I", nama: "Adelia Putri Luthfian Dava", prodi: "S1 PGSD", warna: "#14532D" },
@@ -304,8 +282,7 @@ export default function Tim() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
               {[
                 {
-                  divisi: "Acara",
-                  warna: "#1565C0",
+                  divisi: "Acara", warna: "#1565C0",
                   anggota: [
                     { nama: "Naufal Akbar Putra Pradana", prodi: "S1 Teknik Informatika", jabatan: "Koordinator" },
                     { nama: "Desi Alfi Khoiriyah", prodi: "S1 Manajemen" },
@@ -314,16 +291,14 @@ export default function Tim() {
                   ],
                 },
                 {
-                  divisi: "Humas",
-                  warna: "#E65100",
+                  divisi: "Humas", warna: "#E65100",
                   anggota: [
                     { nama: "Bella Ayu Istiani", prodi: "S1 Ilmu Keolahragaan", jabatan: "Koordinator" },
                     { nama: "Jovanka Hafidl Celesta", prodi: "S1 Manajemen" },
                   ],
                 },
                 {
-                  divisi: "Logistik",
-                  warna: "#14532D",
+                  divisi: "Logistik", warna: "#14532D",
                   anggota: [
                     { nama: "Muhammad Arfin Baihaqi", prodi: "S1 Manajemen", jabatan: "Koordinator" },
                     { nama: "Valencia Sindu Putra", prodi: "S1 Manajemen" },
@@ -331,8 +306,7 @@ export default function Tim() {
                   ],
                 },
                 {
-                  divisi: "PDD (Pubdekdok)",
-                  warna: "#6A1B9A",
+                  divisi: "PDD (Pubdekdok)", warna: "#6A1B9A",
                   anggota: [
                     { nama: "Izora Elverda Narulita Putri", prodi: "S1 Teknik Informatika", jabatan: "Koordinator" },
                     { nama: "Rizma Indra Pramudya", prodi: "S1 Teknik Informatika" },
@@ -348,15 +322,13 @@ export default function Tim() {
                       <div key={m.nama} className="p-2.5 rounded-xl bg-muted/40 border border-border/60 text-left">
                         <div className="flex items-center justify-between gap-1 mb-0.5">
                           <span className="font-display font-semibold text-foreground text-xs leading-snug line-clamp-1">{m.nama}</span>
-                          {m.jabatan && (
-                            <span className="text-[9px] px-1.5 py-0.2 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400 font-caption font-bold shrink-0">
+                          {"jabatan" in m && m.jabatan && (
+                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-600 dark:text-amber-400 font-caption font-bold shrink-0">
                               Koord
                             </span>
                           )}
                         </div>
-                        <div className="text-[11px] text-muted-foreground font-caption">
-                          {m.prodi}
-                        </div>
+                        <div className="text-[11px] text-muted-foreground font-caption">{m.prodi}</div>
                       </div>
                     ))}
                   </div>

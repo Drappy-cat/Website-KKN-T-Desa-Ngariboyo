@@ -1,22 +1,10 @@
+﻿import { useState } from "react";
 import { MapPin, Mail, Phone, Instagram, Send } from "lucide-react";
+import { toast } from "sonner";
 import { usePageMeta } from "../hooks/usePageMeta";
 import DesaMap from "../components/DesaMap";
-
-function PageBanner({ title, sub }: { title: string; sub?: string }) {
-  return (
-    <div className="relative bg-gradient-to-b from-[#071F11] via-[#0B2E1A] to-[#05170D] pt-32 pb-20 overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_#F4B400_0%,_transparent_60%)]" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-background" style={{ clipPath: "ellipse(55% 100% at 50% 100%)" }} />
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent text-xs font-semibold uppercase tracking-widest mb-4 font-caption border border-accent/30">
-          Kontak
-        </span>
-        <h1 className="font-display font-extrabold text-4xl sm:text-5xl text-white mb-4 leading-tight">{title}</h1>
-        {sub && <p className="text-white/60 text-base font-body max-w-2xl mx-auto">{sub}</p>}
-      </div>
-    </div>
-  );
-}
+import PageBanner from "../components/PageBanner";
+import { KONTAK } from "../data";
 
 function TikTokIcon() {
   return (
@@ -28,9 +16,31 @@ function TikTokIcon() {
 
 export default function Kontak() {
   usePageMeta("Kontak", "Hubungi tim KKNT Desa Ngariboyo 2026 — Universitas Negeri Surabaya.");
+  const [loading, setLoading] = useState(false);
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      toast.success("Pesan berhasil terkirim!", {
+        description: "Kami akan merespons dalam 1x24 jam. Terima kasih!",
+      });
+      (e.target as HTMLFormElement).reset();
+    }, 1200);
+  }
+
+  const kontakItems = [
+    { Ikon: MapPin, label: "Alamat", value: KONTAK.alamat },
+    { Ikon: Mail, label: "Email", value: KONTAK.email },
+    { Ikon: Phone, label: "Telepon", value: `${KONTAK.telepon} (${KONTAK.kontakPerson})` },
+    { Ikon: Instagram, label: "Instagram", value: KONTAK.instagram.handle },
+  ];
+
   return (
     <>
       <PageBanner
+        badge="Kontak"
         title="Hubungi Kami"
         sub="Punya pertanyaan seputar program KKNT atau ingin berkolaborasi? Jangan ragu untuk menghubungi kami."
       />
@@ -38,7 +48,7 @@ export default function Kontak() {
       <section className="py-16 sm:py-24 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left — info */}
+            {/* Left */}
             <div className="space-y-8">
               <div>
                 <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-muted text-primary dark:text-accent mb-4 font-caption">
@@ -53,12 +63,7 @@ export default function Kontak() {
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
-                {[
-                  { Ikon: MapPin, label: "Alamat", value: "Desa Ngariboyo, Kec. Ngariboyo, Kab. Magetan, Jawa Timur 63351" },
-                  { Ikon: Mail, label: "Email", value: "kknt.ngariboyo2026@gmail.com" },
-                  { Ikon: Phone, label: "Telepon", value: "0812-3456-7890 (Iqbal Maulana - Kordes)" },
-                  { Ikon: Instagram, label: "Instagram", value: "@kknt_ngariboyo26" },
-                ].map(({ Ikon, label, value }) => (
+                {kontakItems.map(({ Ikon, label, value }) => (
                   <div key={label} className="bg-card rounded-[20px] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-border hover:-translate-y-0.5 transition-all">
                     <div className="flex items-center gap-2.5 mb-2">
                       <div className="w-8 h-8 bg-muted rounded-lg flex items-center justify-center">
@@ -71,13 +76,11 @@ export default function Kontak() {
                 ))}
               </div>
 
-              {/* Media Sosial */}
               <div>
                 <h3 className="font-display font-bold text-primary dark:text-accent mb-4">Ikuti Kami di Media Sosial</h3>
                 <div className="grid sm:grid-cols-2 gap-4">
-                  {/* Instagram */}
                   <a
-                    href="https://instagram.com/kknt_ngariboyo26"
+                    href={KONTAK.instagram.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group block rounded-[20px] p-5 text-white relative overflow-hidden hover:-translate-y-1 transition-all shadow-lg"
@@ -85,15 +88,14 @@ export default function Kontak() {
                   >
                     <Instagram className="w-8 h-8 mb-3 group-hover:scale-110 transition-transform" />
                     <div className="text-white/70 text-xs mb-0.5 font-caption">Instagram</div>
-                    <div className="font-display font-bold text-lg mb-2">@kknt_ngariboyo26</div>
+                    <div className="font-display font-bold text-lg mb-2">{KONTAK.instagram.handle}</div>
                     <div className="flex gap-4 text-sm">
-                      <div><span className="font-bold">1.2K</span><div className="text-white/60 text-xs font-caption">Pengikut</div></div>
-                      <div><span className="font-bold">48</span><div className="text-white/60 text-xs font-caption">Postingan</div></div>
+                      <div><span className="font-bold">{KONTAK.instagram.pengikut}</span><div className="text-white/60 text-xs font-caption">Pengikut</div></div>
+                      <div><span className="font-bold">{KONTAK.instagram.postingan}</span><div className="text-white/60 text-xs font-caption">Postingan</div></div>
                     </div>
                   </a>
-                  {/* TikTok */}
                   <a
-                    href="https://tiktok.com/@kknt.ngariboyo26"
+                    href={KONTAK.tiktok.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group block bg-gray-900 rounded-[20px] p-5 text-white border border-white/10 hover:-translate-y-1 transition-all shadow-lg"
@@ -102,20 +104,19 @@ export default function Kontak() {
                       <TikTokIcon />
                     </div>
                     <div className="text-white/70 text-xs mb-0.5 font-caption">TikTok</div>
-                    <div className="font-display font-bold text-lg mb-2">@kknt.ngariboyo26</div>
+                    <div className="font-display font-bold text-lg mb-2">{KONTAK.tiktok.handle}</div>
                     <div className="flex gap-4 text-sm">
-                      <div><span className="font-bold">856</span><div className="text-white/60 text-xs font-caption">Pengikut</div></div>
-                      <div><span className="font-bold">32</span><div className="text-white/60 text-xs font-caption">Video</div></div>
+                      <div><span className="font-bold">{KONTAK.tiktok.pengikut}</span><div className="text-white/60 text-xs font-caption">Pengikut</div></div>
+                      <div><span className="font-bold">{KONTAK.tiktok.video}</span><div className="text-white/60 text-xs font-caption">Video</div></div>
                     </div>
                   </a>
                 </div>
               </div>
 
-              {/* Hashtag */}
               <div>
                 <h4 className="font-semibold text-foreground mb-3 font-body text-sm">Gunakan tagar kami:</h4>
                 <div className="flex flex-wrap gap-2">
-                  {["#KKNTNgariboyo2026", "#SmartVillageNgariboyo", "#BergerakBersama", "#MahasiswaMengabdi", "#DesaNgariboyo"].map((tag) => (
+                  {KONTAK.hashtags.map((tag) => (
                     <span key={tag} className="px-3 py-1.5 bg-muted border border-primary/20 text-primary dark:text-accent text-xs rounded-xl font-medium font-caption">
                       {tag}
                     </span>
@@ -128,53 +129,39 @@ export default function Kontak() {
             <div>
               <div className="bg-card rounded-[24px] p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border">
                 <h3 className="font-display font-bold text-primary dark:text-accent text-xl mb-6">Kirim Pesan</h3>
-                <form
-                  className="space-y-4"
-                  onSubmit={(e) => { e.preventDefault(); alert("Pesan terkirim! Kami akan merespons segera."); }}
-                >
+                <form className="space-y-4" onSubmit={handleSubmit}>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wider font-caption">Nama</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Nama Anda"
-                        className="w-full px-4 py-3 bg-muted/40 dark:bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary transition-colors"
-                      />
+                      <input id="kontak-nama" name="nama" type="text" required placeholder="Nama Anda" className="w-full px-4 py-3 bg-muted/40 dark:bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary transition-colors" />
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wider font-caption">Email</label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="email@anda.com"
-                        className="w-full px-4 py-3 bg-muted/40 dark:bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary transition-colors"
-                      />
+                      <input id="kontak-email" name="email" type="email" required placeholder="email@anda.com" className="w-full px-4 py-3 bg-muted/40 dark:bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary transition-colors" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wider font-caption">Subjek</label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Subjek pesan"
-                      className="w-full px-4 py-3 bg-muted/40 dark:bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary transition-colors"
-                    />
+                    <input id="kontak-subjek" name="subjek" type="text" required placeholder="Subjek pesan" className="w-full px-4 py-3 bg-muted/40 dark:bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary transition-colors" />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-muted-foreground mb-1.5 uppercase tracking-wider font-caption">Pesan</label>
-                    <textarea
-                      required
-                      rows={5}
-                      placeholder="Tulis pesan Anda di sini..."
-                      className="w-full px-4 py-3 bg-muted/40 dark:bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary transition-colors resize-none"
-                    />
+                    <textarea id="kontak-pesan" name="pesan" required rows={5} placeholder="Tulis pesan Anda di sini..." className="w-full px-4 py-3 bg-muted/40 dark:bg-card border border-border rounded-[16px] text-sm text-foreground font-body outline-none focus:border-primary transition-colors resize-none" />
                   </div>
                   <button
+                    id="kontak-submit"
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 py-3.5 bg-primary text-white font-semibold rounded-[16px] hover:bg-secondary transition-all hover:scale-101 active:scale-99 shadow-md font-body"
+                    disabled={loading}
+                    className="w-full flex items-center justify-center gap-2 py-3.5 bg-primary text-white font-semibold rounded-[16px] hover:bg-secondary transition-all hover:scale-101 active:scale-99 shadow-md font-body disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100"
                   >
-                    Kirim Pesan <Send className="w-4 h-4" />
+                    {loading ? (
+                      <>
+                        <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                        Mengirim...
+                      </>
+                    ) : (
+                      <>Kirim Pesan <Send className="w-4 h-4" /></>
+                    )}
                   </button>
                 </form>
               </div>
@@ -183,12 +170,11 @@ export default function Kontak() {
         </div>
       </section>
 
-      {/* ── PETA WILAYAH INTERAKTIF DESA NGARIBOYO ───────────────────────── */}
       <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <span className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full bg-card text-primary dark:text-accent mb-4 font-caption border border-border shadow-sm">
-              Lokasi & Navigasi
+              Lokasi &amp; Navigasi
             </span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-primary mb-3">
               Peta Lokasi Desa Ngariboyo
@@ -197,7 +183,6 @@ export default function Kontak() {
               Temukan posko KKNT UNESA 2026, balai desa, fasilitas umum, dan sentra UMKM di Desa Ngariboyo dengan peta interaktif resmi.
             </p>
           </div>
-
           <DesaMap />
         </div>
       </section>

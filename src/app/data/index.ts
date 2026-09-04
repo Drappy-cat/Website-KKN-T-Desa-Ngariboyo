@@ -59,6 +59,33 @@ export const LOGO_ELEMEN = [
   { no: "07", nama: "Rumah & Pohon", warna: "#14532D", makna: "Rumah melambangkan tempat tinggal, kenyamanan, dan kebersamaan. Pohon melambangkan kehidupan, pertumbuhan, dan kelestarian lingkungan desa." },
 ];
 
+// ── KONTAK ────────────────────────────────────────────────────────────────────
+export const KONTAK = {
+  alamat: "Desa Ngariboyo, Kec. Ngariboyo, Kab. Magetan, Jawa Timur 63351",
+  email: "kknt.ngariboyo2026@gmail.com",
+  telepon: "0812-3456-7890",
+  kontakPerson: "Iqbal Maulana - Kordes",
+  instagram: {
+    handle: "@kknt_ngariboyo26",
+    url: "https://instagram.com/kknt_ngariboyo26",
+    pengikut: "1.2K",
+    postingan: "48",
+  },
+  tiktok: {
+    handle: "@kknt.ngariboyo26",
+    url: "https://tiktok.com/@kknt.ngariboyo26",
+    pengikut: "856",
+    video: "32",
+  },
+  hashtags: [
+    "#KKNTNgariboyo2026",
+    "#SmartVillageNgariboyo",
+    "#BergerakBersama",
+    "#MahasiswaMengabdi",
+    "#DesaNgariboyo",
+  ],
+};
+
 // ── DESA ─────────────────────────────────────────────────────────────────────
 export const DESA = {
   sejarah: `Desa Ngariboyo merupakan salah satu desa di Kecamatan Ngariboyo, Kabupaten Magetan, Jawa Timur yang kaya akan kearifan lokal dan potensi alam. Nama "Ngariboyo" konon berasal dari kata dalam bahasa Jawa yang bermakna tempat yang aman dan makmur, mencerminkan harapan leluhur akan kehidupan yang sejahtera bagi seluruh warganya.
@@ -458,8 +485,6 @@ export const STATISTIK = [
   { target: 4, label: "Jurusan", satuan: "" },
   { target: 4800, label: "Jiwa Terdampak", satuan: "+" },
 ];
-
-import buktiBannerProker from "../../assets/proker/bukti-proker.png";
 
 // ── GALERI ───────────────────────────────────────────────────────────────────
 import slide1 from "../../assets/galeri/bagian 1.png";

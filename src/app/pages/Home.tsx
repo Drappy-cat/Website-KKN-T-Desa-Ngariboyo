@@ -81,7 +81,7 @@ export default function Home() {
   useEffect(() => {
     const nextIdx = (currentSlide + 1) % HERO_IMAGES.length;
     setLoadedSlides((prev) => (prev.includes(currentSlide) && prev.includes(nextIdx) ? prev : Array.from(new Set([...prev, currentSlide, nextIdx]))));
-  }, [currentSlide, HERO_IMAGES.length]);
+  }, [currentSlide]);
 
   useEffect(() => {
     const slideTimer = setInterval(() => {
