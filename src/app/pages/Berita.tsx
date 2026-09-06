@@ -1,11 +1,13 @@
-import { useState } from "react";
-import { Calendar, User, ArrowLeft } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useSearchParams, Link } from "react-router";
+import { Calendar, User, ArrowLeft, Home, Share2, Check } from "lucide-react";
 import { BERITA } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
 import PageBanner from "../components/PageBanner";
 
 
 const KAT_WARNA: Record<string, { bg: string; text: string }> = {
+  Umum: { bg: "#E0F2FE", text: "#0369A1" },
   Pertanian: { bg: "#E8F5E9", text: "#2E7D32" },
   Pendidikan: { bg: "#E3F2FD", text: "#1565C0" },
   Ekonomi: { bg: "#FFF3E0", text: "#E65100" },
@@ -13,12 +15,32 @@ const KAT_WARNA: Record<string, { bg: string; text: string }> = {
   Olahraga: { bg: "#F3E5F5", text: "#6A1B9A" },
   Lingkungan: { bg: "#E0F2F1", text: "#00695C" },
   Kesehatan: { bg: "#FCE4EC", text: "#C62828" },
+  Manajemen: { bg: "#FEF3C7", text: "#92400E" },
 };
 
 export default function Berita() {
-  usePageMeta("Berita & Aktivitas", "Laporan dan cerita terkini dari kegiatan KKNT Desa Ngariboyo 2026.");
-  const [selected, setSelected] = useState<typeof BERITA[0] | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const idParam = searchParams.get("id");
+  const selected = idParam ? (BERITA.find((b) => b.id === Number(idParam)) ?? null) : null;
   const [filterKat, setFilterKat] = useState("Semua");
+  const [copied, setCopied] = useState(false);
+
+  usePageMeta(
+    selected ? selected.judul : "Berita & Aktivitas",
+    selected ? selected.isi : "Laporan dan cerita terkini dari kegiatan KKNT Desa Ngariboyo 2026."
+  );
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [idParam]);
+
+  const setSelected = (b: typeof BERITA[0] | null) => {
+    if (b) {
+      setSearchParams({ id: String(b.id) });
+    } else {
+      setSearchParams({});
+    }
+  };
 
   const kategori = ["Semua", ...Array.from(new Set(BERITA.map((b) => b.kat)))];
   const filtered = BERITA.filter((b) => filterKat === "Semua" || b.kat === filterKat);
@@ -31,18 +53,40 @@ export default function Berita() {
         <PageBanner title="Detail Berita" />
         <div className="py-12 bg-background">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <button
-              onClick={() => setSelected(null)}
-              className="flex items-center gap-2 text-primary font-semibold mb-8 hover:gap-3 transition-all font-body"
-            >
-              <ArrowLeft className="w-4 h-4" /> Kembali ke Berita
-            </button>
+            <div className="flex items-center justify-between gap-4 mb-8 flex-wrap">
+              <button
+                onClick={() => setSelected(null)}
+                className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all font-body text-sm sm:text-base group"
+              >
+                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" /> Kembali ke Semua Berita
+              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    navigator.clipboard?.writeText(window.location.href);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-border bg-card text-foreground/80 hover:text-primary hover:border-primary/40 transition-all text-xs font-caption shadow-sm cursor-pointer"
+                  title="Bagikan Tautan Berita"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
+                  {copied ? "Tautan Tersalin!" : "Bagikan"}
+                </button>
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-border bg-card text-foreground/80 hover:text-primary hover:border-primary/40 transition-all text-xs font-caption shadow-sm"
+                >
+                  <Home className="w-3.5 h-3.5" /> Beranda
+                </Link>
+              </div>
+            </div>
             <div className="bg-card rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border">
               <div className="relative h-72 sm:h-96 overflow-hidden">
                 <img src={selected.img} alt={selected.judul} className="w-full h-full object-cover" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <span
-                  className="absolute top-5 left-5 px-3 py-1.5 rounded-xl text-sm font-semibold font-caption"
+                  className="absolute top-5 left-5 px-3 py-1.5 rounded-xl text-sm font-semibold font-caption shadow-sm"
                   style={{ backgroundColor: k.bg, color: k.text }}
                 >
                   {selected.kat}
@@ -60,14 +104,24 @@ export default function Berita() {
                 <h1 className="font-display font-extrabold text-2xl sm:text-3xl text-foreground mb-6 leading-snug">
                   {selected.judul}
                 </h1>
-                <div className="prose max-w-none">
-                  <p className="text-foreground/80 text-base leading-relaxed font-body">{selected.isi}</p>
-                  <p className="text-foreground/80 text-base leading-relaxed font-body mt-4">
-                    Kegiatan ini merupakan bagian dari program KKNT Desa Ngariboyo 2026 yang dilaksanakan oleh mahasiswa Universitas Negeri Surabaya. Program ini bertujuan untuk memberikan dampak nyata bagi masyarakat desa melalui berbagai kegiatan yang terencana dan terstruktur.
-                  </p>
-                  <p className="text-foreground/80 text-base leading-relaxed font-body mt-4">
-                    Partisipasi aktif warga sangat mendukung keberhasilan program ini. Ke depannya, diharapkan program serupa dapat terus dilanjutkan dan dikembangkan secara mandiri oleh masyarakat Desa Ngariboyo.
-                  </p>
+                <div className="prose max-w-none space-y-4">
+                  {selected.kontenLengkap && selected.kontenLengkap.length > 0 ? (
+                    selected.kontenLengkap.map((paragraf, idx) => (
+                      <p key={idx} className="text-foreground/80 text-base leading-relaxed font-body">
+                        {paragraf}
+                      </p>
+                    ))
+                  ) : (
+                    <>
+                      <p className="text-foreground/80 text-base leading-relaxed font-body">{selected.isi}</p>
+                      <p className="text-foreground/80 text-base leading-relaxed font-body">
+                        Kegiatan ini merupakan bagian dari program KKNT Desa Ngariboyo 2026 yang dilaksanakan oleh mahasiswa Universitas Negeri Surabaya. Program ini bertujuan untuk memberikan dampak nyata bagi masyarakat desa melalui berbagai kegiatan yang terencana dan terstruktur.
+                      </p>
+                      <p className="text-foreground/80 text-base leading-relaxed font-body">
+                        Partisipasi aktif warga sangat mendukung keberhasilan program ini. Ke depannya, diharapkan program serupa dapat terus dilanjutkan dan dikembangkan secara mandiri oleh masyarakat Desa Ngariboyo.
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -82,7 +136,7 @@ export default function Berita() {
                       <article
                         key={b.id}
                         className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all border border-border cursor-pointer"
-                        onClick={() => { setSelected(b); window.scrollTo(0, 0); }}
+                        onClick={() => { setSelected(b); }}
                       >
                         <div className="relative h-36 overflow-hidden">
                           <img src={b.img} alt={b.judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />

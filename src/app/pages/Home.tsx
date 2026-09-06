@@ -478,9 +478,13 @@ export default function Home() {
             {beritaPreview.map((b) => (
               <article
                 key={b.id}
-                className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all hover:-translate-y-1 border border-border"
+                className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all hover:-translate-y-1 border border-border flex flex-col"
               >
-                <div className="relative h-48 overflow-hidden">
+                <Link
+                  to={`/berita?id=${b.id}`}
+                  className="block relative h-48 overflow-hidden cursor-pointer"
+                  aria-label={`Baca berita: ${b.judul}`}
+                >
                   <img
                     src={b.img}
                     alt={b.judul}
@@ -489,22 +493,29 @@ export default function Home() {
                     decoding="async"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 bg-primary text-white rounded-lg text-xs font-caption font-semibold">
+                  <span className="absolute top-3 left-3 px-2.5 py-1 bg-primary text-white rounded-lg text-xs font-caption font-semibold shadow-sm">
                     {b.kat}
                   </span>
-                </div>
-                <div className="p-5">
+                </Link>
+                <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3 font-caption">
                     <Calendar className="w-3.5 h-3.5" />
                     {b.tgl}
                   </div>
-                  <h3 className="font-display font-bold text-foreground text-base leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                    {b.judul}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed font-body line-clamp-2">{b.isi}</p>
-                  <div className="mt-4 flex items-center gap-1 text-primary dark:text-accent text-sm font-semibold group-hover:gap-2 transition-all font-body">
-                    Baca Selengkapnya <ArrowRight className="w-3.5 h-3.5" />
-                  </div>
+                  <Link to={`/berita?id=${b.id}`} className="block">
+                    <h3 className="font-display font-bold text-foreground text-base leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                      {b.judul}
+                    </h3>
+                  </Link>
+                  <p className="text-muted-foreground text-sm leading-relaxed font-body line-clamp-2 mb-4 flex-1">
+                    {b.isi}
+                  </p>
+                  <Link
+                    to={`/berita?id=${b.id}`}
+                    className="mt-auto inline-flex items-center gap-1.5 text-primary dark:text-accent text-sm font-semibold group-hover:gap-2.5 transition-all font-body w-fit"
+                  >
+                    Baca Selengkapnya <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
               </article>
             ))}
