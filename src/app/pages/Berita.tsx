@@ -47,10 +47,12 @@ export default function Berita() {
 
   if (selected) {
     const k = KAT_WARNA[selected.kat] || { bg: "#E8F5E9", text: "#14532D" };
-    const related = BERITA.filter((b) => b.id !== selected.id && b.kat === selected.kat).slice(0, 2);
+    const sameCat = BERITA.filter((b) => b.id !== selected.id && b.kat === selected.kat);
+    const otherCat = BERITA.filter((b) => b.id !== selected.id && b.kat !== selected.kat);
+    const related = [...sameCat, ...otherCat].slice(0, 2);
     return (
       <>
-        <PageBanner title="Detail Berita" />
+        <PageBanner title="Detail Berita" badge="Berita & Aktivitas" />
         <div className="py-12 bg-background">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="flex items-center justify-between gap-4 mb-8 flex-wrap">
@@ -63,9 +65,14 @@ export default function Berita() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => {
-                    navigator.clipboard?.writeText(window.location.href);
-                    setCopied(true);
-                    setTimeout(() => setCopied(false), 2000);
+                    if (navigator.clipboard?.writeText) {
+                      navigator.clipboard.writeText(window.location.href)
+                        .then(() => {
+                          setCopied(true);
+                          setTimeout(() => setCopied(false), 2000);
+                        })
+                        .catch(() => {});
+                    }
                   }}
                   className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-border bg-card text-foreground/80 hover:text-primary hover:border-primary/40 transition-all text-xs font-caption shadow-sm cursor-pointer"
                   title="Bagikan Tautan Berita"

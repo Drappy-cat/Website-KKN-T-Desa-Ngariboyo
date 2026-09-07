@@ -854,7 +854,7 @@ export const GALERI = [
   { src: slide3, alt: "Melaksanakan Jalan Sehat Memperingati 17 Agustusan RT 02/RW 02 Desa Ngariboyo", kat: "Olahraga" },
   { src: slide4, alt: "Mengikuti dan Membantu Jalannya Acara Jalan Santai di Kecamatan Ngariboyo", kat: "Olahraga" },
   { src: slide5, alt: "Mengikuti Jalan Sehat Memperingati 17 Agustusan RT 02/RW 02 Desa Ngariboyo", kat: "Olahraga" },
-  { src: slide6, alt: "Melaksanakan Senam Sehat dan Lomba 17 Agustusan di SDN 1 Ngariboyo ", kat: "Olahraga dan Pendidikan" },
+  { src: slide6, alt: "Melaksanakan Senam Sehat dan Lomba 17 Agustusan di SDN 1 Ngariboyo", kat: "Olahraga dan Pendidikan" },
   { src: slide7, alt: "Mengikuti dan Meramaikan Upacara 17 Agustusan di Lapangan Mojopurno", kat: "Upacara Kemerdekaan" },
   { src: slide8, alt: "Membantu dan Mengikuti Acara Malam Tirakatan", kat: "Kegiatan" },
   { src: buktiBannerProker, alt: "Dokumentasi & Bukti Pelaksanaan Proker", kat: "Desa" },

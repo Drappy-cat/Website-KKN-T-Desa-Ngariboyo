@@ -17,7 +17,7 @@ function SearchOverlay({ onClose }: { onClose: () => void }) {
     ...PROKER.filter((p) => p.nama.toLowerCase().includes(query.toLowerCase()) || p.deskripsi.toLowerCase().includes(query.toLowerCase()))
       .slice(0, 4).map((p) => ({ type: "Program Kerja", label: p.nama, href: "/proker" })),
     ...BERITA.filter((b) => b.judul.toLowerCase().includes(query.toLowerCase()))
-      .slice(0, 3).map((b) => ({ type: "Berita", label: b.judul, href: "/berita" })),
+      .slice(0, 3).map((b) => ({ type: "Berita", label: b.judul, href: `/berita?id=${b.id}` })),
     ...MAHASISWA.filter((m) => m.nama.toLowerCase().includes(query.toLowerCase()) || m.prodi.toLowerCase().includes(query.toLowerCase()))
       .slice(0, 3).map((m) => ({ type: "Mahasiswa", label: `${m.nama} — ${m.prodi}`, href: "/tim" })),
   ];
