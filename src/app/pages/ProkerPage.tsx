@@ -124,7 +124,7 @@ function ProkerCard({ p }: { p: Proker }) {
 }
 
 export default function ProkerPage() {
-  usePageMeta("Program Kerja", "Daftar program kerja dari 4 jurusan KKNT Desa Ngariboyo 2026 — PGSD, Teknik Informatika, Manajemen, dan Ilmu Keolahragaan.");
+  usePageMeta("Program Kerja", "Daftar program kerja dari 4 jurusan KKNT Desa Ngariboyo 2026: PGSD, Teknik Informatika, Manajemen, dan Ilmu Keolahragaan.");
   const [activeJurusan, setActiveJurusan] = useState("semua");
   const [activeStatus, setActiveStatus] = useState("semua");
 
@@ -156,17 +156,57 @@ export default function ProkerPage() {
               <button
                 key={j.id}
                 onClick={() => setActiveJurusan(activeJurusan === j.id ? "semua" : j.id)}
-                className={`text-left p-5 rounded-[20px] border-2 transition-all hover:-translate-y-1 ${
+                className={`relative group overflow-hidden text-left p-5 rounded-[22px] border-2 transition-all duration-300 hover:-translate-y-1 min-h-[150px] flex flex-col justify-between shadow-[0_10px_30px_rgba(0,0,0,0.08)] ${
                   activeJurusan === j.id
-                    ? "border-primary dark:border-accent bg-card shadow-lg"
-                    : "border-border bg-card shadow-[0_10px_30px_rgba(0,0,0,0.06)]"
+                    ? "border-accent ring-2 ring-accent/40 shadow-xl"
+                    : "border-border/60 hover:border-accent/50"
                 }`}
               >
-                <div className="font-display font-extrabold text-3xl mb-1" style={{ color: j.warna }}>{j.total}</div>
-                <div className="font-semibold text-foreground font-body mb-3">{j.label}</div>
-                <div className="flex flex-wrap gap-2 text-xs font-caption">
-                  <span className="text-emerald-700 dark:text-emerald-400 bg-emerald-500/15 border border-emerald-500/20 px-2 py-0.5 rounded-full">{j.berjalan} Berjalan</span>
-                  <span className="text-blue-700 dark:text-blue-400 bg-blue-500/15 border border-blue-500/20 px-2 py-0.5 rounded-full">{j.selesai} Selesai</span>
+                {/* Background Image atau Fallback Warna Jurusan */}
+                {j.image ? (
+                  <img
+                    src={j.image}
+                    alt={j.label}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0 transition-opacity duration-300"
+                    style={{
+                      background: `linear-gradient(135deg, ${j.warna} 0%, #0F3A1D 100%)`,
+                    }}
+                  />
+                )}
+
+                {/* Gradient Overlay seperti kartu DPL */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-primary/20 group-hover:from-primary/90 transition-colors" />
+
+                {/* Konten Kartu */}
+                <div className="relative z-10 flex flex-col justify-between h-full w-full">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="font-display font-black text-2xl sm:text-3xl text-white tracking-tight drop-shadow-sm">
+                      {j.total}
+                    </span>
+                    <span className="text-[11px] font-caption font-semibold uppercase tracking-wider text-accent bg-black/40 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+                      Program
+                    </span>
+                  </div>
+
+                  <div>
+                    <h3 className="font-display font-bold text-white text-base sm:text-lg leading-snug drop-shadow-sm group-hover:text-accent transition-colors">
+                      {j.label}
+                    </h3>
+                    <div className="flex flex-wrap gap-1.5 mt-2.5 text-xs font-caption">
+                      <span className="text-emerald-300 bg-emerald-950/70 border border-emerald-400/30 px-2 py-0.5 rounded-full backdrop-blur-sm">
+                        {j.berjalan} Berjalan
+                      </span>
+                      <span className="text-sky-300 bg-sky-950/70 border border-sky-400/30 px-2 py-0.5 rounded-full backdrop-blur-sm">
+                        {j.selesai} Selesai
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </button>
             ))}

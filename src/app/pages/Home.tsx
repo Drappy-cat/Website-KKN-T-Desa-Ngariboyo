@@ -66,7 +66,7 @@ const StatCard = memo(function StatCard({ target, label, satuan, started }: { ta
 
 // ── Main Component ─────────────────────────────────────────────────────────────
 export default function Home() {
-  usePageMeta("Beranda", "Website resmi KKNT Desa Ngariboyo 2026 — 15 mahasiswa Universitas Negeri Surabaya mengabdi di Magetan, Jawa Timur.");
+  usePageMeta("Beranda", "Website resmi KKNT Desa Ngariboyo 2026. 15 mahasiswa Universitas Negeri Surabaya mengabdi di Magetan, Jawa Timur.");
   const [statsVisible, setStatsVisible] = useState(false);
   const statsRef = useRef<HTMLDivElement>(null);
   const [heroLoaded, setHeroLoaded] = useState(false);
@@ -395,7 +395,7 @@ export default function Home() {
               Timeline
             </span>
             <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white mb-3">Perjalanan KKNT</h2>
-            <p className="text-white/80 max-w-xl mx-auto font-body">Dari observasi hingga penutupan — pengabdian penuh untuk Desa Ngariboyo.</p>
+            <p className="text-white/80 max-w-xl mx-auto font-body">Dari observasi hingga penutupan, pengabdian penuh untuk Desa Ngariboyo.</p>
           </div>
           <div className="relative">
             {/* Line */}

@@ -44,7 +44,7 @@ export const IDENTITAS = {
     "Memperkuat keolahragaan dan hidup aktif sebagai fondasi produktivitas warga.",
   ],
   filosofi:
-    "Logo KKNT Desa Ngariboyo menggambarkan semangat pengabdian mahasiswa yang bersinergi bersama masyarakat untuk membangun desa yang maju, mandiri, berbudaya, sejahtera, dan berkelanjutan — dengan berlandaskan kolaborasi, kearifan lokal, dan inovasi.",
+    "Logo KKNT Desa Ngariboyo menggambarkan semangat pengabdian mahasiswa yang bersinergi bersama masyarakat untuk membangun desa yang maju, mandiri, berbudaya, sejahtera, dan berkelanjutan dengan berlandaskan kolaborasi, kearifan lokal, dan inovasi.",
   maknakeseluruhan:
     "Logo ini mencerminkan potensi komoditas unggulan Desa Ngariboyo (padi dan jagung) yang didukung oleh alam yang subur dan masyarakat yang bersinergi. Mahasiswa KKNT hadir sebagai agen perubahan untuk memberi kontribusi nyata demi kemajuan desa yang berkelanjutan.",
 };
@@ -93,7 +93,7 @@ export const DESA = {
 Desa ini memiliki sejarah panjang sejak masa kolonial Belanda, dengan masyarakat yang dikenal gigih dalam bertani dan menjaga tradisi gotong royong. Sawah-sawah yang menghijau di kaki Gunung Lawu menjadi saksi bisu perjuangan generasi demi generasi warga Ngariboyo dalam membangun dan mempertahankan kehidupan desa.`,
   potensi: [
     { judul: "Pertanian Padi & Jagung", ikon: "🌾", img: "https://images.unsplash.com/photo-1586771107445-d3af07e86e10?w=600&h=400&fit=crop", deskripsi: "Lahan pertanian subur menghasilkan padi dan jagung berkualitas tinggi yang menjadi komoditas utama perekonomian desa." },
-    { judul: "Wisata Air & Waduk (Embung Pendem)", ikon: "🌊", img: "https://images.unsplash.com/photo-1437482078695-73f5ff6e6559?w=600&h=400&fit=crop", deskripsi: "Fasilitas penampungan air buatan Embung Pendem yang dikembangkan menjadi objek wisata air, menawarkan panorama persawahan yang menawan serta wahana perahu kano untuk pengunjung." },
+    { judul: "Pemanfaatan Air Embung Pendem", ikon: "🌊", img: "https://images.unsplash.com/photo-1437482078695-73f5ff6e6559?w=600&h=400&fit=crop", deskripsi: "Meskipun secara administratif Embung Pendem bukan milik Desa Ngariboyo, keberadaannya membawa manfaat yang sangat besar. Dengan adanya embung tersebut, pasokan kebutuhan air untuk mengairi sawah dan kebun warga dapat senantiasa tercukupi dengan baik." },
     { judul: "Destinasi Wisata Religi & Sejarah", ikon: "🕌", img: "https://images.unsplash.com/photo-1574895067204-c1fb700fbe76?w=600&h=400&fit=crop", deskripsi: "Adanya situs Makam Kuno Ngariboyo yang menjadi pusat ziarah religius bagi masyarakat serta pusat pelestarian sejarah cagar budaya lokal." },
     { judul: "UMKM Anyaman Tas & Produk Lokal", ikon: "🛍️", img: "https://images.unsplash.com/photo-1605814510757-5561a0d8bb5d?w=600&h=400&fit=crop", deskripsi: "Sentra industri rumah tangga kreatif yang berfokus pada kerajinan anyaman tas di Dukuh Jetis, didukung oleh lebih dari 25 UMKM aktif yang siap Go Digital." },
     { judul: "Sumber Daya Air", ikon: "💧", img: "https://images.unsplash.com/photo-1517409249719-756d11f92c10?w=600&h=400&fit=crop", deskripsi: "Aliran sungai melimpah dan jaringan irigasi embung yang andal untuk mendukung pertanian intensif serta budidaya ikan air tawar sepanjang tahun." },
@@ -181,11 +181,47 @@ export interface Proker {
   hasil: string;
 }
 
-export const JURUSAN_LIST = [
-  { id: "pgsd", label: "PGSD", warna: "#14532D", warnaLight: "#E8F5E9" },
-  { id: "ti", label: "Teknik Informatika", warna: "#1565C0", warnaLight: "#E3F2FD" },
-  { id: "manajemen", label: "Manajemen", warna: "#E65100", warnaLight: "#FFF3E0" },
-  { id: "ikor", label: "Ilmu Keolahragaan", warna: "#6A1B9A", warnaLight: "#F3E5F5" },
+export interface JurusanInfo {
+  id: string;
+  label: string;
+  warna: string;
+  warnaLight: string;
+  image?: string; // Dapat diisi asset gambar lokal (import foto from '...') atau URL gambar
+}
+
+// ── JURUSAN LIST ─────────────────────────────────────────────────────────────
+// Anda dapat memasukkan file asset gambar sendiri ke properti `image` di bawah ini.
+// Contoh jika ada file asset lokal:
+// import fotoPgsd from "../../assets/..."; lalu isi: image: fotoPgsd
+export const JURUSAN_LIST: JurusanInfo[] = [
+  { 
+    id: "pgsd", 
+    label: "PGSD", 
+    warna: "#14532D", 
+    warnaLight: "#E8F5E9",
+    image: "", // <-- Masukkan asset image PGSD Anda di sini
+  },
+  { 
+    id: "ti", 
+    label: "Teknik Informatika", 
+    warna: "#1565C0", 
+    warnaLight: "#E3F2FD",
+    image: "", // <-- Masukkan asset image Teknik Informatika Anda di sini
+  },
+  { 
+    id: "manajemen", 
+    label: "Manajemen", 
+    warna: "#E65100", 
+    warnaLight: "#FFF3E0",
+    image: "", // <-- Masukkan asset image Manajemen Anda di sini
+  },
+  { 
+    id: "ikor", 
+    label: "Ilmu Keolahragaan", 
+    warna: "#6A1B9A", 
+    warnaLight: "#F3E5F5",
+    image: "", // <-- Masukkan asset image Ilmu Keolahragaan Anda di sini
+  },
 ];
 
 export const PROKER: Proker[] = [

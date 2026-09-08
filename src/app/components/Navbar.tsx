@@ -19,7 +19,7 @@ function SearchOverlay({ onClose }: { onClose: () => void }) {
     ...BERITA.filter((b) => b.judul.toLowerCase().includes(query.toLowerCase()))
       .slice(0, 3).map((b) => ({ type: "Berita", label: b.judul, href: `/berita?id=${b.id}` })),
     ...MAHASISWA.filter((m) => m.nama.toLowerCase().includes(query.toLowerCase()) || m.prodi.toLowerCase().includes(query.toLowerCase()))
-      .slice(0, 3).map((m) => ({ type: "Mahasiswa", label: `${m.nama} — ${m.prodi}`, href: "/tim" })),
+      .slice(0, 3).map((m) => ({ type: "Mahasiswa", label: `${m.nama} (${m.prodi})`, href: "/tim" })),
   ];
 
   useEffect(() => {

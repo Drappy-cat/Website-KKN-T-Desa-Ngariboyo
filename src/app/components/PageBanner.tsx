@@ -1,5 +1,5 @@
-﻿/**
- * PageBanner — Shared hero banner for inner pages.
+/**
+ * PageBanner: Shared hero banner for inner pages.
  * Digunakan di: Tim, Kontak, ProfilDesa, Tentang, Berita, dll.
  */
 export default function PageBanner({

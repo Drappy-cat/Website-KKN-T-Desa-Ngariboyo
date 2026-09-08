@@ -56,24 +56,24 @@
 
 .dark {
   /* ── Backgrounds: tiga level yang jelas berbeda ─────────────────────── */
-  --background: #090D11;        /* Paling gelap — latar halaman */
-  --card: #111720;              /* Kartu & komponen — halus & nyaman */
+  --background: #090D11;        /* Paling gelap, latar halaman */
+  --card: #111720;              /* Kartu & komponen, halus & nyaman */
   --popover: #151E28;           /* Popover & dropdown */
-  --muted: #16221C;             /* Section alternatif & hover — sentuhan emerald gelap */
+  --muted: #16221C;             /* Section alternatif & hover, sentuhan emerald gelap */
 
   /* ── Teks ───────────────────────────────────────────────────────────── */
-  --foreground: #E2E8F0;        /* Teks utama — kontras lembut */
+  --foreground: #E2E8F0;        /* Teks utama, kontras lembut */
   --card-foreground: #E2E8F0;
   --popover-foreground: #E2E8F0;
   --muted-foreground: #94A3B8;  /* Teks sekunder */
 
-  /* ── Brand — hijau sejuk & natural (bukan neon/terlalu terang) ─────── */
+  /* ── Brand: hijau sejuk & natural (bukan neon/terlalu terang) ─────────── */
   --primary: #2EA043;           /* Hijau emerald seimbang, tidak menyilaukan */
   --primary-foreground: #FFFFFF;
   --secondary: #238636;
   --secondary-foreground: #FFFFFF;
 
-  /* ── Aksen — kuning emas tetap, sangat terbaca di latar gelap ───────── */
+  /* ── Aksen: kuning emas tetap, sangat terbaca di latar gelap ───────────── */
   --accent: #F4B400;
   --accent-foreground: #090D11;
 
