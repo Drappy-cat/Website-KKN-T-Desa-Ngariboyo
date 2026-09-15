@@ -106,7 +106,7 @@ function MahasiswaModal({ m }: { m: typeof MAHASISWA[0] }) {
             Detail Profil & ID Card {m.nama}
           </Dialog.Title>
           <Dialog.Description className="sr-only">
-            Detail profil {m.nama} — mahasiswa {m.prodi} peserta KKNT Desa Ngariboyo 2026.
+            Detail profil {m.nama}, mahasiswa {m.prodi} peserta KKNT Desa Ngariboyo 2026.
           </Dialog.Description>
           <Dialog.Close className="absolute top-5 right-5 z-20 p-2.5 rounded-full bg-muted/80 hover:bg-muted text-foreground transition-colors border border-border">
             <X className="w-5 h-5" />

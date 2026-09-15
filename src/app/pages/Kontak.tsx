@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { MapPin, Mail, Phone, Instagram, Send } from "lucide-react";
 import { toast } from "sonner";
 import { usePageMeta } from "../hooks/usePageMeta";
@@ -15,7 +15,7 @@ function TikTokIcon() {
 }
 
 export default function Kontak() {
-  usePageMeta("Kontak", "Hubungi tim KKNT Desa Ngariboyo 2026 — Universitas Negeri Surabaya.");
+  usePageMeta("Kontak", "Hubungi tim KKNT Desa Ngariboyo 2026, Universitas Negeri Surabaya.");
   const [loading, setLoading] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -125,7 +125,7 @@ export default function Kontak() {
               </div>
             </div>
 
-            {/* Right — form */}
+            {/* Right: form */}
             <div>
               <div className="bg-card rounded-[24px] p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border">
                 <h3 className="font-display font-bold text-primary dark:text-accent text-xl mb-6">Kirim Pesan</h3>

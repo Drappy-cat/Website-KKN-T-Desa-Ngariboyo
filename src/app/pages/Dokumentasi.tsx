@@ -5,7 +5,7 @@ import { usePageMeta } from "../hooks/usePageMeta";
 import PageBanner from "../components/PageBanner";
 
 
-const KATEGORI = ["Semua", "Desa", "Pendidikan", "Olahraga", "Ekonomi", "Lingkungan", "Teknologi", "Kesehatan", "Kegiatan"];
+const KATEGORI = ["Semua", ...Array.from(new Set(GALERI.map((g) => g.kat)))];
 
 const VIDEOS = [
   { judul: "Opening KKNT Desa Ngariboyo 2026", durasi: "3:45", thumb: "https://images.unsplash.com/photo-1500382017968-0a04a3e16c5c?w=500&h=280&fit=crop", yt: "https://youtube.com" },

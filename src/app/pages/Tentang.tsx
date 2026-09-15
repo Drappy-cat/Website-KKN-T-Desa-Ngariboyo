@@ -191,6 +191,33 @@ export default function Tentang() {
               ))}
             </div>
           </div>
+
+          {/* ── Palet Warna Logo ─────────────────────────────────────────── */}
+          <div className="mt-16 pt-12 border-t border-border">
+            <div className="text-center mb-10">
+              <h3 className="font-display font-extrabold text-2xl sm:text-3xl text-primary dark:text-accent mb-2">Palet Warna Logo</h3>
+              <p className="text-muted-foreground font-body text-sm">Setiap warna dipilih dengan makna dan filosofi yang mendalam.</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
+              {[
+                { hex: "#1E5D3A", nama: "Hijau Tua", makna: "Keseimbangan" },
+                { hex: "#4CAF50", nama: "Hijau Muda", makna: "Pertumbuhan" },
+                { hex: "#8BC34A", nama: "Hijau Segar", makna: "Kesuburan" },
+                { hex: "#F4B400", nama: "Kuning Emas", makna: "Kemakmuran" },
+                { hex: "#2196F3", nama: "Biru", makna: "Air & Kehidupan" },
+                { hex: "#795548", nama: "Coklat", makna: "Tanah & Kearifan" },
+              ].map((w) => (
+                <div key={w.hex} className="flex flex-col items-center gap-2 group">
+                  <div className="w-16 h-16 rounded-2xl shadow-md border-2 border-white dark:border-border hover:scale-105 transition-transform duration-300" style={{ backgroundColor: w.hex }} />
+                  <div className="text-xs font-caption text-center">
+                    <div className="font-semibold text-foreground">{w.nama}</div>
+                    <div className="text-muted-foreground">{w.hex}</div>
+                    <div className="text-primary dark:text-accent font-medium">({w.makna})</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -253,7 +280,7 @@ export default function Tentang() {
               </div>
               <h3 className="font-display font-bold text-foreground text-lg mb-2">Lanyard</h3>
               <p className="text-muted-foreground text-sm font-body leading-relaxed">
-                Lanyard tiga warna (hijau–kuning emas–hijau) dengan ID card peserta. Dikenakan di leher selama program berlangsung.
+                Lanyard tiga warna (hijau, kuning emas, hijau) dengan ID card peserta. Dikenakan di leher selama program berlangsung.
               </p>
             </div>
 
@@ -282,35 +309,6 @@ export default function Tentang() {
             </div>
 
             <IDCardGallery />
-          </div>
-        </div>
-      </section>
-
-      {/* ── Palet Warna ──────────────────────────────────────────────────── */}
-      <section className="py-16 bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
-            <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-primary mb-2">Palet Warna Logo</h2>
-            <p className="text-muted-foreground font-body text-sm">Setiap warna dipilih dengan makna dan filosofi yang mendalam.</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-5">
-            {[
-              { hex: "#1E5D3A", nama: "Hijau Tua", makna: "Keseimbangan" },
-              { hex: "#4CAF50", nama: "Hijau Muda", makna: "Pertumbuhan" },
-              { hex: "#8BC34A", nama: "Hijau Segar", makna: "Kesuburan" },
-              { hex: "#F4B400", nama: "Kuning Emas", makna: "Kemakmuran" },
-              { hex: "#2196F3", nama: "Biru", makna: "Air & Kehidupan" },
-              { hex: "#795548", nama: "Coklat", makna: "Tanah & Kearifan" },
-            ].map((w) => (
-              <div key={w.hex} className="flex flex-col items-center gap-2">
-                <div className="w-16 h-16 rounded-2xl shadow-md border-2 border-white" style={{ backgroundColor: w.hex }} />
-                <div className="text-xs font-caption text-center">
-                  <div className="font-semibold text-foreground">{w.nama}</div>
-                  <div className="text-muted-foreground">{w.hex}</div>
-                  <div className="text-primary font-medium">({w.makna})</div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
