@@ -7,22 +7,22 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Suasana 1: Lanskap Persawahan & Kaki Gunung Lawu
-import suasana1 from "./suasana-1.svg";
+import suasana1 from "./suasana-1.jpeg";
 
 // Suasana 2: Balai Desa & Kantor Pemerintahan
-import suasana2 from "./suasana-2.svg";
+import suasana2 from "./suasana-2.jpeg";
 
 // Suasana 3: Pemukiman & Lingkungan Warga Desa
-import suasana3 from "./suasana-3.svg";
+import suasana3 from "./suasana-3.jpeg";
 
 // Suasana 4: Panorama Wisata Embung Pendem
-import suasana4 from "./suasana-4.svg";
+import suasana4 from "./suasana-4.jpeg";
 
 // Suasana 5: Gotong Royong & Kebersamaan Warga
-import suasana5 from "./suasana-5.svg";
+import suasana5 from "./suasana-5.jpeg";
 
 // Suasana 6: Jalan & Sudut Asri Pedesaan
-import suasana6 from "./suasana-6.svg";
+import suasana6 from "./suasana-6.jpeg";
 
 export {
   suasana1,
