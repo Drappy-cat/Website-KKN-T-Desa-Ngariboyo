@@ -94,6 +94,7 @@ import {
   imgUmkmAnyaman,
   imgSumberDayaAir,
   imgBudayaTradisi,
+  imgGenteng,
 } from "../../assets/potensi-desa";
 
 import suasanaDesaList from "../../assets/suasana-desa";
@@ -110,7 +111,7 @@ Desa ini memiliki sejarah panjang sejak masa kolonial Belanda, dengan masyarakat
     { judul: "Destinasi Wisata Religi & Sejarah", ikon: "🕌", img: imgWisataReligi, deskripsi: "Adanya situs Makam Kuno Ngariboyo yang menjadi pusat ziarah religius bagi masyarakat serta pusat pelestarian sejarah cagar budaya lokal." },
     { judul: "UMKM Anyaman Tas & Produk Lokal", ikon: "🛍️", img: imgUmkmAnyaman, deskripsi: "Sentra industri rumah tangga kreatif yang berfokus pada kerajinan anyaman tas di Dukuh Jetis, didukung oleh lebih dari 25 UMKM aktif yang siap Go Digital." },
     { judul: "Sumber Daya Air", ikon: "💧", img: imgSumberDayaAir, deskripsi: "Aliran sungai melimpah dan jaringan irigasi embung yang andal untuk mendukung pertanian intensif serta budidaya ikan air tawar sepanjang tahun." },
-    { judul: "Budaya & Tradisi", ikon: "🎭", img: imgBudayaTradisi, deskripsi: "Kekayaan adat Jawa Mataraman yang masih terjaga melalui tradisi bersih desa dan seni budaya lokal, menjadi identitas serta daya tarik unik desa." },
+    { judul: "Sentra Industri Genteng", ikon: "🧱", img: imgGenteng, deskripsi: "Industri pembuatan genteng tanah liat berkualitas tinggi yang telah lama menjadi salah satu penggerak ekonomi utama dan mata pencaharian unggulan warga Desa Ngariboyo." },
   ],
   permasalahan: [
     { judul: "Tata Kelola Pemerintahan (Kasus Korupsi)", ikon: "⚖️", deskripsi: "Desa Ngariboyo mengalami masalah serius dalam transparansi anggaran. Mantan Kepala Desa, Sumadi, terjerat kasus korupsi dan penyalahgunaan Dana Desa berturut-turut (proyek fiktif 2019 & penyimpangan anggaran 2023), menghambat pembangunan fisik." },

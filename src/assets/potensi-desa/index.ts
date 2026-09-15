@@ -22,7 +22,7 @@ import imgUmkmAnyaman from "./umkm-anyaman.jpeg";
 import imgSumberDayaAir from "./sumber-daya-air.jpeg";
 
 // 6. Budaya & Tradisi (Bersih Desa)
-import imgBudayaTradisi from "./budaya-tradisi.svg";
+import imgBudayaTradisi from "./genteng.jpeg";
 
 // 7. Industri Genteng Lokal
 import imgGenteng from "./genteng.jpeg";
