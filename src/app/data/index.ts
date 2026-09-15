@@ -89,7 +89,7 @@ export const KONTAK = {
 // ── DESA ─────────────────────────────────────────────────────────────────────
 import {
   imgPertanian,
-  imgWisataAir,
+  imgPasarDesa,
   imgWisataReligi,
   imgUmkmAnyaman,
   imgSumberDayaAir,
@@ -107,7 +107,7 @@ export const DESA = {
 Desa ini memiliki sejarah panjang sejak masa kolonial Belanda, dengan masyarakat yang dikenal gigih dalam bertani dan menjaga tradisi gotong royong. Sawah-sawah yang menghijau di kaki Gunung Lawu menjadi saksi bisu perjuangan generasi demi generasi warga Ngariboyo dalam membangun dan mempertahankan kehidupan desa.`,
   potensi: [
     { judul: "Pertanian Padi & Jagung", ikon: "🌾", img: imgPertanian, deskripsi: "Lahan pertanian subur menghasilkan padi dan jagung berkualitas tinggi yang menjadi komoditas utama perekonomian desa." },
-    { judul: "Pemanfaatan Air Embung Pendem", ikon: "🌊", img: imgWisataAir, deskripsi: "Meskipun secara administratif Embung Pendem bukan milik Desa Ngariboyo, keberadaannya membawa manfaat yang sangat besar. Dengan adanya embung tersebut, pasokan kebutuhan air untuk mengairi sawah dan kebun warga dapat senantiasa tercukupi dengan baik." },
+    { judul: "Pasar Tradisional Desa Ngariboyo", ikon: "🏪", img: imgPasarDesa, deskripsi: "Pusat perputaran ekonomi dan denyut perdagangan warga Desa Ngariboyo yang mempertemukan petani, pedagang, dan masyarakat untuk bertransaksi aneka komoditas hasil bumi lokal, sayur-mayur segar, serta aneka kebutuhan pokok sehari-hari." },
     { judul: "Destinasi Wisata Religi & Sejarah", ikon: "🕌", img: imgWisataReligi, deskripsi: "Adanya situs Makam Kuno Ngariboyo yang menjadi pusat ziarah religius bagi masyarakat serta pusat pelestarian sejarah cagar budaya lokal." },
     { judul: "UMKM Anyaman Tas & Produk Lokal", ikon: "🛍️", img: imgUmkmAnyaman, deskripsi: "Sentra industri rumah tangga kreatif yang berfokus pada kerajinan anyaman tas di Dukuh Jetis, didukung oleh lebih dari 25 UMKM aktif yang siap Go Digital." },
     { judul: "Sumber Daya Air", ikon: "💧", img: imgSumberDayaAir, deskripsi: "Aliran sungai melimpah dan jaringan irigasi embung yang andal untuk mendukung pertanian intensif serta budidaya ikan air tawar sepanjang tahun." },

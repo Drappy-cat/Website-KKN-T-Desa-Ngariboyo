@@ -9,8 +9,8 @@
 // 1. Pertanian Padi & Jagung
 import imgPertanian from "./pertanian.jpeg";
 
-// 2. Wisata Air & Waduk (Embung Pendem)
-import imgWisataAir from "./wisata-air-embung.svg";
+// 2. Pasar Tradisional Desa Ngariboyo
+import imgPasarDesa from "./pasar desa ngariboyo.jpg";
 
 // 3. Wisata Religi & Makam Kuno
 import imgWisataReligi from "./wisata-religi.jpeg";
@@ -29,7 +29,8 @@ import imgGenteng from "./genteng.jpeg";
 
 export {
   imgPertanian,
-  imgWisataAir,
+  imgPasarDesa,
+  imgPasarDesa as imgWisataAir,
   imgWisataReligi,
   imgUmkmAnyaman,
   imgSumberDayaAir,
@@ -39,7 +40,8 @@ export {
 
 export default {
   pertanian: imgPertanian,
-  wisataAir: imgWisataAir,
+  pasarDesa: imgPasarDesa,
+  wisataAir: imgPasarDesa,
   wisataReligi: imgWisataReligi,
   umkmAnyaman: imgUmkmAnyaman,
   sumberDayaAir: imgSumberDayaAir,
