@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skySuasana3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdba74"/>
+      <stop offset="60%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <filter id="shadowSuasana3" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="533" fill="url(#skySuasana3)"/>
+  
+  <!-- Village houses silhouettes -->
+  <g transform="translate(100, 210)">
+    <polygon points="60,30 0,70 120,70" fill="#c2410c"/>
+    <rect x="15" y="70" width="90" height="70" fill="#fb923c"/>
+    <rect x="50" y="95" width="20" height="45" fill="#7c2d12"/>
+  </g>
+  <g transform="translate(240, 200)">
+    <polygon points="70,20 0,65 140,65" fill="#9a3412"/>
+    <rect x="20" y="65" width="100" height="85" fill="#f97316"/>
+    <rect x="60" y="100" width="22" height="50" fill="#431407"/>
+  </g>
+  <g transform="translate(420, 220)">
+    <polygon points="55,25 0,60 110,60" fill="#ea580c"/>
+    <rect x="15" y="60" width="80" height="70" fill="#fdba74"/>
+    <rect x="45" y="85" width="18" height="45" fill="#7c2d12"/>
+  </g>
+
+  <!-- Village Road & Greenery -->
+  <path d="M0 350 L800 350 L800 533 L0 533 Z" fill="#475569"/>
+  <polygon points="340,350 460,350 560,533 240,533" fill="#64748b"/>
+
+  <!-- Info Overlay Card -->
+  <rect x="50" y="415" width="700" height="85" rx="14" fill="#0f172a" fill-opacity="0.85" filter="url(#shadowSuasana3)"/>
+  <rect x="50" y="415" width="700" height="85" rx="14" fill="none" stroke="#f97316" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <text x="80" y="452" font-size="28">🏡</text>
+  <text x="125" y="448" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="18" fill="#ffffff">Suasana 3: Pemukiman &amp; Lingkungan Warga Desa</text>
+  <text x="125" y="474" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#cbd5e1">Ganti file ini dengan foto asli: suasana-3.jpg / suasana-3.png</text>
+</svg>

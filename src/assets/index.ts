@@ -64,3 +64,9 @@ export { default as kalenderSvg } from "./timeline/kalender-2-bulan.svg";
 // ── DOSEN PEMBIMBING LAPANGAN (DPL) ───────────────────────────────────────
 export { default as fotoDplDelia } from "./dosen/delia-indrawati-1.jpg";
 
+// ── POTENSI DESA ──────────────────────────────────────────────────────────
+export * from "./potensi-desa";
+
+// ── SUASANA DESA ──────────────────────────────────────────────────────────
+export * from "./suasana-desa";
+

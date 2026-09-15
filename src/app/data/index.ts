@@ -87,17 +87,30 @@ export const KONTAK = {
 };
 
 // ── DESA ─────────────────────────────────────────────────────────────────────
+import {
+  imgPertanian,
+  imgWisataAir,
+  imgWisataReligi,
+  imgUmkmAnyaman,
+  imgSumberDayaAir,
+  imgBudayaTradisi,
+} from "../../assets/potensi-desa";
+
+import suasanaDesaList from "../../assets/suasana-desa";
+
+export const SUASANA_DESA = suasanaDesaList;
+
 export const DESA = {
   sejarah: `Desa Ngariboyo merupakan salah satu desa di Kecamatan Ngariboyo, Kabupaten Magetan, Jawa Timur yang kaya akan kearifan lokal dan potensi alam. Nama "Ngariboyo" konon berasal dari kata dalam bahasa Jawa yang bermakna tempat yang aman dan makmur, mencerminkan harapan leluhur akan kehidupan yang sejahtera bagi seluruh warganya.
 
 Desa ini memiliki sejarah panjang sejak masa kolonial Belanda, dengan masyarakat yang dikenal gigih dalam bertani dan menjaga tradisi gotong royong. Sawah-sawah yang menghijau di kaki Gunung Lawu menjadi saksi bisu perjuangan generasi demi generasi warga Ngariboyo dalam membangun dan mempertahankan kehidupan desa.`,
   potensi: [
-    { judul: "Pertanian Padi & Jagung", ikon: "🌾", img: "https://images.unsplash.com/photo-1586771107445-d3af07e86e10?w=600&h=400&fit=crop", deskripsi: "Lahan pertanian subur menghasilkan padi dan jagung berkualitas tinggi yang menjadi komoditas utama perekonomian desa." },
-    { judul: "Wisata Air & Waduk (Embung Pendem)", ikon: "🌊", img: "https://images.unsplash.com/photo-1437482078695-73f5ff6e6559?w=600&h=400&fit=crop", deskripsi: "Fasilitas penampungan air buatan Embung Pendem yang dikembangkan menjadi objek wisata air, menawarkan panorama persawahan yang menawan serta wahana perahu kano untuk pengunjung." },
-    { judul: "Destinasi Wisata Religi & Sejarah", ikon: "🕌", img: "https://images.unsplash.com/photo-1574895067204-c1fb700fbe76?w=600&h=400&fit=crop", deskripsi: "Adanya situs Makam Kuno Ngariboyo yang menjadi pusat ziarah religius bagi masyarakat serta pusat pelestarian sejarah cagar budaya lokal." },
-    { judul: "UMKM Anyaman Tas & Produk Lokal", ikon: "🛍️", img: "https://images.unsplash.com/photo-1605814510757-5561a0d8bb5d?w=600&h=400&fit=crop", deskripsi: "Sentra industri rumah tangga kreatif yang berfokus pada kerajinan anyaman tas di Dukuh Jetis, didukung oleh lebih dari 25 UMKM aktif yang siap Go Digital." },
-    { judul: "Sumber Daya Air", ikon: "💧", img: "https://images.unsplash.com/photo-1517409249719-756d11f92c10?w=600&h=400&fit=crop", deskripsi: "Aliran sungai melimpah dan jaringan irigasi embung yang andal untuk mendukung pertanian intensif serta budidaya ikan air tawar sepanjang tahun." },
-    { judul: "Budaya & Tradisi", ikon: "🎭", img: "https://images.unsplash.com/photo-1604928141064-207cea6f5822?w=600&h=400&fit=crop", deskripsi: "Kekayaan adat Jawa Mataraman yang masih terjaga melalui tradisi bersih desa dan seni budaya lokal, menjadi identitas serta daya tarik unik desa." },
+    { judul: "Pertanian Padi & Jagung", ikon: "🌾", img: imgPertanian, deskripsi: "Lahan pertanian subur menghasilkan padi dan jagung berkualitas tinggi yang menjadi komoditas utama perekonomian desa." },
+    { judul: "Wisata Air & Waduk (Embung Pendem)", ikon: "🌊", img: imgWisataAir, deskripsi: "Fasilitas penampungan air buatan Embung Pendem yang dikembangkan menjadi objek wisata air, menawarkan panorama persawahan yang menawan serta wahana perahu kano untuk pengunjung." },
+    { judul: "Destinasi Wisata Religi & Sejarah", ikon: "🕌", img: imgWisataReligi, deskripsi: "Adanya situs Makam Kuno Ngariboyo yang menjadi pusat ziarah religius bagi masyarakat serta pusat pelestarian sejarah cagar budaya lokal." },
+    { judul: "UMKM Anyaman Tas & Produk Lokal", ikon: "🛍️", img: imgUmkmAnyaman, deskripsi: "Sentra industri rumah tangga kreatif yang berfokus pada kerajinan anyaman tas di Dukuh Jetis, didukung oleh lebih dari 25 UMKM aktif yang siap Go Digital." },
+    { judul: "Sumber Daya Air", ikon: "💧", img: imgSumberDayaAir, deskripsi: "Aliran sungai melimpah dan jaringan irigasi embung yang andal untuk mendukung pertanian intensif serta budidaya ikan air tawar sepanjang tahun." },
+    { judul: "Budaya & Tradisi", ikon: "🎭", img: imgBudayaTradisi, deskripsi: "Kekayaan adat Jawa Mataraman yang masih terjaga melalui tradisi bersih desa dan seni budaya lokal, menjadi identitas serta daya tarik unik desa." },
   ],
   permasalahan: [
     { judul: "Tata Kelola Pemerintahan (Kasus Korupsi)", ikon: "⚖️", deskripsi: "Desa Ngariboyo mengalami masalah serius dalam transparansi anggaran. Mantan Kepala Desa, Sumadi, terjerat kasus korupsi dan penyalahgunaan Dana Desa berturut-turut (proyek fiktif 2019 & penyimpangan anggaran 2023), menghambat pembangunan fisik." },

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skySuasana2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="70%" stop-color="#e0f2fe"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadowSuasana2" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="533" fill="url(#skySuasana2)"/>
+  
+  <!-- Trees in background -->
+  <circle cx="120" cy="280" r="80" fill="#15803d" opacity="0.7"/>
+  <circle cx="200" cy="270" r="70" fill="#166534" opacity="0.8"/>
+  <circle cx="680" cy="280" r="90" fill="#15803d" opacity="0.7"/>
+  <circle cx="600" cy="270" r="70" fill="#166534" opacity="0.8"/>
+
+  <!-- Balai Desa / Joglo Building Silhouette -->
+  <g transform="translate(250, 180)">
+    <!-- Roof - Joglo style -->
+    <polygon points="150,20 80,70 220,70" fill="#b45309"/>
+    <polygon points="50,70 10,110 290,110 250,70" fill="#92400e"/>
+    <!-- Pillars -->
+    <rect x="50" y="110" width="12" height="90" fill="#451a03"/>
+    <rect x="110" y="110" width="12" height="90" fill="#78350f"/>
+    <rect x="180" y="110" width="12" height="90" fill="#78350f"/>
+    <rect x="240" y="110" width="12" height="90" fill="#451a03"/>
+    <!-- Floor -->
+    <rect x="20" y="200" width="260" height="20" rx="4" fill="#cbd5e1"/>
+  </g>
+
+  <!-- Ground / Paving -->
+  <rect y="380" width="800" height="153" fill="#64748b"/>
+
+  <!-- Info Overlay Card -->
+  <rect x="50" y="415" width="700" height="85" rx="14" fill="#0f172a" fill-opacity="0.85" filter="url(#shadowSuasana2)"/>
+  <rect x="50" y="415" width="700" height="85" rx="14" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.6"/>
+
+  <text x="80" y="452" font-size="28">🏛️</text>
+  <text x="125" y="448" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="18" fill="#ffffff">Suasana 2: Balai Desa &amp; Kantor Pemerintahan Ngariboyo</text>
+  <text x="125" y="474" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#cbd5e1">Ganti file ini dengan foto asli: suasana-2.jpg / suasana-2.png</text>
+</svg>

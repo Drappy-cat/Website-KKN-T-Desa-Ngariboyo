@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyReligi" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="60%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="groundReligi" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadowReligi" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="533" fill="url(#skyReligi)"/>
+
+  <!-- Ancient Trees & Silhouette -->
+  <ellipse cx="250" cy="240" rx="140" ry="110" fill="#1e293b" opacity="0.6"/>
+  <ellipse cx="550" cy="220" rx="160" ry="130" fill="#0f172a" opacity="0.7"/>
+
+  <!-- Sacred Gate / Candi / Makam Kuno Silhouette -->
+  <g transform="translate(320, 180)">
+    <path d="M40 140 L40 60 L60 30 L80 60 L80 140 Z" fill="#0f172a"/>
+    <path d="M120 140 L120 60 L100 30 L80 60 L80 140 Z" fill="#1e293b"/>
+    <rect x="30" y="140" width="100" height="20" rx="3" fill="#0f172a"/>
+    <!-- Central Gate Gap -->
+    <path d="M70 140 Q80 100 90 140 Z" fill="#cbd5e1" opacity="0.4"/>
+  </g>
+
+  <!-- Ground -->
+  <path d="M0 340 Q400 330 800 340 L800 533 L0 533 Z" fill="url(#groundReligi)"/>
+
+  <!-- Banner Overlay Card -->
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="#0f172a" fill-opacity="0.85" filter="url(#shadowReligi)"/>
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Icon & Label -->
+  <text x="85" y="442" font-size="32">🕌</text>
+  <text x="135" y="438" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="20" fill="#ffffff">Destinasi Wisata Religi &amp; Sejarah</text>
+  <text x="135" y="462" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fcd34d">Situs Cagar Budaya &amp; Makam Kuno • Desa Ngariboyo</text>
+  <text x="135" y="484" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#cbd5e1">Ganti file ini dengan foto asli: wisata-religi.jpg / wisata-religi.png</text>
+</svg>

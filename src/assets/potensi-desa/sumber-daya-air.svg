@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgWaterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="60%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="shadowWater" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="533" fill="url(#bgWaterGrad)"/>
+
+  <!-- Water Flow Waves -->
+  <path d="M0 200 Q200 150 400 200 T800 200 L800 533 L0 533 Z" fill="#0369a1" opacity="0.6"/>
+  <path d="M0 260 Q250 200 500 260 T800 250 L800 533 L0 533 Z" fill="#0284c7" opacity="0.8"/>
+  <path d="M0 320 Q200 280 400 320 T800 310 L800 533 L0 533 Z" fill="#0ea5e9"/>
+
+  <!-- Water Droplet Graphic -->
+  <g transform="translate(360, 110)">
+    <path d="M40 0 C40 0 80 50 80 85 C80 115 58 135 40 135 C22 135 0 115 0 85 C0 50 40 0 40 0 Z" fill="#e0f2fe" opacity="0.85" filter="url(#shadowWater)"/>
+    <path d="M25 65 C25 65 35 45 40 30" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+  </g>
+
+  <!-- Banner Overlay Card -->
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="#0f172a" fill-opacity="0.85" filter="url(#shadowWater)"/>
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Icon & Label -->
+  <text x="85" y="442" font-size="32">💧</text>
+  <text x="135" y="438" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="20" fill="#ffffff">Sumber Daya Air &amp; Irigasi Pertanian</text>
+  <text x="135" y="462" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#7dd3fc">Aliran Sungai Melimpah &amp; Jaringan Embung • Desa Ngariboyo</text>
+  <text x="135" y="484" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#cbd5e1">Ganti file ini dengan foto asli: sumber-daya-air.jpg / sumber-daya-air.png</text>
+</svg>

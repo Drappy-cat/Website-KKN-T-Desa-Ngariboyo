@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="60%" stop-color="#bae6fd"/>
+      <stop offset="100%" stop-color="#fef08a"/>
+    </linearGradient>
+    <linearGradient id="hills" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#15803d"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+    <linearGradient id="field" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#65a30d"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="533" fill="url(#sky)"/>
+  
+  <!-- Sun -->
+  <circle cx="680" cy="120" r="55" fill="#fef08a" opacity="0.85" filter="url(#shadow)"/>
+  <circle cx="680" cy="120" r="70" fill="#fef08a" opacity="0.3"/>
+
+  <!-- Mountain Lawu Silhouette -->
+  <path d="M120 320 L280 180 L440 320 Z" fill="#047857" opacity="0.6"/>
+  <path d="M260 320 L480 140 L700 320 Z" fill="#065f46" opacity="0.5"/>
+  <path d="M-50 340 L160 210 L380 340 Z" fill="#064e3b" opacity="0.4"/>
+
+  <!-- Rolling Hills & Terraced Paddy Fields -->
+  <path d="M0 310 Q200 270 450 315 T800 295 L800 533 L0 533 Z" fill="url(#hills)"/>
+  <path d="M0 350 Q240 310 500 355 T800 340 L800 533 L0 533 Z" fill="url(#field)"/>
+  <path d="M0 410 Q260 370 540 415 T800 395 L800 533 L0 533 Z" fill="#a16207" opacity="0.4"/>
+  <path d="M0 460 Q280 430 560 465 T800 450 L800 533 L0 533 Z" fill="#713f12" opacity="0.3"/>
+
+  <!-- Rice/Corn Stalk silhouettes -->
+  <g stroke="#fef08a" stroke-width="2" opacity="0.7">
+    <path d="M60 520 Q70 470 65 440 M65 450 Q80 445 85 435 M65 465 Q50 460 45 450"/>
+    <path d="M120 530 Q130 480 125 450 M125 460 Q140 455 145 445"/>
+    <path d="M720 530 Q715 480 720 445 M720 460 Q735 450 740 440"/>
+    <path d="M680 525 Q675 475 680 450 M680 465 Q665 455 660 445"/>
+  </g>
+
+  <!-- Banner Overlay Card -->
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="#0f172a" fill-opacity="0.85" filter="url(#shadow)"/>
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="none" stroke="#22c55e" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Icon & Label -->
+  <text x="85" y="442" font-size="32">🌾</text>
+  <text x="135" y="438" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="20" fill="#ffffff">Pertanian Padi &amp; Jagung</text>
+  <text x="135" y="462" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#86efac">Potensi Komoditas Utama • Desa Ngariboyo</text>
+  <text x="135" y="484" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#cbd5e1">Ganti file ini dengan foto asli: pertanian.jpg / pertanian.png</text>
+</svg>

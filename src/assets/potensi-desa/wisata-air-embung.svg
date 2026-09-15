@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyEmbung" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <filter id="shadowEmbung" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="533" fill="url(#skyEmbung)"/>
+  
+  <!-- Hills in Background -->
+  <path d="M0 240 Q180 160 380 230 T800 200 L800 533 L0 533 Z" fill="#059669" opacity="0.6"/>
+  <path d="M0 270 Q240 210 520 280 T800 250 L800 533 L0 533 Z" fill="#15803d"/>
+
+  <!-- Reservoir / Embung Water Surface -->
+  <path d="M0 320 Q400 300 800 320 L800 533 L0 533 Z" fill="url(#water)"/>
+
+  <!-- Water Reflections & Ripples -->
+  <ellipse cx="400" cy="350" rx="300" ry="8" fill="#38bdf8" opacity="0.4"/>
+  <ellipse cx="450" cy="375" rx="220" ry="6" fill="#38bdf8" opacity="0.5"/>
+  <ellipse cx="380" cy="405" rx="180" ry="5" fill="#7dd3fc" opacity="0.6"/>
+
+  <!-- Little Canoe / Boat silhouette -->
+  <g transform="translate(480, 335)">
+    <path d="M0 10 Q25 22 50 10 L45 5 L5 5 Z" fill="#b45309"/>
+    <line x1="20" y1="0" x2="35" y2="22" stroke="#78350f" stroke-width="2"/>
+    <circle cx="25" cy="-2" r="4" fill="#0f172a"/>
+  </g>
+
+  <!-- Banner Overlay Card -->
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="#0f172a" fill-opacity="0.85" filter="url(#shadowEmbung)"/>
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="none" stroke="#38bdf8" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Icon & Label -->
+  <text x="85" y="442" font-size="32">🌊</text>
+  <text x="135" y="438" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="20" fill="#ffffff">Wisata Air &amp; Waduk (Embung Pendem)</text>
+  <text x="135" y="462" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#7dd3fc">Destinasi Panorama &amp; Wisata Kano • Desa Ngariboyo</text>
+  <text x="135" y="484" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#cbd5e1">Ganti file ini dengan foto asli: wisata-air-embung.jpg / wisata-air-embung.png</text>
+</svg>

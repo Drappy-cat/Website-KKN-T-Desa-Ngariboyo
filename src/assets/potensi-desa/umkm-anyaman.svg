@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 533" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgUmkm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="50%" stop-color="#fed7aa"/>
+      <stop offset="100%" stop-color="#fdba74"/>
+    </linearGradient>
+    <pattern id="weave" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 20 L40 20 M20 0 L20 40" stroke="#d97706" stroke-width="3" opacity="0.3"/>
+      <path d="M0 0 L40 40 M40 0 L0 40" stroke="#b45309" stroke-width="1.5" opacity="0.15"/>
+    </pattern>
+    <filter id="shadowUmkm" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Warm Craft Background -->
+  <rect width="800" height="533" fill="url(#bgUmkm)"/>
+  <rect width="800" height="533" fill="url(#weave)"/>
+
+  <!-- Woven Bag Graphic Representation -->
+  <g transform="translate(310, 130)">
+    <!-- Bag Handle -->
+    <path d="M50 80 C50 0, 130 0, 130 80" fill="none" stroke="#92400e" stroke-width="12" stroke-linecap="round"/>
+    <!-- Bag Body -->
+    <rect x="10" y="70" width="160" height="150" rx="20" fill="#d97706" filter="url(#shadowUmkm)"/>
+    <!-- Texture on Bag -->
+    <path d="M25 85 L155 85 M25 110 L155 110 M25 135 L155 135 M25 160 L155 160 M25 185 L155 185" stroke="#b45309" stroke-width="4"/>
+    <path d="M45 70 L45 220 M75 70 L75 220 M105 70 L105 220 M135 70 L135 220" stroke="#78350f" stroke-width="4"/>
+  </g>
+
+  <!-- Banner Overlay Card -->
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="#0f172a" fill-opacity="0.85" filter="url(#shadowUmkm)"/>
+  <rect x="50" y="400" width="700" height="100" rx="16" fill="none" stroke="#f97316" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Icon & Label -->
+  <text x="85" y="442" font-size="32">🛍️</text>
+  <text x="135" y="438" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="20" fill="#ffffff">UMKM Anyaman Tas &amp; Produk Lokal</text>
+  <text x="135" y="462" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#fdba74">Sentra Kerajinan Kreatif Dukuh Jetis (25+ UMKM) • Desa Ngariboyo</text>
+  <text x="135" y="484" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#cbd5e1">Ganti file ini dengan foto asli: umkm-anyaman.jpg / umkm-anyaman.png</text>
+</svg>
