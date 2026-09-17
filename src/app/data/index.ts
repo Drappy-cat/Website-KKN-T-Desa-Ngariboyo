@@ -471,6 +471,36 @@ export const TIMELINE = [
 ];
 
 // ── BERITA ───────────────────────────────────────────────────────────────────
+import {
+  imgBerita1,
+  imgBerita2,
+  imgBerita3,
+  imgBerita4,
+  imgBerita5,
+  imgBerita6,
+  imgBerita7,
+  imgBerita8,
+  imgBerita9,
+  imgBerita10,
+  imgBerita11,
+  imgBerita12,
+  imgBerita13,
+  imgBerita14,
+  imgBerita15,
+  imgBerita16,
+  imgBerita17,
+  imgBerita18,
+  imgBerita19,
+  imgBerita20,
+  imgBerita21,
+  imgBerita22,
+  imgBerita23,
+  imgBerita24,
+  imgBerita25,
+  imgBerita26,
+  imgBerita27,
+} from "../../assets/berita";
+
 export const BERITA = [
   {
     id: 1,
@@ -485,7 +515,7 @@ export const BERITA = [
       "Setelah melalui pertimbangan mendalam dan dukungan dari seluruh rekan kelompok, penulis resmi dipercaya untuk mengemban amanah di divisi Publikasi, Dekorasi, dan Dokumentasi (PDD).",
       "Pada hari yang sama sekitar pukul 19.15 WIB, dilanjutkan sesi Google Meet kedua yang menghasilkan kesepakatan penting, di antaranya penentuan tanggal pertemuan luring serta penjadwalan waktu keberangkatan untuk survei langsung ke Desa Ngariboyo.",
     ],
-    img: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita1,
   },
   {
     id: 2,
@@ -500,7 +530,7 @@ export const BERITA = [
       "Fokus lain dari peninjauan ini adalah pengambilan data lapangan secara komprehensif. Para mahasiswa bertugas mengumpulkan laporan berupa dokumentasi foto-foto kandidat lokasi penempatan posko, serta melengkapi berbagai pemberkasan penting yang disyaratkan oleh panitia KKN-T.",
       "Agenda survei lapangan ini kemudian ditutup dengan sesi diskusi dan evaluasi internal. Sesi tersebut dimanfaatkan sebagai ruang untuk tanya jawab dan mencari solusi bersama guna mengatasi berbagai kendala yang ditemukan mahasiswa saat melakukan peninjauan di lapangan.",
     ],
-    img: "https://images.unsplash.com/photo-1577495508048-b635879837f1?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita2,
   },
   {
     id: 3,
@@ -515,7 +545,7 @@ export const BERITA = [
       "Selain mematangkan konsep program kerja, pertemuan ini juga diisi dengan pembentukan struktur organisasi dan pembagian tugas pokok setiap anggota. Distribusi peran ini dilakukan untuk memastikan kelancaran eksekusi program di lapangan sekaligus penyelesaian berbagai pemberkasan administrasi yang penting.",
       "Dalam proses pembagian tugas tersebut, penulis secara resmi dipercaya untuk mengemban amanah di divisi Publikasi, Dekorasi, dan Dokumentasi (PDD). Tanggung jawab utama dari peran ini adalah mengelola dan mendokumentasikan seluruh rangkaian kegiatan kelompok KKN-T selama masa pengabdian di Desa Ngariboyo.",
     ],
-    img: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita3,
   },
   {
     id: 4,
@@ -530,7 +560,7 @@ export const BERITA = [
       "Hasil dari sesi editing ini berupa draf video awal yang mengabadikan aktivitas persiapan mahasiswa KKN-T serta keseruan interaksi awal dengan lingkungan desa.",
       "Draf video kemudian dievaluasi bersama rekan kelompok sebelum dipublikasikan secara resmi sebagai materi promosi dan dokumentasi digital kelompok.",
     ],
-    img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita4,
   },
   {
     id: 5,
@@ -545,7 +575,7 @@ export const BERITA = [
       "Tim mahasiswa juga memastikan pemenuhan perizinan tempat tinggal yang benar, penyusunan surat persetujuan menempati posko, serta kelengkapan berkas administratif penting lainnya yang disyaratkan panitia.",
       "Dari hasil survei bagian kedua ini, tim mahasiswa berhasil menetapkan 2 opsi lokasi posko yang layak, nyaman, dan strategis untuk mendukung seluruh rangkaian kegiatan KKN-T di Desa Ngariboyo.",
     ],
-    img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita5,
   },
   {
     id: 6,
@@ -560,7 +590,7 @@ export const BERITA = [
       "Dalam rangkaian acara tersebut, mahasiswa juga bergotong royong memberikan bantuan tenaga untuk mempersiapkan berbagai kelengkapan logistik dan sarana prasarana yang dibutuhkan panitia dan masyarakat.",
       "Kolaborasi ini mempererat hubungan kekeluargaan dan semangat kebersamaan antara mahasiswa KKN-T dengan warga dan aparatur Kecamatan Ngariboyo.",
     ],
-    img: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita6,
   },
   {
     id: 7,
@@ -575,7 +605,7 @@ export const BERITA = [
       "Agenda penting berikutnya adalah sesi pembekalan teknis bagi seluruh peserta KKN-T untuk memastikan setiap program kerja berjalan terarah dan sesuai dengan kebutuhan riil masyarakat.",
       "Pertemuan ini kemudian dilanjutkan dengan sesi diskusi khusus bersama Dosen Pembimbing Lapangan (DPL), Ibu Delia. Dalam kesempatan ini, tim memaparkan lokasi posko terpilih, melaporkan progres awal yang telah dicapai, serta merumuskan kerangka strategis kegiatan pengabdian yang akan dijalankan ke depannya.",
     ],
-    img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita7,
   },
   {
     id: 8,
@@ -590,7 +620,7 @@ export const BERITA = [
       "Selain itu, para mahasiswa turut menyumbangkan tenaga dalam proses pendirian tenda terop secara tepat dan aman, sekaligus menata area perlombaan agar siap digunakan warga dengan nyaman.",
       "Sesi gotong royong ini menjadi wujud nyata kebersamaan dan kepedulian mahasiswa KKN-T dalam membaur dan membantu persiapan yang dibutuhkan warga sebelum rangkaian acara perlombaan berlangsung.",
     ],
-    img: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita8,
   },
   {
     id: 9,
@@ -605,7 +635,7 @@ export const BERITA = [
       "Di samping menyukseskan perlombaan, tim mahasiswa juga menyempatkan waktu untuk melakukan kunjungan silaturahmi langsung ke rumah kediaman Ketua RT 02.",
       "Kunjungan ramah tamah ini memperkuat koordinasi antara mahasiswa dan pengurus RT setempat dalam mendukung seluruh program KKN-T yang akan berjalan di lingkungan RT 02/RW 02.",
     ],
-    img: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita9,
   },
   {
     id: 10,
@@ -620,7 +650,7 @@ export const BERITA = [
       "Mahasiswa ikut membantu kelancaran teknis acara dengan mengatur penyerahan piala dan hadiah, menata tempat duduk warga, hingga memastikan jalannya tasyakuran berlangsung lancar dan tertib.",
       "Penulis bersama tim PDD mendokumentasikan momen keakraban dan haru ini sebagai arsip berharga pengabdian mahasiswa di tengah-tengah masyarakat Desa Ngariboyo.",
     ],
-    img: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita10,
   },
   {
     id: 11,
@@ -635,7 +665,7 @@ export const BERITA = [
       "Sebagai perwakilan divisi PDD, penulis secara aktif mengabadikan setiap momen bersejarah ini ke dalam rekaman lensa foto dan video berkualitas tinggi.",
       "Seluruh dokumentasi visual ini kemudian diarsipkan ke Google Drive kegiatan harian kelompok serta diunggah secara berkala ke media sosial Instagram dan TikTok resmi KKN-T Ngariboyo.",
     ],
-    img: "https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita11,
   },
   {
     id: 12,
@@ -650,7 +680,7 @@ export const BERITA = [
       "Seusai rapat kerja, seluruh mahasiswa secara serentak bergotong royong melakukan pemasangan banner identitas resmi KKN-T di depan posko pengabdian.",
       "Pemasangan banner ini menjadi penanda resmi keberadaan posko mahasiswa KKN-T UNESA sekaligus memudahkan warga sekitar dalam berkoordinasi dan berkunjung.",
     ],
-    img: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita12,
   },
   {
     id: 13,
@@ -665,7 +695,7 @@ export const BERITA = [
       "Proses kreatif meliputi pemilihan backsound yang pas, penambahan teks keterangan (caption), serta penyempurnaan pewarnaan video (color grading) agar visual tampak estetik dan menarik minat audiens muda.",
       "Konten video yang dihasilkan berhasil dipublikasikan dan mendapatkan respon positif, memperluas eksposur positif tentang Desa Ngariboyo di media sosial.",
     ],
-    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita13,
   },
   {
     id: 14,
@@ -680,7 +710,7 @@ export const BERITA = [
       "Partisipasi aktif mahasiswi disambut antusias oleh warga dan ibu-ibu setempat yang ikut berlatih dengan penuh semangat.",
       "Gladi kotor ini menjadi persiapan matang agar penampilan flashmob joget saat hari pelaksanaan jalan sehat dapat berlangsung semarak dan memukau.",
     ],
-    img: "https://images.unsplash.com/photo-1545224144-b38cd309ef69?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita14,
   },
   {
     id: 15,
@@ -695,7 +725,7 @@ export const BERITA = [
       "Bantuan tenaga dari para mahasiswi sukses mempercepat proses pembungkusan puluhan paket kado dan hadiah utama jalan sehat.",
       "Suasana kekeluargaan dan canda tawa mewarnai kegiatan gotong royong ini, semakin mempererat hubungan antara mahasiswi KKN-T dan masyarakat Desa Ngariboyo.",
     ],
-    img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita15,
   },
   {
     id: 16,
@@ -710,7 +740,7 @@ export const BERITA = [
       "Selanjutnya, tim melakukan observasi kunjungan ke SDN 1 Ngariboyo untuk membantu menyusun dan mematangkan konsep aneka perlombaan dalam rangka peringatan HUT sekolah bersama para guru dan siswa.",
       "Selaku tim PDD, penulis menjalankan tugas peliputan dengan mendokumentasikan seluruh rangkaian kegiatan melalui foto dan video berkualitas untuk laporan resmi dan publikasi.",
     ],
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita16,
   },
   {
     id: 17,
@@ -725,7 +755,7 @@ export const BERITA = [
       "Sebagai perwakilan divisi Publikasi, Dekorasi, dan Dokumentasi (PDD), penulis turut berkontribusi aktif memberikan bantuan tenaga untuk menghias lokasi panggung serta mengambil dokumentasi foto proses jalannya kegiatan untuk kelengkapan arsip dan pemberkasan penting.",
       "Kebersamaan antara warga dan mahasiswa terjalin sangat hangat hingga seluruh dekorasi panggung berhasil diselesaikan dengan baik dan siap digunakan.",
     ],
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita17,
   },
   {
     id: 18,
@@ -740,7 +770,7 @@ export const BERITA = [
       "Selain mengikuti jalan sehat, agenda dilanjutkan dengan pelaksanaan kunjungan observasi ke Badan Usaha Milik Desa (BUMDes) Ngariboyo guna menggali informasi serta potensi pengembangan unit usaha ekonomi desa.",
       "Selaku tim Publikasi, Dekorasi, dan Dokumentasi (PDD), penulis mengabadikan setiap momen dari awal pembukaan, kebersamaan di sepanjang jalan, hingga akhir observasi ke dalam arsip foto dan rekaman video.",
     ],
-    img: "https://images.unsplash.com/photo-1517649763962-0c623266ddc0?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita18,
   },
   {
     id: 19,
@@ -755,7 +785,7 @@ export const BERITA = [
       "Setelah agenda karnaval selesai, tim bergegas menuju SDN 1 Ngariboyo guna berkoordinasi dan menyiapkan sarana prasarana perlombaan sekolah yang akan diadakan esok hari.",
       "Sebagai perwakilan divisi PDD, penulis mendokumentasikan tingkah lucu anak-anak peserta karnaval, kekompakan barisan, serta kerja bakti persiapan panggung ke dalam jepretan foto dan video.",
     ],
-    img: "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita19,
   },
   {
     id: 20,
@@ -770,7 +800,7 @@ export const BERITA = [
       "Kegiatan kemudian berlanjut di posko pengabdian dengan agenda gotong royong membungkus puluhan kado dan paket hadiah menarik bagi para pemenang lomba nantinya.",
       "Penulis dari divisi PDD bertugas mendokumentasikan momen latihan siswa di sekolah serta suasana kebersamaan mahasiswa saat membungkus hadiah sebagai bahan arsip dan laporan kegiatan.",
     ],
-    img: "https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita20,
   },
   {
     id: 21,
@@ -785,7 +815,7 @@ export const BERITA = [
       "Para mahasiswa bertindak sebagai penanggung jawab lomba, pemandu teknis lapangan, dan juri yang menjunjung tinggi nilai sportivitas serta kegembiraan anak-anak.",
       "Selaku tim PDD, penulis meliput setiap momen kompetisi dari babak penyisihan, tawa ekspresif siswa, hingga interaksi hangat antara guru dan mahasiswa dalam bentuk foto serta video.",
     ],
-    img: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita21,
   },
   {
     id: 22,
@@ -800,7 +830,7 @@ export const BERITA = [
       "Acara diakhiri dengan pengumuman pemenang lomba serta penyerahan piala dan paket hadiah yang disambut bangga oleh para siswa berprestasi.",
       "Penulis menjalankan tugas PDD dengan mengabadikan potret bahagia para pemenang saat menerima hadiah serta foto bersama keluarga besar SDN 1 Ngariboyo dan mahasiswa KKN-T.",
     ],
-    img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita22,
   },
   {
     id: 23,
@@ -815,7 +845,7 @@ export const BERITA = [
       "Kegiatan dilanjutkan dengan sesi observasi mendalam dan audiensi bersama perangkat desa untuk menghimpun data profil desa, struktur kelembagaan, serta data kependudukan terkini.",
       "Sebagai tim PDD, penulis mendokumentasikan jalannya pertemuan resmi, sesi ramah tamah, dan proses telaah berkas data di balai desa untuk keperluan laporan pengabdian.",
     ],
-    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita23,
   },
   {
     id: 24,
@@ -830,7 +860,7 @@ export const BERITA = [
       "Rute jalan sehat menyusuri jalanan utama kecamatan dengan panorama asri pedesaan, disusul dengan hiburan musik dan pembagian aneka doorprize spektakuler di garis finish.",
       "Penulis yang mengemban tugas PDD aktif mendokumentasikan jalannya jalan sehat dari garis start hingga panggung hiburan, mengabadikan kemeriahan warga serta kekompakan kelompok KKN-T.",
     ],
-    img: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita24,
   },
   {
     id: 25,
@@ -845,7 +875,7 @@ export const BERITA = [
       "Mahasiswa turut mengawal barisan warga, membantu kelancaran teknis pos-pos rute, dan menyemangati peserta di sepanjang perjalanan.",
       "Selaku tim PDD, penulis mengabadikan momen-momen hangat kebersamaan warga, ekspresi kegembiraan peraih undian hadiah, serta foto bersama panitia sebagai arsip kegiatan resmi.",
     ],
-    img: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita25,
   },
   {
     id: 26,
@@ -860,7 +890,7 @@ export const BERITA = [
       "Sesi diskusi dan tinjauan teknis dilakukan secara berkala antar anggota tim guna memastikan website interaktif, ramah pengguna, dan mampu menyajikan data desa secara akurat dan informatif.",
       "Penulis turut membantu penyusunan konten narasi dan materi visual yang akan ditampilkan, sekaligus mendokumentasikan progres perancangan sistem informasi desa ini.",
     ],
-    img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita26,
   },
   {
     id: 27,
@@ -875,7 +905,7 @@ export const BERITA = [
       "Warga dan mahasiswa bahu-membahu menurunkan, menggulung kabel secara teratur, dan merapikan ornamen hiasan untuk disimpan kembali dengan baik.",
       "Sebagai divisi PDD, penulis mendokumentasikan seluruh rangkaian gotong royong mulai dari pencopotan lampu hingga lokasi desa kembali rapi dan bersih seperti sedia kala.",
     ],
-    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&h=380&fit=crop&auto=format",
+    img: imgBerita27,
   },
 ];
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router";
-import { Calendar, User, ArrowLeft, Home, Share2, Check } from "lucide-react";
+import { Calendar, User, ArrowLeft, Home, Share2, Check, ZoomIn, X } from "lucide-react";
 import { BERITA } from "../data";
 import { usePageMeta } from "../hooks/usePageMeta";
 import PageBanner from "../components/PageBanner";
@@ -24,6 +24,7 @@ export default function Berita() {
   const selected = idParam ? (BERITA.find((b) => b.id === Number(idParam)) ?? null) : null;
   const [filterKat, setFilterKat] = useState("Semua");
   const [copied, setCopied] = useState(false);
+  const [lightboxImg, setLightboxImg] = useState<{ src: string; title: string } | null>(null);
 
   usePageMeta(
     selected ? selected.judul : "Berita & Aktivitas",
@@ -33,6 +34,14 @@ export default function Berita() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [idParam]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxImg(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const setSelected = (b: typeof BERITA[0] | null) => {
     if (b) {
@@ -44,6 +53,46 @@ export default function Berita() {
 
   const kategori = ["Semua", ...Array.from(new Set(BERITA.map((b) => b.kat)))];
   const filtered = BERITA.filter((b) => filterKat === "Semua" || b.kat === filterKat);
+
+  const renderLightbox = () => {
+    if (!lightboxImg) return null;
+    return (
+      <div
+        className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-3 sm:p-6 animate-in fade-in duration-200"
+        onClick={() => setLightboxImg(null)}
+      >
+        <button
+          className="absolute top-4 right-4 z-20 text-white/80 hover:text-white p-3 rounded-2xl bg-white/10 hover:bg-white/20 transition-all cursor-pointer shadow-lg"
+          onClick={() => setLightboxImg(null)}
+          title="Tutup (ESC)"
+          aria-label="Tutup"
+        >
+          <X className="w-6 h-6" />
+        </button>
+
+        <div
+          className="relative max-w-5xl max-h-[90vh] w-full flex flex-col items-center justify-center select-none"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <img
+            src={lightboxImg.src}
+            alt={lightboxImg.title}
+            className="max-h-[80vh] max-w-full w-auto h-auto object-contain rounded-2xl shadow-2xl border border-white/10"
+          />
+          <div className="mt-4 text-center px-4 max-w-2xl">
+            <p className="text-white text-sm sm:text-base font-semibold font-body leading-snug">
+              {lightboxImg.title}
+            </p>
+            <p className="text-white/60 text-xs font-caption mt-1.5 flex items-center justify-center gap-2">
+              <span>Foto utuh tanpa terpotong</span>
+              <span>•</span>
+              <span>Ketuk di luar gambar atau tombol silang untuk menutup</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   if (selected) {
     const k = KAT_WARNA[selected.kat] || { bg: "#E8F5E9", text: "#14532D" };
@@ -88,17 +137,44 @@ export default function Berita() {
                 </Link>
               </div>
             </div>
+
             <div className="bg-card rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border">
-              <div className="relative h-72 sm:h-96 overflow-hidden">
-                <img src={selected.img} alt={selected.judul} className="w-full h-full object-cover" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              {/* Hero Image Container - Ketuk untuk foto penuh */}
+              <div
+                className="relative h-80 sm:h-[480px] overflow-hidden bg-slate-950 cursor-pointer group select-none"
+                onClick={() => setLightboxImg({ src: selected.img, title: selected.judul })}
+                title="Ketuk untuk melihat foto utuh tanpa terpotong"
+              >
+                {/* Ambient blur background */}
+                <img
+                  src={selected.img}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110 pointer-events-none"
+                />
+                <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+
+                {/* Main Image shown uncropped */}
+                <img
+                  src={selected.img}
+                  alt={selected.judul}
+                  className="relative z-10 w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-300"
+                  decoding="async"
+                />
+
                 <span
-                  className="absolute top-5 left-5 px-3 py-1.5 rounded-xl text-sm font-semibold font-caption shadow-sm"
+                  className="absolute top-5 left-5 z-20 px-3 py-1.5 rounded-xl text-sm font-semibold font-caption shadow-sm"
                   style={{ backgroundColor: k.bg, color: k.text }}
                 >
                   {selected.kat}
                 </span>
+
+                <div className="absolute bottom-4 right-4 z-20 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-black/75 hover:bg-black/90 text-white text-xs font-caption backdrop-blur-md transition-all shadow-md group-hover:scale-105">
+                  <ZoomIn className="w-3.5 h-3.5 text-amber-300" />
+                  <span>Ketuk foto untuk lihat utuh</span>
+                </div>
               </div>
+
               <div className="p-6 sm:p-10">
                 <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-5 font-caption">
                   <div className="flex items-center gap-1.5">
@@ -145,9 +221,20 @@ export default function Berita() {
                         className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all border border-border cursor-pointer"
                         onClick={() => { setSelected(b); }}
                       >
-                        <div className="relative h-36 overflow-hidden">
-                          <img src={b.img} alt={b.judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
-                          <span className="absolute top-2 left-2 px-2 py-0.5 rounded-lg text-xs font-semibold font-caption" style={{ backgroundColor: rk.bg, color: rk.text }}>{b.kat}</span>
+                        <div className="relative h-40 overflow-hidden">
+                          <img
+                            src={b.img}
+                            alt={b.judul}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                          <span
+                            className="absolute top-2 left-2 z-10 px-2 py-0.5 rounded-lg text-xs font-semibold font-caption shadow-sm"
+                            style={{ backgroundColor: rk.bg, color: rk.text }}
+                          >
+                            {b.kat}
+                          </span>
                         </div>
                         <div className="p-4">
                           <h3 className="font-display font-bold text-foreground text-sm leading-snug group-hover:text-primary transition-colors line-clamp-2">{b.judul}</h3>
@@ -161,6 +248,7 @@ export default function Berita() {
             )}
           </div>
         </div>
+        {renderLightbox()}
       </>
     );
   }
@@ -194,15 +282,21 @@ export default function Berita() {
             })}
           </div>
 
-          {/* Featured (first article) */}
+          {/* Featured (first article) - Full cover pada tampilan pertama */}
           {filtered.length > 0 && (
             <article
               className="group mb-8 bg-card rounded-[24px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-border cursor-pointer hover:shadow-[0_30px_80px_rgba(0,0,0,0.15)] transition-all"
               onClick={() => setSelected(filtered[0])}
             >
               <div className="grid md:grid-cols-2">
-                <div className="relative h-64 md:h-auto overflow-hidden">
-                  <img src={filtered[0].img} alt={filtered[0].judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+                <div className="relative h-64 md:h-auto min-h-[280px] overflow-hidden">
+                  <img
+                    src={filtered[0].img}
+                    alt={filtered[0].judul}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/10" />
                 </div>
                 <div className="p-8 flex flex-col justify-center">
@@ -225,33 +319,39 @@ export default function Berita() {
             </article>
           )}
 
-          {/* Rest of articles */}
+          {/* Rest of articles - Full cover pada kartu tampilan pertama */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.slice(1).map((b) => {
               const k = KAT_WARNA[b.kat] || { bg: "#E8F5E9", text: "#14532D" };
               return (
                 <article
                   key={b.id}
-                  className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all hover:-translate-y-1 border border-border cursor-pointer"
+                  className="group bg-card rounded-[20px] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.12)] transition-all hover:-translate-y-1 border border-border cursor-pointer flex flex-col"
                   onClick={() => setSelected(b)}
                 >
-                  <div className="relative h-48 overflow-hidden">
-                    <img src={b.img} alt={b.judul} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={b.img}
+                      alt={b.judul}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     <span
-                      className="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-xs font-semibold font-caption"
+                      className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-lg text-xs font-semibold font-caption shadow-sm"
                       style={{ backgroundColor: k.bg, color: k.text }}
                     >
                       {b.kat}
                     </span>
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 flex flex-col flex-1">
                     <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3 font-caption">
                       <div className="flex items-center gap-1"><Calendar className="w-3 h-3" />{b.tgl}</div>
                       <div className="flex items-center gap-1"><User className="w-3 h-3" />{b.penulis}</div>
                     </div>
                     <h3 className="font-display font-bold text-foreground text-base leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">{b.judul}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed font-body line-clamp-2">{b.isi}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed font-body line-clamp-2 mt-auto">{b.isi}</p>
                   </div>
                 </article>
               );
@@ -266,6 +366,9 @@ export default function Berita() {
           )}
         </div>
       </section>
+
+      {renderLightbox()}
     </>
   );
 }
+
